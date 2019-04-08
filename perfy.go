@@ -1,8 +1,8 @@
 package main
 
 import (
-	gm "generated/person"
-	sm "static/person"
+	gm "GPB-Perfy/generated/person"
+	sm "GPB-Perfy/static/person"
 	pb "github.com/golang/protobuf/proto"
 	measure "test/measure"
 	helpers "test/helpers"
