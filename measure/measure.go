@@ -5,25 +5,23 @@ import (
 	"time"
 ) 
 
-func MeasureEncode(message pb.Message) (time.Duration, []byte) {
+func MeasureEncode(message pb.Message) (time.Duration) {
 	startTime := time.Now();
-	bytes, err := pb.Marshal(message);
+	_, err := pb.Marshal(message);
 	elapsedTime := time.Since(startTime);
 	if (err != nil) {
 		panic(err);
 	}
-	return elapsedTime, bytes;
+	return elapsedTime;
 }
 
-func MeasureRepeatedEncode(message pb.Message, iterations int) ([]time.Duration, [][]byte) {
+func MeasureRepeatedEncode(message pb.Message, iterations int) ([]time.Duration) {
 	var rElapsedTimes []time.Duration;
-	var rBytes [][]byte;
 	for i := 0; i < iterations; i++ {
-		elapsedTime, bytes := MeasureEncode(message);
+		elapsedTime := MeasureEncode(message);
 		rElapsedTimes = append(rElapsedTimes, elapsedTime);
-		rBytes = append(rBytes, bytes);
 	}
-	return rElapsedTimes, rBytes;
+	return rElapsedTimes;
 }
 
 func MeasureDecode(bytes []byte, message pb.Message) (time.Duration) {
