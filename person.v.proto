@@ -10,11 +10,11 @@ message Person {
   string email = 2 [(validate.rules).string.email = true];
 
   string name  = 3 [(validate.rules).string = {
-                      pattern:   "^[^[0-9]A-Za-z]+( [^[0-9]A-Za-z]+)*$",
+                      pattern: "^[A-Z][a-z]*(-[A-Z][a-z]*)?( [A-Z][a-z]*(-[A-Z][a-z]*)?)* [A-Z][a-z]*(-[A-Z][a-z]*)?$"
                       max_bytes: 256,
                    }];
 
-  Location home = 4 [(validate.rules).message.required = true];
+  repeated Location home = 4;
 
   message Location {
     double lat = 1 [(validate.rules).double = { gte: -90,  lte: 90 }];
