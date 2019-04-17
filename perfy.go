@@ -16,7 +16,9 @@ func main() {
 	log.Info("Iterations: " + strconv.Itoa(times))
 	log.Info("Warmup: " + strconv.Itoa(warmup))
 
-	test.Time(times, warmup)
+	// test.Serialize(times, warmup)
+	// test.Deserialize(times, warmup)
+	test.Validate(times, warmup)
 
 	log.Info("END")
 }
