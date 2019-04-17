@@ -59,3 +59,10 @@ func Validate(message *pgv.Person) time.Duration {
 	elapsedTime := time.Since(startTime)
 	return elapsedTime
 }
+
+func ValidateParent(message *pgv.Parent) time.Duration {
+	startTime := time.Now()
+	message.Validate()
+	elapsedTime := time.Since(startTime)
+	return elapsedTime
+}
