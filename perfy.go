@@ -5,7 +5,7 @@ import (
 	"GPB-Perfy/log"
 	"GPB-Perfy/test"
 	"strconv"
-) 
+)
 
 func main() {
 	times, warmup, fileName := args.Fetch()
