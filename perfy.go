@@ -18,6 +18,7 @@ func main() {
 
 	test.Serialize(times, warmup)
 	test.Deserialize(times, warmup)
+	test.Validate(times, warmup)
 
 	log.Info("END")
 }
