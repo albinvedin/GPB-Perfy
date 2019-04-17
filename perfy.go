@@ -16,26 +16,26 @@ func main() {
 
 	log.Init(fileName)
 
+	log.Info("START")
 	log.Info("Iterations: " + strconv.Itoa(times))
 	log.Info("Warmup: " + strconv.Itoa(warmup))
 
 	testPGV(times, warmup, "PGV")
 	testRaw(times, warmup, "Raw")
+	
+	log.Info("END")
 }
 
 func testPGV(iterations int, warmup_iterations int, version string) {
-	log.Info(version + ": STARTING")
-
 	p := new(gm.Person)
 	p.Id = 1000
 	p.Name = "John Doe"
 	p.Email = "john.doe@example.com"
 
 	{
-		log.Debug("Start measure encoding")
 		rElapsedTimes := measure.MeasureRepeatedEncode(p, iterations)
 		filtered := helpers.FilterWarmups(rElapsedTimes, warmup_iterations)
-		log.Debugf("Done! Duration: %s\n", helpers.SumDurations(filtered))
+		log.Debugf("Encoding (%s) - Duration: %s\n", version, helpers.SumDurations(filtered))
 	}
 
 	{
@@ -43,27 +43,23 @@ func testPGV(iterations int, warmup_iterations int, version string) {
 		if err != nil {
 			panic(err)
 		}
-		log.Debug("Start measure decoding")
 		measure.MeasureRepeatedDecode(bytes, new(gm.Person), warmup_iterations)
 		rElapsedTimes := measure.MeasureRepeatedDecode(bytes, new(gm.Person), iterations)
 		filtered := helpers.FilterWarmups(rElapsedTimes, warmup_iterations)
-		log.Debugf("Done! Duration: %s\n", helpers.SumDurations(filtered))
+		log.Debugf("Decoding (%s) - Duration: %s\n", version, helpers.SumDurations(filtered))
 	}
 }
 
 func testRaw(iterations int, warmup_iterations int, version string) {
-	log.Info(version + ": STARTING")
-
 	p := new(sm.Person)
 	p.Id = 1000
 	p.Name = "John Doe"
 	p.Email = "john.doe@example.com"
 
 	{
-		log.Debug("Start measure encoding")
 		rElapsedTimes := measure.MeasureRepeatedEncode(p, iterations)
 		filtered := helpers.FilterWarmups(rElapsedTimes, warmup_iterations)
-		log.Debugf("Done! Duration: %s\n", helpers.SumDurations(filtered))
+		log.Debugf("Encoding (%s) - Duration: %s\n", version, helpers.SumDurations(filtered))
 	}
 
 	{
@@ -71,10 +67,9 @@ func testRaw(iterations int, warmup_iterations int, version string) {
 		if err != nil {
 			panic(err)
 		}
-		log.Debug("Start measure decoding")
 		measure.MeasureRepeatedDecode(bytes, new(gm.Person), warmup_iterations)
 		rElapsedTimes := measure.MeasureRepeatedDecode(bytes, new(gm.Person), iterations)
 		filtered := helpers.FilterWarmups(rElapsedTimes, warmup_iterations)
-		log.Debugf("Done! Duration: %s\n", helpers.SumDurations(filtered))
+		log.Debugf("Decoding (%s) - Duration: %s\n", version, helpers.SumDurations(filtered))
 	}
 }
