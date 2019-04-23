@@ -8,17 +8,17 @@ import (
 )
 
 func main() {
-	times, warmup, fileName := args.Fetch()
-	log.Init(fileName)
+	arguments := args.Fetch()
+	log.Init(arguments.Filename)
 
 	log.Info("START")
-	log.Info("Iterations: " + strconv.Itoa(times))
-	log.Info("Warmup: " + strconv.Itoa(warmup))
+	log.Info("Iterations: " + strconv.Itoa(arguments.Iterations))
+	log.Info("Warmup: " + strconv.Itoa(arguments.Warmup))
 
-	test.Serialize(times, warmup)
-	test.Deserialize(times, warmup)
-	test.Validate(times, warmup)
-	test.ValidateInt64Range(times, warmup, 10000)
+	test.Serialize(arguments.Iterations, arguments.Warmup)
+	test.Deserialize(arguments.Iterations, arguments.Warmup)
+	test.Validate(arguments.Iterations, arguments.Warmup)
+	test.ValidateInt64Range(arguments.Iterations, arguments.Warmup, 10000)
 
 	log.Info("END")
 }
