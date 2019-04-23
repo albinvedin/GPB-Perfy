@@ -1,11 +1,9 @@
 package main
 
 import (
-	// "GPB-Perfy/args"
+	"GPB-Perfy/args"
 	"GPB-Perfy/log"
 	"GPB-Perfy/test"
-	"flag"
-	"fmt"
 	"strconv"
 )
 
@@ -17,11 +15,10 @@ func main() {
 	log.Info("Iterations: " + strconv.Itoa(times))
 	log.Info("Warmup: " + strconv.Itoa(warmup))
 
-	// test.Serialize(times, warmup)
-	// test.Deserialize(times, warmup)
-	// test.Validate(times, warmup)
-	r := test.ValidateInt64Range(times, warmup, 10000000)
-	fmt.Println(r)
+	test.Serialize(times, warmup)
+	test.Deserialize(times, warmup)
+	test.Validate(times, warmup)
+	test.ValidateInt64Range(times, warmup, 10000)
 
 	log.Info("END")
 }
