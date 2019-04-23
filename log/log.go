@@ -18,13 +18,13 @@ var log Logger
 
 func Init(fileName string) {
     if len(strings.TrimSpace(fileName)) == 0 {
-        golog.Fatalf("Filename required!")
-    }
-
-    var err error
-    logFile, err = os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-    if err != nil {
-        golog.Fatalf("Error opening file: %v", err)
+        logFile = os.Stdout
+    } else {
+        var err error
+        logFile, err = os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+        if err != nil {
+            golog.Fatalf("Error opening file: %v", err)
+        }
     }
 
     log.Info = golog.New(logFile, "INFO  ", golog.LstdFlags | golog.Lmicroseconds)
@@ -35,7 +35,7 @@ func Init(fileName string) {
 
 func Fatalf(format string, args ...interface{}) {
     log.FatalLog.Printf(format, args...)
-    golog.Fatalf(format, args...)
+    //golog.Fatalf(format, args...)
 }
 
 func Fatal(message string) {
@@ -44,7 +44,7 @@ func Fatal(message string) {
 
 func Infof(format string, args ...interface{}) {
     log.Info.Printf(format, args...)
-    golog.Printf(format, args...)
+    //golog.Printf(format, args...)
 }
 
 func Info(message string) {
@@ -53,7 +53,7 @@ func Info(message string) {
 
 func Errorf(format string, args ...interface{}) {
     log.Error.Printf(format, args...)
-    golog.Printf(format, args...)
+    //golog.Printf(format, args...)
 }
 
 func Error(message string) {
@@ -62,7 +62,7 @@ func Error(message string) {
 
 func Debugf(format string, args ...interface{}) {
     log.Debug.Printf(format, args...)
-    golog.Printf(format, args...)
+    //golog.Printf(format, args...)
 }
 
 func Debug(message string) {
