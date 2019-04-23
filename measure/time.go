@@ -44,16 +44,16 @@ func RepeatedDeserialize(bytes []byte, message proto.Message, iterations int) []
 	return rElapsedTimes
 }
 
-func RepeatedValidate(message *pgv.Person, iterations int) []time.Duration {
+func RepeatedValidatePerson(message *pgv.Person, iterations int) []time.Duration {
 	var rElapsedTimes []time.Duration
 	for i := 0; i < iterations; i++ {
-		elapsedTime := Validate(message)
+		elapsedTime := ValidatePerson(message)
 		rElapsedTimes = append(rElapsedTimes, elapsedTime)
 	}
 	return rElapsedTimes
 }
 
-func Validate(message *pgv.Person) time.Duration {
+func ValidatePerson(message *pgv.Person) time.Duration {
 	startTime := time.Now()
 	message.Validate()
 	elapsedTime := time.Since(startTime)
