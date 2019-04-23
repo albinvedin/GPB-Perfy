@@ -44,3 +44,11 @@ func createChild() *pgv.Child {
 	message.StringPattern = "Berit Ljung"
 	return message
 }
+
+func createRepeatedInt64Range(messageLength int) *pgv.RepeatedInt64Range {
+	message := new(pgv.RepeatedInt64Range)
+	for i := 0; i < messageLength; i++ {
+		message.Content = append(message.Content, 0)
+	}
+	return message
+}

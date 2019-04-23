@@ -1,10 +1,20 @@
 package measure
 
 import (
-	"github.com/golang/protobuf/proto"
 	"GPB-Perfy/pgv"
+	"github.com/golang/protobuf/proto"
 	"time"
 )
+
+func ValidateInt64Range(message *pgv.RepeatedInt64Range) time.Duration {
+	startTime := time.Now()
+	err := message.Validate()
+	elapsedTime := time.Since(startTime)
+	if err != nil {
+		panic(err)
+	}
+	return elapsedTime
+}
 
 func Serialize(message proto.Message) time.Duration {
 	startTime := time.Now()

@@ -1,8 +1,8 @@
 package test
 
 import (
-	"GPB-Perfy/log"
 	"GPB-Perfy/helpers"
+	"GPB-Perfy/log"
 	"GPB-Perfy/measure"
 	"time"
 )
@@ -17,6 +17,18 @@ func testValidateNoErrors(iterations int, warmup_iterations int) {
 	rElapsedTimes := measure.RepeatedValidatePerson(message, iterations)
 	filtered := helpers.FilterWarmups(rElapsedTimes, warmup_iterations)
 	log.Debugf("Validate No Errors (%s) - Duration: %s\n", "PGV", helpers.SumDurations(filtered))
+}
+
+func ValidateInt64Range(iterations int, warmup int, messageLength int) []time.Duration {
+	var rElapsedTimes []time.Duration
+	message := createRepeatedInt64Range(messageLength)
+	for i := 0; i < iterations; i++ {
+		elapsedTime := measure.ValidateInt64Range(message)
+		if i >= warmup {
+			rElapsedTimes = append(rElapsedTimes, elapsedTime)
+		}
+	}
+	return rElapsedTimes
 }
 
 func testValidateWithErrors(iterations int, warmup_iterations int) {
