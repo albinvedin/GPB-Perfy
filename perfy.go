@@ -1,24 +1,28 @@
 package main
 
 import (
-	"GPB-Perfy/args"
-	"GPB-Perfy/log"
-	"GPB-Perfy/test"
-	"strconv"
+	"os/exec"
+	// "strconv"
+	"fmt"
 )
 
 func main() {
-	times, warmup, fileName := args.Fetch()
-	log.Init(fileName)
+	// lang, test, logType, logOutput, iterations, warmup, tail := args.Fetch()
 
-	log.Info("START")
-	log.Info("Iterations: " + strconv.Itoa(times))
-	log.Info("Warmup: " + strconv.Itoa(warmup))
+	// log.Init(logOutput)
 
-	test.Serialize(times, warmup)
-	test.Deserialize(times, warmup)
-	test.Validate(times, warmup)
-	test.ValidateInt64Range(times, warmup, 10000)
+	// log.Info("START")
+	// log.Info("Iterations: " + strconv.Itoa(iterations))
+	// log.Info("Warmup: " + strconv.Itoa(warmup))
 
-	log.Info("END")
+	out, err := exec.Command("go/ValidateRepeatedInt64", "1000", "100", "10").Output()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(out)
+
+	// log.Info(out)
+
+	// log.Info("END")
 }
