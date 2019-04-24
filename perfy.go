@@ -1,9 +1,9 @@
 package main
 
 import (
-	"GPB-Perfy/args"
-	"GPB-Perfy/log"
-	"GPB-Perfy/helpers"
+	"GPB-Perfy/src/args"
+	"GPB-Perfy/src/helpers"
+	"GPB-Perfy/src/log"
 	"encoding/json"
 	"os/exec"
 )
@@ -17,7 +17,7 @@ func main() {
 	}
 
 	args.Validate(arguments)
-	
+
 	logger := log.Create(arguments.Output)
 
 	logger.Info.Println("START")

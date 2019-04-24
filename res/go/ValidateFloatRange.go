@@ -1,7 +1,11 @@
 package main
 
 import (
+<<<<<<< HEAD
 	"GPB-Perfy/res/pgv/out"
+=======
+	"GPB-Perfy/res/pgv/gen/go"
+>>>>>>> 124d6047d61cfdc6d87fdb9b828be1ed6700c3e0
 	"encoding/json"
 	"fmt"
 	"os"
