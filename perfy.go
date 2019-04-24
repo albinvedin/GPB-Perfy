@@ -3,13 +3,23 @@ package main
 import (
 	"GPB-Perfy/args"
 	"GPB-Perfy/log"
+	"GPB-Perfy/helpers"
 	"encoding/json"
 	"os/exec"
+	"fmt"
 )
 
 func main() {
+	tests := helpers.GetAvailableTests("go")
+	fmt.Println(helpers.PathExists("res/cpp/out"))
+	fmt.Println(tests)
+	for i := 0; i < len(tests); i++ {
+		l := tests[i]
+		fmt.Println("- " + l)
+	}
+	return
 	args := args.Fetch()
-
+	
 	logger := log.Create(args.Output)
 
 	logger.Info.Println("START")
@@ -20,7 +30,7 @@ func main() {
 	logger.Info.Println("Tail:", args.Tail)
 
 	output, err := exec.Command(
-		args.Lang+"/out/"+args.Test,
+		"res/"+args.Lang+"/out/"+args.Test,
 		append([]string{args.Iterations, args.Warmup}, args.Tail...)...,
 	).Output()
 	if err != nil {

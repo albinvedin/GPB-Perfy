@@ -3,6 +3,9 @@ package helpers
 import (
 	pb "github.com/golang/protobuf/proto"
 	"time"
+	"os"
+	"os/exec"
+	"strings"
 )
 
 func SumDurations(durations []time.Duration) time.Duration {
@@ -23,4 +26,21 @@ func Marshal(message pb.Message) []byte {
 		panic(err)
 	}
 	return bytes
+}
+
+func GetAvailableTests(lang string) []string {
+	path := "res/" + lang + "/out"
+	exists, _ := PathExists(path)
+	if exists { return make([]string, 0) }
+	cmd := exec.Command("/bin/ls", "res/" + lang + "/out/")
+	stdout, _ := cmd.Output()
+	tests := strings.Split(strings.TrimSpace(string(stdout)), "\n")
+	return tests
+}
+
+func PathExists(path string) (bool, error) {
+    _, err := os.Stat(path)
+    if err == nil { return true, nil }
+    if os.IsNotExist(err) { return false, nil }
+    return true, err
 }
