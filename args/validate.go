@@ -18,7 +18,7 @@ func Validate(args Args) {
 	}
 
 	if !HasElem(helpers.GetAvailableTests(args.Lang), args.Test) {
-		log.Fatalf("Content '%s' does not exists.\n", args.Test)
+		log.Fatalf("Test '%s' does not exists.\n", args.Test)
 	}
 }
 
