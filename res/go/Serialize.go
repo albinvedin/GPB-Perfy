@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"GPB-Perfy/res/pgv/out"
+	"GPB-Perfy/res/pgv/gen/go"
 	"github.com/golang/protobuf/proto"
 	"time"
 	"encoding/json"
@@ -13,7 +13,6 @@ import (
 func main() {
 	iterations, _ := strconv.Atoi(os.Args[1])
 	warmup, _ := strconv.Atoi(os.Args[2])
-<<<<<<< HEAD
 
 	// Use another message-type?
 	message := createMessage(10)
@@ -53,12 +52,3 @@ func createMessage(messageLength int) *pgv.Int64Range {
 	}
 	return message
 }
-=======
-	elementCount, _ := strconv.Atoi(os.Args[3])
-        _ = iterations
-        _ = warmup
-        _ = elementCount
-	output := "x"
-	fmt.Println(string(output))
-}
->>>>>>> 124d6047d61cfdc6d87fdb9b828be1ed6700c3e0
