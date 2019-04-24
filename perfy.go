@@ -1,27 +1,35 @@
 package main
 
 import (
-	"GPB-Perfy/args"
-	"GPB-Perfy/log"
+	"GPB-Perfy/src/args"
+	"GPB-Perfy/src/helpers"
+	"GPB-Perfy/src/log"
 	"encoding/json"
 	"os/exec"
 )
 
 func main() {
-	args := args.Fetch()
+	arguments := args.Fetch()
 
-	logger := log.Create(args.Output)
+	if arguments.Help {
+		helpers.DisplayAvailableTests(arguments.Lang)
+		return
+	}
+
+	args.Validate(arguments)
+
+	logger := log.Create(arguments.Output)
 
 	logger.Info.Println("START")
-	logger.Info.Println("Lang:", args.Lang)
-	logger.Info.Println("Test:", args.Test)
-	logger.Info.Println("Iterations:", args.Iterations)
-	logger.Info.Println("Warmup:", args.Warmup)
-	logger.Info.Println("Tail:", args.Tail)
+	logger.Info.Println("Lang:", arguments.Lang)
+	logger.Info.Println("Test:", arguments.Test)
+	logger.Info.Println("Iterations:", arguments.Iterations)
+	logger.Info.Println("Warmup:", arguments.Warmup)
+	logger.Info.Println("Tail:", arguments.Tail)
 
 	output, err := exec.Command(
-		"res/"+args.Lang+"/out/"+args.Test,
-		append([]string{args.Iterations, args.Warmup}, args.Tail...)...,
+		"res/"+arguments.Lang+"/out/"+arguments.Test,
+		append([]string{arguments.Iterations, arguments.Warmup}, arguments.Tail...)...,
 	).Output()
 	if err != nil {
 		panic(err)
