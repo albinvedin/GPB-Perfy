@@ -27,10 +27,10 @@ func main() {
 	logger.Info.Println("Warmup:", arguments.Warmup)
 	logger.Info.Println("Tail:", arguments.Tail)
 
-	output, err := exec.Command(
-		"res/"+arguments.Lang+"/out/"+arguments.Test,
-		append([]string{arguments.Iterations, arguments.Warmup}, arguments.Tail...)...,
-	).Output()
+	path := "res/" + arguments.Lang + "/out/" + arguments.Test
+	data := append([]string{arguments.Iterations, arguments.Warmup}, arguments.Tail...)
+	cmd := exec.Command(path, data...)
+	output, err := cmd.Output()
 	if err != nil {
 		panic(err)
 	}
