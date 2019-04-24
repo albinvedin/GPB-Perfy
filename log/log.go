@@ -1,70 +1,36 @@
 package log
 
 import (
-    golog "log"
-    "os"
-    "strings"
+	"log"
+	"os"
+	"strings"
 )
 
 type Logger struct {
-    Info     *golog.Logger
-    Error    *golog.Logger
-    Debug    *golog.Logger
-    FatalLog *golog.Logger
+	Info     *log.Logger
+	Error    *log.Logger
+	Debug    *log.Logger
+	FatalLog *log.Logger
 }
 
-var logFile *os.File
-var log Logger
+func Create(path string) *Logger {
+	var logger Logger
+	var output *os.File
 
-func Init(fileName string) {
-    if len(strings.TrimSpace(fileName)) == 0 {
-        logFile = os.Stdout
-    } else {
-        var err error
-        logFile, err = os.OpenFile(fileName, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-        if err != nil {
-            golog.Fatalf("Error opening file: %v", err)
-        }
-    }
+	if len(strings.TrimSpace(path)) == 0 {
+		output = os.Stdout
+	} else {
+		var err error
+		output, err = os.OpenFile(path, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+		if err != nil {
+			panic(err)
+		}
+	}
 
-    log.Info = golog.New(logFile, "INFO  ", golog.LstdFlags | golog.Lmicroseconds)
-    log.Error = golog.New(logFile, "ERROR ", golog.LstdFlags | golog.Lmicroseconds)
-    log.Debug = golog.New(logFile, "DEBUG ", golog.LstdFlags | golog.Lmicroseconds)
-    log.FatalLog = golog.New(logFile, "FATAL ", golog.LstdFlags | golog.Lmicroseconds)
-}
+	logger.Info = log.New(output, "INFO  ", log.LstdFlags|log.Lmicroseconds)
+	logger.Error = log.New(output, "ERROR ", log.LstdFlags|log.Lmicroseconds)
+	logger.Debug = log.New(output, "DEBUG ", log.LstdFlags|log.Lmicroseconds)
+	logger.FatalLog = log.New(output, "FATAL ", log.LstdFlags|log.Lmicroseconds)
 
-func Fatalf(format string, args ...interface{}) {
-    log.FatalLog.Printf(format, args...)
-    //golog.Fatalf(format, args...)
-}
-
-func Fatal(message string) {
-    Fatalf(message)
-}
-
-func Infof(format string, args ...interface{}) {
-    log.Info.Printf(format, args...)
-    //golog.Printf(format, args...)
-}
-
-func Info(message string) {
-    Infof(message)
-}
-
-func Errorf(format string, args ...interface{}) {
-    log.Error.Printf(format, args...)
-    //golog.Printf(format, args...)
-}
-
-func Error(message string) {
-    Errorf(message)
-}
-
-func Debugf(format string, args ...interface{}) {
-    log.Debug.Printf(format, args...)
-    //golog.Printf(format, args...)
-}
-
-func Debug(message string) {
-    Debugf(message)
+	return &logger
 }
