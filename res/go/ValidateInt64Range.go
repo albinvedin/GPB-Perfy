@@ -1,7 +1,7 @@
 package main
 
 import (
-	"GPB-Perfy/pgv"
+	"GPB-Perfy/res/pgv/out/go"
 	"encoding/json"
 	"fmt"
 	"os"

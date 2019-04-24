@@ -20,7 +20,7 @@ func main() {
 	logger.Info.Println("Tail:", args.Tail)
 
 	output, err := exec.Command(
-		args.Lang+"/out/"+args.Test,
+		"res/"+args.Lang+"/out/"+args.Test,
 		append([]string{args.Iterations, args.Warmup}, args.Tail...)...,
 	).Output()
 	if err != nil {

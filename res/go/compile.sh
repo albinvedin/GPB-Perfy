@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-for i in ./*.go; do
-  go build -o ./out/${i::-3} $i
+p=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+for path in $p/*.go; do
+  name=$(echo $path | sed "s/.*\///")
+  go build -o $p/out/${name::-3} $path
 done
-chmod +x ./out/*
+chmod +x $p/out/*
