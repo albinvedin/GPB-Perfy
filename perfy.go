@@ -6,32 +6,30 @@ import (
 	"GPB-Perfy/helpers"
 	"encoding/json"
 	"os/exec"
-	"fmt"
 )
 
 func main() {
-	tests := helpers.GetAvailableTests("go")
-	fmt.Println(helpers.PathExists("res/cpp/out"))
-	fmt.Println(tests)
-	for i := 0; i < len(tests); i++ {
-		l := tests[i]
-		fmt.Println("- " + l)
+	arguments := args.Fetch()
+
+	if arguments.Help {
+		helpers.DisplayAvailableTests(arguments.Lang)
+		return
 	}
-	return
-	args := args.Fetch()
+
+	args.Validate(arguments)
 	
-	logger := log.Create(args.Output)
+	logger := log.Create(arguments.Output)
 
 	logger.Info.Println("START")
-	logger.Info.Println("Lang:", args.Lang)
-	logger.Info.Println("Test:", args.Test)
-	logger.Info.Println("Iterations:", args.Iterations)
-	logger.Info.Println("Warmup:", args.Warmup)
-	logger.Info.Println("Tail:", args.Tail)
+	logger.Info.Println("Lang:", arguments.Lang)
+	logger.Info.Println("Test:", arguments.Test)
+	logger.Info.Println("Iterations:", arguments.Iterations)
+	logger.Info.Println("Warmup:", arguments.Warmup)
+	logger.Info.Println("Tail:", arguments.Tail)
 
 	output, err := exec.Command(
-		"res/"+args.Lang+"/out/"+args.Test,
-		append([]string{args.Iterations, args.Warmup}, args.Tail...)...,
+		"res/"+arguments.Lang+"/out/"+arguments.Test,
+		append([]string{arguments.Iterations, arguments.Warmup}, arguments.Tail...)...,
 	).Output()
 	if err != nil {
 		panic(err)

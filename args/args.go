@@ -2,7 +2,6 @@ package args
 
 import (
 	"flag"
-	"fmt"
 )
 
 type Args struct {
@@ -12,61 +11,54 @@ type Args struct {
 	Test       string
 	Iterations string
 	Warmup     string
+	Help       bool
 	Tail       []string
 }
 
 func Fetch() Args {
-	output := stringArg("output", "o", "", "Specify log output file (defaults to console if empty)")
-	content := stringArg("content", "c", "all", "Specify log content (all, average, median)")
-	lang := stringArg("lang", "l", "go", "Language to run performance tests in")
-	test := stringArg("test", "t", "", "Test to run")
-	iterations := stringArg("iterations", "i", "10000", "Number of iterations for the performance test")
-	warmup := stringArg("warmup", "w", "1000", "Number of warmup-iterations for the performance test")
+	output := prepareStringArg("output", "o", "", "Specify log output file (defaults to console if empty)")
+	content := prepareStringArg("content", "c", "all", "Specify log content (all, average, median)")
+	lang := prepareStringArg("lang", "l", "go", "Language to run performance tests in")
+	test := prepareStringArg("test", "t", "", "Test to run")
+	iterations := prepareStringArg("iterations", "i", "10000", "Number of iterations for the performance test")
+	warmup := prepareStringArg("warmup", "w", "1000", "Number of warmup-iterations for the performance test")
+	help := prepareBoolArg("help", "h", false, "List available tests for any given language")
 
 	flag.Parse()
 
 	rest := flag.Args()
 
-	fmt.Println(rest)
-
-	return Args{
-		// Iterations: *iterationsPtr,
-		// Warmup:     *warmupPtr,
+	args := Args{
 		Output:     *output,
 		Content:    *content,
 		Lang:       *lang,
 		Test:       *test,
 		Iterations: *iterations,
 		Warmup:     *warmup,
-		Tail:       make([]string, 0),
+		Help:       *help,
+		Tail:       rest,
 	}
-	/*
-	lang, test, iterations, warmup, tail := rest[0], rest[1], rest[2], rest[3], rest[4:]
 
-	return Args{
-		// Iterations: *iterationsPtr,
-		// Warmup:     *warmupPtr,
-		Output:     *output,
-		Content:    *content,
-		Lang:       lang,
-		Test:       test,
-		Iterations: iterations,
-		Warmup:     warmup,
-		Tail:       tail,
-	}
-	*/
+	return args
 }
 
-func stringArg(long string, short string, defaultValue string, usage string) *string {
+func prepareStringArg(long string, short string, defaultValue string, usage string) *string {
 	var variable string
 	flag.StringVar(&variable, long, defaultValue, usage)
 	flag.StringVar(&variable, short, defaultValue, usage+" (shorthand)")
 	return &variable
 }
 
-func intArg(long string, short string, defaultValue int, usage string) *int {
+func prepareIntArg(long string, short string, defaultValue int, usage string) *int {
 	var variable int
 	flag.IntVar(&variable, long, defaultValue, usage)
 	flag.IntVar(&variable, short, defaultValue, usage+" (shorthand)")
+	return &variable
+}
+
+func prepareBoolArg(long string, short string, defaultValue bool, usage string) *bool {
+	var variable bool
+	flag.BoolVar(&variable, long, defaultValue, usage)
+	flag.BoolVar(&variable, short, defaultValue, usage+" (shorthand)")
 	return &variable
 }
