@@ -73,3 +73,13 @@ func GetPath() string {
 	exPath := filepath.Dir(ex)
 	return exPath
 }
+
+func GetTests(input string, lang string) []string {
+	var tests []string
+	if input == "all" {
+		tests = GetAvailableTests(lang)
+	} else {
+		tests = append(tests, input)
+	}
+	return tests
+}

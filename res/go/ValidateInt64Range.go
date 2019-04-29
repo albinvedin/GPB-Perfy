@@ -7,21 +7,29 @@ import (
 	"os"
 	"strconv"
 	"time"
+	"strings"
 )
 
 func main() {
-	iterations, _ := strconv.Atoi(os.Args[1])
-	warmup, _ := strconv.Atoi(os.Args[2])
-	elementCount, _ := strconv.Atoi(os.Args[3])
+	if (len(os.Args) < 4) {
+		words := strings.Split(os.Args[0], "/")
+		name := words[len(words) - 1]
+		msg := name + ": Requires 3 arguments (Iterations, Warmup, Element Count)"
+		panic(msg)
+	} else {
+		iterations, _ := strconv.Atoi(os.Args[1])
+		warmup, _ := strconv.Atoi(os.Args[2])
+		elementCount, _ := strconv.Atoi(os.Args[3])
 
-	elapsedTimes := validateN(iterations, warmup, createMessage(elementCount))
+		elapsedTimes := validateN(iterations, warmup, createMessage(elementCount))
 
-	output, err := json.Marshal(elapsedTimes)
-	if err != nil {
-		panic(err)
+		output, err := json.Marshal(elapsedTimes)
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Println(string(output))
 	}
-
-	fmt.Println(string(output))
 }
 
 func validateN(iterations int, warmup int, message *pgv.Int64Range) []int64 {
