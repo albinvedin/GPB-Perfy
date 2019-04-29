@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	iterations, warmup, elementCount := helpers.ValidateRangeTest(os.Args)
+	iterations, warmup, elementCount := helpers.ValidateRangeTestArguments(os.Args)
 
 	elapsedTimes := validateN(iterations, warmup, createMessage(elementCount))
 

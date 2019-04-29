@@ -85,7 +85,7 @@ func GetTests(input string, lang string) []string {
 	return tests
 }
 
-func ValidateRangeTest(args []string) (int, int, int) {
+func ValidateRangeTestArguments(args []string) (int, int, int) {
 	if (len(args) < 4) {
 		words := strings.Split(args[0], "/")
 		name := words[len(words) - 1]
