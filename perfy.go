@@ -6,6 +6,7 @@ import (
 	"GPB-Perfy/src/log"
 	"encoding/json"
 	"os/exec"
+	"fmt"
 )
 
 func main() {
@@ -27,21 +28,24 @@ func main() {
 	logger.Info.Println("Warmup:", arguments.Warmup)
 	logger.Info.Println("Tail:", arguments.Tail)
 
-	path := "res/" + arguments.Lang + "/out/" + arguments.Test
+	tests := helpers.GetTests(arguments.Test, arguments.Lang)
 	data := append([]string{arguments.Iterations, arguments.Warmup}, arguments.Tail...)
-	cmd := exec.Command(path, data...)
-	output, err := cmd.Output()
-	if err != nil {
-		panic(err)
-	}
 
-	var result []int64
-	err = json.Unmarshal(output, &result)
-	if err != nil {
-		panic(err)
+	for _, test := range tests {
+		path := "res/" + arguments.Lang + "/out/" + test
+		cmd := exec.Command(path, data...)
+		output, err := cmd.CombinedOutput()
+		if err != nil {
+			fmt.Println(string(output))
+		} else {
+			var result []int64
+			err = json.Unmarshal(output, &result)
+			if err != nil {
+				panic(err)
+			}
+			fmt.Println(test)
+		}
 	}
-
-	logger.Info.Println(result)
 
 	logger.Info.Println("END")
 }

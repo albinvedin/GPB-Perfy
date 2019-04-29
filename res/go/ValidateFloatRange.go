@@ -2,17 +2,15 @@ package main
 
 import (
 	"GPB-Perfy/res/pgv/gen/go"
+	"GPB-Perfy/src/helpers"
 	"encoding/json"
 	"fmt"
 	"os"
-	"strconv"
 	"time"
 )
 
 func main() {
-	iterations, _ := strconv.Atoi(os.Args[1])
-	warmup, _ := strconv.Atoi(os.Args[2])
-	elementCount, _ := strconv.Atoi(os.Args[3])
+	iterations, warmup, elementCount := helpers.ValidateRangeTest(os.Args)
 
 	elapsedTimes := validateN(iterations, warmup, createMessage(elementCount))
 

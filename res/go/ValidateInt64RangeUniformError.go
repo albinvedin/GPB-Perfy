@@ -2,17 +2,15 @@ package main
 
 import (
 	"GPB-Perfy/res/pgv/gen/go"
+	"GPB-Perfy/src/helpers"
 	"encoding/json"
 	"fmt"
 	"os"
-	"strconv"
 	"time"
 )
 
 func main() {
-	iterations, _ := strconv.Atoi(os.Args[1])
-	warmup, _ := strconv.Atoi(os.Args[2])
-	elementCount, _ := strconv.Atoi(os.Args[3])
+	iterations, warmup, elementCount := helpers.ValidateRangeTest(os.Args)
 
 	elapsedTimes := validateN(iterations, warmup, createMessage(elementCount))
 
@@ -26,11 +24,14 @@ func main() {
 
 func validateN(iterations int, warmup int, message *pgv.Int64Range) []int64 {
 	var elapsedTimes []int64
-	for i := 0; i < iterations; i++ {
-		elapsedTime := validate(message)
-		if i >= warmup {
-			elapsedTimes = append(elapsedTimes, elapsedTime)
+	perElement := iterations / len(message.Content)
+	for i := 0; i < len(message.Content); i++ {
+		// message := message.Content[i]
+		// Place error
+		for j := 0; j < perElement; j++ {
+			elapsedTimes = append(elapsedTimes, validate(message))
 		}
+		// Remove error
 	}
 	return elapsedTimes
 }

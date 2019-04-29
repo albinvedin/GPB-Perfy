@@ -8,6 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
+	"strconv"
 )
 
 func SumDurations(durations []time.Duration) time.Duration {
@@ -72,4 +73,29 @@ func GetPath() string {
 	}
 	exPath := filepath.Dir(ex)
 	return exPath
+}
+
+func GetTests(input string, lang string) []string {
+	var tests []string
+	if input == "all" {
+		tests = GetAvailableTests(lang)
+	} else {
+		tests = append(tests, input)
+	}
+	return tests
+}
+
+func ValidateRangeTest(args []string) (int, int, int) {
+	if (len(args) < 4) {
+		words := strings.Split(args[0], "/")
+		name := words[len(words) - 1]
+		msg := name + ": Requires 3 arguments (Iterations, Warmup, Element Count)"
+		panic(msg)	
+	} else {
+		iterations, _ := strconv.Atoi(args[1])
+		warmup, _ := strconv.Atoi(args[2])
+		elementCount, _ := strconv.Atoi(args[3])
+
+		return iterations, warmup, elementCount
+	}
 }

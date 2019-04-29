@@ -1,8 +1,8 @@
 package main
 
 import (
-	"GPB-Perfy/src/helpers"
 	"GPB-Perfy/res/pgv/gen/go"
+	"GPB-Perfy/src/helpers"
 	"encoding/json"
 	"fmt"
 	"github.com/golang/protobuf/proto"
