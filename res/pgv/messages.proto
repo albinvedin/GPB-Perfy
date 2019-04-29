@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package pgv;
+
+import "validate/validate.proto";
+
+message MessagesRangeRequired {
+    message Child {
+        string name = 1;
+    }
+    repeated Child content = 1 [(validate.rules).repeated.items.message.required = true];
+}

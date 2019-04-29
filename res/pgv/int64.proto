@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pgv;
+
+import "validate/validate.proto";
+
+message Int64RangeGreaterThan {
+    repeated int64 content = 1 [(validate.rules).repeated.items.int64.gt = 100];
+}
+
+message Int64RangeConst {
+    repeated int64 content = 1 [(validate.rules).repeated.items.int64.const = 100];
+}
+
+/*
+message Int64RangeIn {
+    repeated int64 content = 1 [(validate.rules).repeated.items.int64 = {in: [1, 2]}];
+}
+*/

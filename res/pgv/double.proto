@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pgv;
+
+import "validate/validate.proto";
+
+message DoubleRangeGreaterThan {
+    repeated double content = 1 [(validate.rules).repeated.items.double.gt = 100];
+}
+
+message DoubleRangeConst {
+    repeated double content = 1 [(validate.rules).repeated.items.double.const = 100];
+}
+
+/*
+message DoubleRangeIn {
+    repeated double content = 1 [(validate.rules).repeated.items.double = {in: [0.5, 1.5]}];
+}
+*/

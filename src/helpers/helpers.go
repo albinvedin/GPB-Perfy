@@ -9,6 +9,7 @@ import (
 	"strings"
 	"time"
 	"strconv"
+	"math"
 )
 
 func SumDurations(durations []time.Duration) time.Duration {
@@ -98,4 +99,12 @@ func ValidateRangeTestArguments(args []string) (int, int, int) {
 
 		return iterations, warmup, elementCount
 	}
+}
+
+func ResultInSeconds(result []int64) float64 {
+	var sum float64
+	for _, val := range result {
+		sum += float64(val) / float64(math.Pow(10, 9))
+	}
+	return sum
 }

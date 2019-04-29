@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package pgv;
+
+import "validate/validate.proto";
+
+message EnumRangeConst {
+    enum Sex {
+        MALE = 0;
+        FEMALE = 1;
+    }
+    repeated Sex content = 1 [(validate.rules).repeated.items.enum.const = 0];
+}
+
+message EnumRangeDefinedOnly {
+    enum Sex {
+        MALE = 0;
+        FEMALE = 1;
+    }
+    repeated Sex content = 1 [(validate.rules).repeated.items.enum.defined_only = true];
+}
+
+/*
+message EnumRangeIn {
+    enum Sex {
+        MALE = 0;
+        FEMALE = 1;
+    }
+    repeated Sex content = 1 [(validate.rules).repeated.items.enum = {in: [1]}];
+}
+*/

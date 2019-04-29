@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package pgv;
+
+import "validate/validate.proto";
+
+message BytesRangeMaxLen {
+    repeated bytes content = 1 [(validate.rules).repeated.items.bytes.max_len = 10];
+}
+
+message BytesRangePrefix {
+    repeated bytes content = 1 [(validate.rules).repeated.items.bytes.prefix = "\x99"];
+}
+
+message BytesRangeContains {
+    repeated bytes content = 1 [(validate.rules).repeated.items.bytes.contains = "\x99"];
+}
+
+message BytesRangeConst {
+    repeated bytes content = 1 [(validate.rules).repeated.items.bytes.const = "\x99"];
+}

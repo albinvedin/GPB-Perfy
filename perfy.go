@@ -6,7 +6,6 @@ import (
 	"GPB-Perfy/src/log"
 	"encoding/json"
 	"os/exec"
-	"fmt"
 )
 
 func main() {
@@ -36,14 +35,14 @@ func main() {
 		cmd := exec.Command(path, data...)
 		output, err := cmd.CombinedOutput()
 		if err != nil {
-			fmt.Println(string(output))
+			logger.Info.Println(string(output))
 		} else {
 			var result []int64
 			err = json.Unmarshal(output, &result)
 			if err != nil {
 				panic(err)
 			}
-			fmt.Println(test)
+			logger.Info.Printf("%s: %." + arguments.Precision + "fs\n", test, helpers.ResultInSeconds(result))
 		}
 	}
 

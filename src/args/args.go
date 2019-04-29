@@ -2,6 +2,7 @@ package args
 
 import (
 	"flag"
+	"strconv"
 )
 
 type Args struct {
@@ -11,6 +12,7 @@ type Args struct {
 	Test       string
 	Iterations string
 	Warmup     string
+	Precision  string
 	Help       bool
 	Tail       []string
 }
@@ -20,8 +22,9 @@ func Fetch() Args {
 	content := prepareStringArg("content", "c", "all", "Specify log content (all, average, median)")
 	lang := prepareStringArg("lang", "l", "go", "Language to run performance tests in")
 	test := prepareStringArg("test", "t", "", "Test to run")
-	iterations := prepareStringArg("iterations", "i", "10000", "Number of iterations for the performance test")
-	warmup := prepareStringArg("warmup", "w", "1000", "Number of warmup-iterations for the performance test")
+	iterations := prepareIntArg("iterations", "i", 10000, "Number of iterations for the performance test")
+	warmup := prepareIntArg("warmup", "w", 1000, "Number of warmup-iterations for the performance test")
+	precision := prepareIntArg("precision", "p", 15, "Number of decimals shown for the elapsed time.")
 	help := prepareBoolArg("help", "h", false, "List available tests for any given language")
 
 	flag.Parse()
@@ -33,8 +36,9 @@ func Fetch() Args {
 		Content:    *content,
 		Lang:       *lang,
 		Test:       *test,
-		Iterations: *iterations,
-		Warmup:     *warmup,
+		Iterations: strconv.Itoa(*iterations),
+		Warmup:     strconv.Itoa(*warmup),
+		Precision:  strconv.Itoa(*precision),
 		Help:       *help,
 		Tail:       rest,
 	}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pgv;
+
+import "validate/validate.proto";
+
+message StringRangePrefix {
+    repeated string content = 1 [(validate.rules).repeated.items.string.prefix = "foo"];
+}
+
+message StringRangeMaxLen {
+    repeated string content = 1 [(validate.rules).repeated.items.string.max_len = 5];
+}
+
+message StringRangeContains {
+    repeated string content = 1 [(validate.rules).repeated.items.string.contains = "foo"];
+}
