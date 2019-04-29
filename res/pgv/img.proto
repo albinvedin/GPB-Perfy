@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package pgv;
+
+import "validate/validate.proto";
+
+message Foo {
+  uint64 bar = 1 [(validate.rules).uint64.gt = 5];
+}

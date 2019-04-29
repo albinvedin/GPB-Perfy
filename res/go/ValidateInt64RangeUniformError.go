@@ -5,8 +5,8 @@ import (
 	"GPB-Perfy/src/helpers"
 	"encoding/json"
 	"fmt"
-	"time"
 	"os"
+	"time"
 )
 
 func main() {
@@ -35,7 +35,6 @@ func validateN(iterations int, warmup int, message *pgv.Int64Range) []int64 {
 	}
 	return elapsedTimes
 }
-
 
 func validate(message *pgv.Int64Range) int64 {
 	startTime := time.Now()

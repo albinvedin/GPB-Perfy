@@ -5,8 +5,8 @@ import (
 	"GPB-Perfy/src/helpers"
 	"encoding/json"
 	"fmt"
-	"time"
 	"os"
+	"time"
 )
 
 func main() {
