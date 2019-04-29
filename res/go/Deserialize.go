@@ -1,14 +1,14 @@
 package main
 
 import (
+	"GPB-Perfy/src/helpers"
+	"GPB-Perfy/res/pgv/gen/go"
+	"encoding/json"
 	"fmt"
+	"github.com/golang/protobuf/proto"
 	"os"
 	"strconv"
-	"GPB-Perfy/res/pgv/out"
-	"GPB-Perfy/helpers"
-	"github.com/golang/protobuf/proto"
 	"time"
-	"encoding/json"
 )
 
 func main() {
