@@ -15,6 +15,7 @@ def getContent(filename):
 def changeContent(content):
     content = re.sub("pgv", "vanilla", content)
     content = re.sub("\s*\[.*\]", "", content)
+    content = re.sub("import \"validate/validate.proto\";", "", content)
     content = re.sub("Range.*\{", "Range {", content)
     content = re.sub("message\s*.*?{.*?}(?=\s*message)", "", content, flags = re.M | re.S)
     content = re.sub("\n\s*", "\n\n", content)
