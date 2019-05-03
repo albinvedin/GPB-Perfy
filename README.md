@@ -52,12 +52,12 @@ Place the .proto-files under "/res/pgv" and run the script "compile.sh". The com
 $ ./res/pgv/compile.sh
 ```
 
-## Running the tests
+## Usage
+### Example
 ```
 $ ./perfy -i=10000 -w=100 -t=all -f=perfy.log 100
 ```
-
-## Usage
+### Flags
   - -c (string) : Specify log content (all, average, median) (shorthand) (default "all")
   - -content (string) : Specify log content (all, average, median) (default "all")
 
