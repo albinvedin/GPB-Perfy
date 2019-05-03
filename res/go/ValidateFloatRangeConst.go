@@ -12,7 +12,7 @@ import (
 func main() {
 	iterations, warmup, elementCount := helpers.ValidateRangeTestArguments(os.Args)
 
-	elapsedTimes := validateN(iterations, warmup, createMessage(elementCount))
+	elapsedTimes := validateN(iterations, warmup, createMessage(elementCount))[warmup:]
 
 	output, err := json.Marshal(elapsedTimes)
 	if err != nil {
