@@ -11,9 +11,3 @@ message FloatRangeGreaterThan {
 message FloatRangeConst {
     repeated float content = 1 [(validate.rules).repeated.items.float.const = 100];
 }
-
-/*
-message FloatRangeIn {
-    repeated float content = 1 [(validate.rules).repeated.items.float = {in: [0.5, 1.5]}];
-}
-*/

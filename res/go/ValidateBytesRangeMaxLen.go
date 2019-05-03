@@ -22,21 +22,18 @@ func main() {
 	fmt.Println(string(output))
 }
 
-func validateN(iterations int, warmup int, message *pgv.Int64Range) []int64 {
+func validateN(iterations int, warmup int, message *pgv.BytesRangeMaxLen) []int64 {
 	var elapsedTimes []int64
-	perElement := iterations / len(message.Content)
-	for i := 0; i < len(message.Content); i++ {
-		// message := message.Content[i]
-		// Place error
-		for j := 0; j < perElement; j++ {
-			elapsedTimes = append(elapsedTimes, validate(message))
+	for i := 0; i < iterations; i++ {
+		elapsedTime := validate(message)
+		if i >= warmup {
+			elapsedTimes = append(elapsedTimes, elapsedTime)
 		}
-		// Remove error
 	}
 	return elapsedTimes
 }
 
-func validate(message *pgv.Int64Range) int64 {
+func validate(message *pgv.BytesRangeMaxLen) int64 {
 	startTime := time.Now()
 	err := message.Validate()
 	elapsedTime := time.Since(startTime)
@@ -46,10 +43,10 @@ func validate(message *pgv.Int64Range) int64 {
 	return elapsedTime.Nanoseconds()
 }
 
-func createMessage(messageLength int) *pgv.Int64Range {
-	message := new(pgv.Int64Range)
+func createMessage(messageLength int) *pgv.BytesRangeMaxLen {
+	message := new(pgv.BytesRangeMaxLen)
 	for i := 0; i < messageLength; i++ {
-		message.Content = append(message.Content, 0)
+		message.Content = append(message.Content, []byte("\x99"))
 	}
 	return message
 }

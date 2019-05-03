@@ -22,7 +22,7 @@ func main() {
 	fmt.Println(string(output))
 }
 
-func validateN(iterations int, warmup int, message *pgv.FloatRange) []int64 {
+func validateN(iterations int, warmup int, message *pgv.StringRangeMaxLen) []int64 {
 	var elapsedTimes []int64
 	for i := 0; i < iterations; i++ {
 		elapsedTime := validate(message)
@@ -33,20 +33,17 @@ func validateN(iterations int, warmup int, message *pgv.FloatRange) []int64 {
 	return elapsedTimes
 }
 
-func validate(message *pgv.FloatRange) int64 {
+func validate(message *pgv.StringRangeMaxLen) int64 {
 	startTime := time.Now()
-	err := message.Validate()
+	message.Validate()
 	elapsedTime := time.Since(startTime)
-	if err != nil {
-		panic(err)
-	}
 	return elapsedTime.Nanoseconds()
 }
 
-func createMessage(messageLength int) *pgv.FloatRange {
-	message := new(pgv.FloatRange)
+func createMessage(messageLength int) *pgv.StringRangeMaxLen {
+	message := new(pgv.StringRangeMaxLen)
 	for i := 0; i < messageLength; i++ {
-		message.Content = append(message.Content, 0)
+		message.Content = append(message.Content, "Foo")
 	}
 	return message
 }

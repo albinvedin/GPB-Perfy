@@ -4,8 +4,8 @@ import (
 	"GPB-Perfy/res/pgv/gen/go"
 	"GPB-Perfy/src/helpers"
 	"encoding/json"
-	"os"
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -22,7 +22,7 @@ func main() {
 	fmt.Println(string(output))
 }
 
-func validateN(iterations int, warmup int, message *pgv.DoubleRange) []int64 {
+func validateN(iterations int, warmup int, message *pgv.FloatRangeGreaterThan) []int64 {
 	var elapsedTimes []int64
 	for i := 0; i < iterations; i++ {
 		elapsedTime := validate(message)
@@ -33,7 +33,7 @@ func validateN(iterations int, warmup int, message *pgv.DoubleRange) []int64 {
 	return elapsedTimes
 }
 
-func validate(message *pgv.DoubleRange) int64 {
+func validate(message *pgv.FloatRangeGreaterThan) int64 {
 	startTime := time.Now()
 	err := message.Validate()
 	elapsedTime := time.Since(startTime)
@@ -43,10 +43,10 @@ func validate(message *pgv.DoubleRange) int64 {
 	return elapsedTime.Nanoseconds()
 }
 
-func createMessage(messageLength int) *pgv.DoubleRange {
-	message := new(pgv.DoubleRange)
+func createMessage(messageLength int) *pgv.FloatRangeGreaterThan {
+	message := new(pgv.FloatRangeGreaterThan)
 	for i := 0; i < messageLength; i++ {
-		message.Content = append(message.Content, 0)
+		message.Content = append(message.Content, 105)
 	}
 	return message
 }

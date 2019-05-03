@@ -83,13 +83,13 @@ bool Validate(const ::pgv::StringRangePrefix& m, pgv::ValidationMsg* err) {
 
 	
 	{
-		const std::string prefix = "foo";
+		const std::string prefix = "Foo";
 		if (!pgv::IsPrefix(prefix, item)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "StringRangePrefixValidationError" << "." << "Content";
 msg << "[" << "i" << "]";
-msg << ": " << "[\"value does not have prefix \" \"\\\"foo\\\"\"]";
+msg << ": " << "[\"value does not have prefix \" \"\\\"Foo\\\"\"]";
 *err = msg.str();
 return false;
 }
@@ -240,12 +240,12 @@ bool Validate(const ::pgv::StringRangeContains& m, pgv::ValidationMsg* err) {
 
 	
 	{
-		if (!pgv::Contains(item, "foo")) {
+		if (!pgv::Contains(item, "Foo")) {
 			{
 std::ostringstream msg("invalid ");
 msg << "StringRangeContainsValidationError" << "." << "Content";
 msg << "[" << "i" << "]";
-msg << ": " << "[\"value does not contain substring \" \"\\\"foo\\\"\"]";
+msg << ": " << "[\"value does not contain substring \" \"\\\"Foo\\\"\"]";
 *err = msg.str();
 return false;
 }

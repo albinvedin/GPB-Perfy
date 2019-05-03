@@ -44,10 +44,10 @@ func (m *StringRangePrefix) Validate() error {
 	for idx, item := range m.GetContent() {
 		_, _ = idx, item
 
-		if !strings.HasPrefix(item, "foo") {
+		if !strings.HasPrefix(item, "Foo") {
 			return StringRangePrefixValidationError{
 				field:  fmt.Sprintf("Content[%v]", idx),
-				reason: "value does not have prefix \"foo\"",
+				reason: "value does not have prefix \"Foo\"",
 			}
 		}
 
@@ -202,10 +202,10 @@ func (m *StringRangeContains) Validate() error {
 	for idx, item := range m.GetContent() {
 		_, _ = idx, item
 
-		if !strings.Contains(item, "foo") {
+		if !strings.Contains(item, "Foo") {
 			return StringRangeContainsValidationError{
 				field:  fmt.Sprintf("Content[%v]", idx),
-				reason: "value does not contain substring \"foo\"",
+				reason: "value does not contain substring \"Foo\"",
 			}
 		}
 

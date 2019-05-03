@@ -19,13 +19,3 @@ message EnumRangeDefinedOnly {
     }
     repeated Sex content = 1 [(validate.rules).repeated.items.enum.defined_only = true];
 }
-
-/*
-message EnumRangeIn {
-    enum Sex {
-        MALE = 0;
-        FEMALE = 1;
-    }
-    repeated Sex content = 1 [(validate.rules).repeated.items.enum = {in: [1]}];
-}
-*/

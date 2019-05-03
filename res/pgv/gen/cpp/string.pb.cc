@@ -123,10 +123,10 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 const char descriptor_table_protodef_string_2eproto[] =
   "\n\014string.proto\022\003pgv\032\027validate/validate.p"
   "roto\"7\n\021StringRangePrefix\022\"\n\007content\030\001 \003"
-  "(\tB\021\272\351\300\003\014\222\001\t\"\007r\005:\003foo\"4\n\021StringRangeMaxL"
+  "(\tB\021\272\351\300\003\014\222\001\t\"\007r\005:\003Foo\"4\n\021StringRangeMaxL"
   "en\022\037\n\007content\030\001 \003(\tB\016\272\351\300\003\t\222\001\006\"\004r\002\030\005\"9\n\023S"
   "tringRangeContains\022\"\n\007content\030\001 \003(\tB\021\272\351\300"
-  "\003\014\222\001\t\"\007r\005J\003foob\006proto3"
+  "\003\014\222\001\t\"\007r\005J\003Foob\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_string_2eproto = {
   false, InitDefaults_string_2eproto, 

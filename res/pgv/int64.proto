@@ -11,9 +11,3 @@ message Int64RangeGreaterThan {
 message Int64RangeConst {
     repeated int64 content = 1 [(validate.rules).repeated.items.int64.const = 100];
 }
-
-/*
-message Int64RangeIn {
-    repeated int64 content = 1 [(validate.rules).repeated.items.int64 = {in: [1, 2]}];
-}
-*/

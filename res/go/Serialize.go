@@ -45,8 +45,8 @@ func repeatedSerialize(message proto.Message, iterations int) []int64 {
 	return rElapsedTimes
 }
 
-func createMessage(messageLength int) *pgv.Int64Range {
-	message := new(pgv.Int64Range)
+func createMessage(messageLength int) *pgv.Int64RangeGreaterThan {
+	message := new(pgv.Int64RangeGreaterThan)
 	for i := 0; i < messageLength; i++ {
 		message.Content = append(message.Content, 0)
 	}
