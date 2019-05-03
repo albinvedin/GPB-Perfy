@@ -1,5 +1,10 @@
 # GPB-Perfy
-Performance Tests for the protoc-plugin [protoc-gen-validate](https://github.com/envoyproxy/protoc-gen-validate). The performance tests are written in Golang and C++. The main program is written in Golang, so Golang is required even though only C++ tests are to be executed. C++ is not required to execute the Golang-tests.
+Performance Tests for the protoc-plugin [protoc-gen-validate](https://github.com/envoyproxy/protoc-gen-validate).<br/>
+The main program is written in Golang, so Golang is required even though only C++ tests are to be executed. C++ is not required to execute the Golang-tests.
+
+Tests are written for:
+- C++ :white_check_mark:
+- Golang :white_check_mark:
 
 ## Installation
 ### Google Protocol Buffers
