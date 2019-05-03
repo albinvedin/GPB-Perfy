@@ -4,7 +4,7 @@ package vanilla;
 
 import "validate/validate.proto";
 
-message Bytes {
+message BytesRange {
 
 repeated bytes content = 1;
 
