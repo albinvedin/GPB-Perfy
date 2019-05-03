@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package vanilla;
+
+import "validate/validate.proto";
+
+message Bool {
+
+repeated bool content = 1;
+
+}
+

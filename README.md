@@ -51,6 +51,12 @@ $ ./res/go/compile.sh
 ```
 
 ## Compiling .proto-files
+Place the .proto-files under "/res/vanilla" and run the script "compile.sh". The command below demonstrates compilation from the root folder.
+```
+$ ./res/vanilla/compile.sh
+```
+
+## Compiling .proto-files (PGV)
 Place the .proto-files under "/res/pgv" and run the script "compile.sh". The command below demonstrates compilation from the root folder.
 ```
 $ ./res/pgv/compile.sh
