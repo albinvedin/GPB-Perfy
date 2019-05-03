@@ -1,5 +1,19 @@
 # GPB-Perfy
-Performance Tests for the protoc-plugin [protoc-gen-validate](https://github.com/envoyproxy/protoc-gen-validate).
+Performance Tests for the protoc-plugin [protoc-gen-validate](https://github.com/envoyproxy/protoc-gen-validate). The performance tests are written in Golang and C++. The main program is written in Golang, so Golang is required even though only C++ tests are to be executed. C++ is not required to execute the Golang-tests.
+
+## Installation
+# Google Protocol Buffers
+Follow the [installation guide](https://developers.google.com/protocol-buffers/docs/tutorials) for the desired language.
+
+# PGV
+```
+# Fetches PGV repo into $GOPATH
+$ go get -d github.com/envoyproxy/protoc-gen-validate
+
+# Installs PGV into $GOPATH/bin
+$ make build
+```
+For more information, visit the projects [GitHub page](https://github.com/envoyproxy/protoc-gen-validate).
 
 ## Running the tests
 ```
