@@ -1,2 +1,5 @@
 out/
 .tags
+.vscode
+__pycache__
+perfy
