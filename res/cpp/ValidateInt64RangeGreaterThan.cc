@@ -18,7 +18,7 @@ pgv::Int64RangeGreaterThan createMessage(
 
 std::int64_t validateOne(
     pgv::Int64RangeGreaterThan const& message
-  , pgv::ValidationMsg &err
+  , pgv::ValidationMsg& err
 ){
   auto t1 = std::chrono::high_resolution_clock::now();
   pgv::Validate(message, &err);
@@ -30,7 +30,7 @@ std::vector<std::int64_t> validateN(
     int const iterations
   , int const warmup
   , pgv::Int64RangeGreaterThan const& message
-  , pgv::ValidationMsg &err
+  , pgv::ValidationMsg& err
 ){
   auto elapsedTimes = std::vector<std::int64_t>();
   for (int i = 0; i < iterations; ++i) {
