@@ -80,7 +80,7 @@ const char descriptor_table_protodef_bool_2eproto[] =
 void AddDescriptors_bool_2eproto() {
   static constexpr ::google::protobuf::internal::InitFunc deps[1] =
   {
-    ::AddDescriptors_validate_2fvalidate_2eproto,
+    ::AddDescriptors_validate_2eproto,
   };
  ::google::protobuf::internal::AddDescriptors(&descriptor_table_bool_2eproto, deps, 1);
 }

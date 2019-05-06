@@ -109,7 +109,7 @@ const char descriptor_table_protodef_int64_2eproto[] =
 void AddDescriptors_int64_2eproto() {
   static constexpr ::google::protobuf::internal::InitFunc deps[1] =
   {
-    ::AddDescriptors_validate_2fvalidate_2eproto,
+    ::AddDescriptors_validate_2eproto,
   };
  ::google::protobuf::internal::AddDescriptors(&descriptor_table_int64_2eproto, deps, 1);
 }

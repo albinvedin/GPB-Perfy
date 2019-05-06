@@ -138,7 +138,7 @@ void AddDescriptors_int64range_2eproto() {
   static constexpr ::google::protobuf::internal::InitFunc deps[1] =
   {
     // ::AddDescriptors_validate_2eproto,
-    // ::AddDescriptors_validate_2fvalidate_2eproto,
+    // ::AddDescriptors_validate_2eproto,
   };
  ::google::protobuf::internal::AddDescriptors(&descriptor_table_int64range_2eproto, deps, 1);
 }
