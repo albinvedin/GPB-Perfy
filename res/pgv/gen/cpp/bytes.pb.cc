@@ -21,6 +21,10 @@ class BytesRangeMaxLenDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<BytesRangeMaxLen> _instance;
 } _BytesRangeMaxLen_default_instance_;
+class BytesRangeMinLenDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<BytesRangeMinLen> _instance;
+} _BytesRangeMinLen_default_instance_;
 class BytesRangePrefixDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<BytesRangePrefix> _instance;
@@ -47,6 +51,20 @@ static void InitDefaultsBytesRangeMaxLen_bytes_2eproto() {
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_BytesRangeMaxLen_bytes_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsBytesRangeMaxLen_bytes_2eproto}, {}};
+
+static void InitDefaultsBytesRangeMinLen_bytes_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::pgv::_BytesRangeMinLen_default_instance_;
+    new (ptr) ::pgv::BytesRangeMinLen();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::pgv::BytesRangeMinLen::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_BytesRangeMinLen_bytes_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsBytesRangeMinLen_bytes_2eproto}, {}};
 
 static void InitDefaultsBytesRangePrefix_bytes_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -92,12 +110,13 @@ static void InitDefaultsBytesRangeConst_bytes_2eproto() {
 
 void InitDefaults_bytes_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_BytesRangeMaxLen_bytes_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_BytesRangeMinLen_bytes_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_BytesRangePrefix_bytes_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_BytesRangeContains_bytes_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_BytesRangeConst_bytes_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_bytes_2eproto[4];
+::google::protobuf::Metadata file_level_metadata_bytes_2eproto[5];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_bytes_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_bytes_2eproto = nullptr;
 
@@ -108,6 +127,12 @@ const ::google::protobuf::uint32 TableStruct_bytes_2eproto::offsets[] PROTOBUF_S
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::pgv::BytesRangeMaxLen, content_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::pgv::BytesRangeMinLen, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::pgv::BytesRangeMinLen, content_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::pgv::BytesRangePrefix, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -129,13 +154,15 @@ const ::google::protobuf::uint32 TableStruct_bytes_2eproto::offsets[] PROTOBUF_S
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::pgv::BytesRangeMaxLen)},
-  { 6, -1, sizeof(::pgv::BytesRangePrefix)},
-  { 12, -1, sizeof(::pgv::BytesRangeContains)},
-  { 18, -1, sizeof(::pgv::BytesRangeConst)},
+  { 6, -1, sizeof(::pgv::BytesRangeMinLen)},
+  { 12, -1, sizeof(::pgv::BytesRangePrefix)},
+  { 18, -1, sizeof(::pgv::BytesRangeContains)},
+  { 24, -1, sizeof(::pgv::BytesRangeConst)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_BytesRangeMaxLen_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_BytesRangeMinLen_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_BytesRangePrefix_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_BytesRangeContains_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_BytesRangeConst_default_instance_),
@@ -144,22 +171,23 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_bytes_2eproto = {
   {}, AddDescriptors_bytes_2eproto, "bytes.proto", schemas,
   file_default_instances, TableStruct_bytes_2eproto::offsets,
-  file_level_metadata_bytes_2eproto, 4, file_level_enum_descriptors_bytes_2eproto, file_level_service_descriptors_bytes_2eproto,
+  file_level_metadata_bytes_2eproto, 5, file_level_enum_descriptors_bytes_2eproto, file_level_service_descriptors_bytes_2eproto,
 };
 
 const char descriptor_table_protodef_bytes_2eproto[] =
   "\n\013bytes.proto\022\003pgv\032\027validate/validate.pr"
   "oto\"3\n\020BytesRangeMaxLen\022\037\n\007content\030\001 \003(\014"
-  "B\016\272\351\300\003\t\222\001\006\"\004z\002\030\n\"4\n\020BytesRangePrefix\022 \n\007"
-  "content\030\001 \003(\014B\017\272\351\300\003\n\222\001\007\"\005z\003*\001\231\"6\n\022BytesR"
-  "angeContains\022 \n\007content\030\001 \003(\014B\017\272\351\300\003\n\222\001\007\""
-  "\005z\003:\001\231\"3\n\017BytesRangeConst\022 \n\007content\030\001 \003"
-  "(\014B\017\272\351\300\003\n\222\001\007\"\005z\003\n\001\231b\006proto3"
+  "B\016\272\351\300\003\t\222\001\006\"\004z\002\030\n\"3\n\020BytesRangeMinLen\022\037\n\007"
+  "content\030\001 \003(\014B\016\272\351\300\003\t\222\001\006\"\004z\002\020\n\"4\n\020BytesRa"
+  "ngePrefix\022 \n\007content\030\001 \003(\014B\017\272\351\300\003\n\222\001\007\"\005z\003"
+  "*\001\231\"6\n\022BytesRangeContains\022 \n\007content\030\001 \003"
+  "(\014B\017\272\351\300\003\n\222\001\007\"\005z\003:\001\231\"3\n\017BytesRangeConst\022 "
+  "\n\007content\030\001 \003(\014B\017\272\351\300\003\n\222\001\007\"\005z\003\n\001\231b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_bytes_2eproto = {
   false, InitDefaults_bytes_2eproto, 
   descriptor_table_protodef_bytes_2eproto,
-  "bytes.proto", &assign_descriptors_table_bytes_2eproto, 267,
+  "bytes.proto", &assign_descriptors_table_bytes_2eproto, 320,
 };
 
 void AddDescriptors_bytes_2eproto() {
@@ -447,6 +475,284 @@ void BytesRangeMaxLen::InternalSwap(BytesRangeMaxLen* other) {
 }
 
 ::google::protobuf::Metadata BytesRangeMaxLen::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_bytes_2eproto);
+  return ::file_level_metadata_bytes_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void BytesRangeMinLen::InitAsDefaultInstance() {
+}
+class BytesRangeMinLen::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int BytesRangeMinLen::kContentFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+BytesRangeMinLen::BytesRangeMinLen()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:pgv.BytesRangeMinLen)
+}
+BytesRangeMinLen::BytesRangeMinLen(const BytesRangeMinLen& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr),
+      content_(from.content_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:pgv.BytesRangeMinLen)
+}
+
+void BytesRangeMinLen::SharedCtor() {
+  ::google::protobuf::internal::InitSCC(
+      &scc_info_BytesRangeMinLen_bytes_2eproto.base);
+}
+
+BytesRangeMinLen::~BytesRangeMinLen() {
+  // @@protoc_insertion_point(destructor:pgv.BytesRangeMinLen)
+  SharedDtor();
+}
+
+void BytesRangeMinLen::SharedDtor() {
+}
+
+void BytesRangeMinLen::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const BytesRangeMinLen& BytesRangeMinLen::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_BytesRangeMinLen_bytes_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void BytesRangeMinLen::Clear() {
+// @@protoc_insertion_point(message_clear_start:pgv.BytesRangeMinLen)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  content_.Clear();
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* BytesRangeMinLen::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<BytesRangeMinLen*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // repeated bytes content = 1 [(.validate.rules) = {
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) != 10) goto handle_unusual;
+        do {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          object = msg->add_content();
+          if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
+            parser_till_end = ::google::protobuf::internal::GreedyStringParser;
+            goto string_till_end;
+          }
+          GOOGLE_PROTOBUF_PARSER_ASSERT(::google::protobuf::internal::StringCheck(ptr, size, ctx));
+          ::google::protobuf::internal::InlineGreedyStringParser(object, ptr, size, ctx);
+          ptr += size;
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 10 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+string_till_end:
+  static_cast<::std::string*>(object)->clear();
+  static_cast<::std::string*>(object)->reserve(size);
+  goto len_delim_till_end;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool BytesRangeMinLen::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:pgv.BytesRangeMinLen)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated bytes content = 1 [(.validate.rules) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->add_content()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:pgv.BytesRangeMinLen)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:pgv.BytesRangeMinLen)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void BytesRangeMinLen::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:pgv.BytesRangeMinLen)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated bytes content = 1 [(.validate.rules) = {
+  for (int i = 0, n = this->content_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytes(
+      1, this->content(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:pgv.BytesRangeMinLen)
+}
+
+::google::protobuf::uint8* BytesRangeMinLen::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:pgv.BytesRangeMinLen)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated bytes content = 1 [(.validate.rules) = {
+  for (int i = 0, n = this->content_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteBytesToArray(1, this->content(i), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:pgv.BytesRangeMinLen)
+  return target;
+}
+
+size_t BytesRangeMinLen::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:pgv.BytesRangeMinLen)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated bytes content = 1 [(.validate.rules) = {
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->content_size());
+  for (int i = 0, n = this->content_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::BytesSize(
+      this->content(i));
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void BytesRangeMinLen::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:pgv.BytesRangeMinLen)
+  GOOGLE_DCHECK_NE(&from, this);
+  const BytesRangeMinLen* source =
+      ::google::protobuf::DynamicCastToGenerated<BytesRangeMinLen>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pgv.BytesRangeMinLen)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pgv.BytesRangeMinLen)
+    MergeFrom(*source);
+  }
+}
+
+void BytesRangeMinLen::MergeFrom(const BytesRangeMinLen& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:pgv.BytesRangeMinLen)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  content_.MergeFrom(from.content_);
+}
+
+void BytesRangeMinLen::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:pgv.BytesRangeMinLen)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BytesRangeMinLen::CopyFrom(const BytesRangeMinLen& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:pgv.BytesRangeMinLen)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BytesRangeMinLen::IsInitialized() const {
+  return true;
+}
+
+void BytesRangeMinLen::Swap(BytesRangeMinLen* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void BytesRangeMinLen::InternalSwap(BytesRangeMinLen* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  content_.InternalSwap(CastToBase(&other->content_));
+}
+
+::google::protobuf::Metadata BytesRangeMinLen::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_bytes_2eproto);
   return ::file_level_metadata_bytes_2eproto[kIndexInFileMessages];
 }
@@ -1292,6 +1598,9 @@ namespace google {
 namespace protobuf {
 template<> PROTOBUF_NOINLINE ::pgv::BytesRangeMaxLen* Arena::CreateMaybeMessage< ::pgv::BytesRangeMaxLen >(Arena* arena) {
   return Arena::CreateInternal< ::pgv::BytesRangeMaxLen >(arena);
+}
+template<> PROTOBUF_NOINLINE ::pgv::BytesRangeMinLen* Arena::CreateMaybeMessage< ::pgv::BytesRangeMinLen >(Arena* arena) {
+  return Arena::CreateInternal< ::pgv::BytesRangeMinLen >(arena);
 }
 template<> PROTOBUF_NOINLINE ::pgv::BytesRangePrefix* Arena::CreateMaybeMessage< ::pgv::BytesRangePrefix >(Arena* arena) {
   return Arena::CreateInternal< ::pgv::BytesRangePrefix >(arena);

@@ -42,7 +42,7 @@ struct TableStruct_int64_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[2]
+  static const ::google::protobuf::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -56,11 +56,15 @@ extern Int64RangeConstDefaultTypeInternal _Int64RangeConst_default_instance_;
 class Int64RangeGreaterThan;
 class Int64RangeGreaterThanDefaultTypeInternal;
 extern Int64RangeGreaterThanDefaultTypeInternal _Int64RangeGreaterThan_default_instance_;
+class Int64RangeLessThan;
+class Int64RangeLessThanDefaultTypeInternal;
+extern Int64RangeLessThanDefaultTypeInternal _Int64RangeLessThan_default_instance_;
 }  // namespace pgv
 namespace google {
 namespace protobuf {
 template<> ::pgv::Int64RangeConst* Arena::CreateMaybeMessage<::pgv::Int64RangeConst>(Arena*);
 template<> ::pgv::Int64RangeGreaterThan* Arena::CreateMaybeMessage<::pgv::Int64RangeGreaterThan>(Arena*);
+template<> ::pgv::Int64RangeLessThan* Arena::CreateMaybeMessage<::pgv::Int64RangeLessThan>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace pgv {
@@ -186,6 +190,125 @@ class Int64RangeGreaterThan final :
 };
 // -------------------------------------------------------------------
 
+class Int64RangeLessThan final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.Int64RangeLessThan) */ {
+ public:
+  Int64RangeLessThan();
+  virtual ~Int64RangeLessThan();
+
+  Int64RangeLessThan(const Int64RangeLessThan& from);
+
+  inline Int64RangeLessThan& operator=(const Int64RangeLessThan& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Int64RangeLessThan(Int64RangeLessThan&& from) noexcept
+    : Int64RangeLessThan() {
+    *this = ::std::move(from);
+  }
+
+  inline Int64RangeLessThan& operator=(Int64RangeLessThan&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const Int64RangeLessThan& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Int64RangeLessThan* internal_default_instance() {
+    return reinterpret_cast<const Int64RangeLessThan*>(
+               &_Int64RangeLessThan_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  void Swap(Int64RangeLessThan* other);
+  friend void swap(Int64RangeLessThan& a, Int64RangeLessThan& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Int64RangeLessThan* New() const final {
+    return CreateMaybeMessage<Int64RangeLessThan>(nullptr);
+  }
+
+  Int64RangeLessThan* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<Int64RangeLessThan>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const Int64RangeLessThan& from);
+  void MergeFrom(const Int64RangeLessThan& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Int64RangeLessThan* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int64 content = 1 [(.validate.rules) = {
+  int content_size() const;
+  void clear_content();
+  static const int kContentFieldNumber = 1;
+  ::google::protobuf::int64 content(int index) const;
+  void set_content(int index, ::google::protobuf::int64 value);
+  void add_content(::google::protobuf::int64 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      content() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_content();
+
+  // @@protoc_insertion_point(class_scope:pgv.Int64RangeLessThan)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > content_;
+  mutable std::atomic<int> _content_cached_byte_size_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_int64_2eproto;
+};
+// -------------------------------------------------------------------
+
 class Int64RangeConst final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.Int64RangeConst) */ {
  public:
@@ -224,7 +347,7 @@ class Int64RangeConst final :
                &_Int64RangeConst_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(Int64RangeConst* other);
   friend void swap(Int64RangeConst& a, Int64RangeConst& b) {
@@ -346,6 +469,40 @@ Int64RangeGreaterThan::mutable_content() {
 
 // -------------------------------------------------------------------
 
+// Int64RangeLessThan
+
+// repeated int64 content = 1 [(.validate.rules) = {
+inline int Int64RangeLessThan::content_size() const {
+  return content_.size();
+}
+inline void Int64RangeLessThan::clear_content() {
+  content_.Clear();
+}
+inline ::google::protobuf::int64 Int64RangeLessThan::content(int index) const {
+  // @@protoc_insertion_point(field_get:pgv.Int64RangeLessThan.content)
+  return content_.Get(index);
+}
+inline void Int64RangeLessThan::set_content(int index, ::google::protobuf::int64 value) {
+  content_.Set(index, value);
+  // @@protoc_insertion_point(field_set:pgv.Int64RangeLessThan.content)
+}
+inline void Int64RangeLessThan::add_content(::google::protobuf::int64 value) {
+  content_.Add(value);
+  // @@protoc_insertion_point(field_add:pgv.Int64RangeLessThan.content)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+Int64RangeLessThan::content() const {
+  // @@protoc_insertion_point(field_list:pgv.Int64RangeLessThan.content)
+  return content_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+Int64RangeLessThan::mutable_content() {
+  // @@protoc_insertion_point(field_mutable_list:pgv.Int64RangeLessThan.content)
+  return &content_;
+}
+
+// -------------------------------------------------------------------
+
 // Int64RangeConst
 
 // repeated int64 content = 1 [(.validate.rules) = {
@@ -381,6 +538,8 @@ Int64RangeConst::mutable_content() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

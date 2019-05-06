@@ -43,7 +43,7 @@ func validate(message *pgv.BytesRangeMinLen) int64 {
 func createMessage(messageLength int) *pgv.BytesRangeMinLen {
 	message := new(pgv.BytesRangeMinLen)
 	for i := 0; i < messageLength; i++ {
-		message.Content = append(message.Content, "\x99\x99\x99")
+		message.Content = append(message.Content, []byte("\x99\x99\x99"))
 	}
 	return message
 }

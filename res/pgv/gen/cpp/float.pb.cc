@@ -21,6 +21,10 @@ class FloatRangeGreaterThanDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<FloatRangeGreaterThan> _instance;
 } _FloatRangeGreaterThan_default_instance_;
+class FloatRangeLessThanDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<FloatRangeLessThan> _instance;
+} _FloatRangeLessThan_default_instance_;
 class FloatRangeConstDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<FloatRangeConst> _instance;
@@ -40,6 +44,20 @@ static void InitDefaultsFloatRangeGreaterThan_float_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_FloatRangeGreaterThan_float_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFloatRangeGreaterThan_float_2eproto}, {}};
 
+static void InitDefaultsFloatRangeLessThan_float_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::pgv::_FloatRangeLessThan_default_instance_;
+    new (ptr) ::pgv::FloatRangeLessThan();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::pgv::FloatRangeLessThan::InitAsDefaultInstance();
+}
+
+::google::protobuf::internal::SCCInfo<0> scc_info_FloatRangeLessThan_float_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsFloatRangeLessThan_float_2eproto}, {}};
+
 static void InitDefaultsFloatRangeConst_float_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -56,10 +74,11 @@ static void InitDefaultsFloatRangeConst_float_2eproto() {
 
 void InitDefaults_float_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_FloatRangeGreaterThan_float_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_FloatRangeLessThan_float_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_FloatRangeConst_float_2eproto.base);
 }
 
-::google::protobuf::Metadata file_level_metadata_float_2eproto[2];
+::google::protobuf::Metadata file_level_metadata_float_2eproto[3];
 constexpr ::google::protobuf::EnumDescriptor const** file_level_enum_descriptors_float_2eproto = nullptr;
 constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descriptors_float_2eproto = nullptr;
 
@@ -71,6 +90,12 @@ const ::google::protobuf::uint32 TableStruct_float_2eproto::offsets[] PROTOBUF_S
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::pgv::FloatRangeGreaterThan, content_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::pgv::FloatRangeLessThan, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::pgv::FloatRangeLessThan, content_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::pgv::FloatRangeConst, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -79,31 +104,34 @@ const ::google::protobuf::uint32 TableStruct_float_2eproto::offsets[] PROTOBUF_S
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::pgv::FloatRangeGreaterThan)},
-  { 6, -1, sizeof(::pgv::FloatRangeConst)},
+  { 6, -1, sizeof(::pgv::FloatRangeLessThan)},
+  { 12, -1, sizeof(::pgv::FloatRangeConst)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_FloatRangeGreaterThan_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_FloatRangeLessThan_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_FloatRangeConst_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_float_2eproto = {
   {}, AddDescriptors_float_2eproto, "float.proto", schemas,
   file_default_instances, TableStruct_float_2eproto::offsets,
-  file_level_metadata_float_2eproto, 2, file_level_enum_descriptors_float_2eproto, file_level_service_descriptors_float_2eproto,
+  file_level_metadata_float_2eproto, 3, file_level_enum_descriptors_float_2eproto, file_level_service_descriptors_float_2eproto,
 };
 
 const char descriptor_table_protodef_float_2eproto[] =
   "\n\013float.proto\022\003pgv\032\027validate/validate.pr"
   "oto\";\n\025FloatRangeGreaterThan\022\"\n\007content\030"
-  "\001 \003(\002B\021\272\351\300\003\014\222\001\t\"\007\n\005%\000\000\310B\"5\n\017FloatRangeCo"
-  "nst\022\"\n\007content\030\001 \003(\002B\021\272\351\300\003\014\222\001\t\"\007\n\005\r\000\000\310Bb"
-  "\006proto3"
+  "\001 \003(\002B\021\272\351\300\003\014\222\001\t\"\007\n\005%\000\000\310B\"8\n\022FloatRangeLe"
+  "ssThan\022\"\n\007content\030\001 \003(\002B\021\272\351\300\003\014\222\001\t\"\007\n\005\025\000\000"
+  "\310B\"5\n\017FloatRangeConst\022\"\n\007content\030\001 \003(\002B\021"
+  "\272\351\300\003\014\222\001\t\"\007\n\005\r\000\000\310Bb\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_float_2eproto = {
   false, InitDefaults_float_2eproto, 
   descriptor_table_protodef_float_2eproto,
-  "float.proto", &assign_descriptors_table_float_2eproto, 167,
+  "float.proto", &assign_descriptors_table_float_2eproto, 225,
 };
 
 void AddDescriptors_float_2eproto() {
@@ -416,6 +444,302 @@ void FloatRangeGreaterThan::InternalSwap(FloatRangeGreaterThan* other) {
 
 // ===================================================================
 
+void FloatRangeLessThan::InitAsDefaultInstance() {
+}
+class FloatRangeLessThan::HasBitSetters {
+ public:
+};
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int FloatRangeLessThan::kContentFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+FloatRangeLessThan::FloatRangeLessThan()
+  : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:pgv.FloatRangeLessThan)
+}
+FloatRangeLessThan::FloatRangeLessThan(const FloatRangeLessThan& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(nullptr),
+      content_(from.content_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:pgv.FloatRangeLessThan)
+}
+
+void FloatRangeLessThan::SharedCtor() {
+}
+
+FloatRangeLessThan::~FloatRangeLessThan() {
+  // @@protoc_insertion_point(destructor:pgv.FloatRangeLessThan)
+  SharedDtor();
+}
+
+void FloatRangeLessThan::SharedDtor() {
+}
+
+void FloatRangeLessThan::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const FloatRangeLessThan& FloatRangeLessThan::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_FloatRangeLessThan_float_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void FloatRangeLessThan::Clear() {
+// @@protoc_insertion_point(message_clear_start:pgv.FloatRangeLessThan)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  content_.Clear();
+  _internal_metadata_.Clear();
+}
+
+#if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+const char* FloatRangeLessThan::_InternalParse(const char* begin, const char* end, void* object,
+                  ::google::protobuf::internal::ParseContext* ctx) {
+  auto msg = static_cast<FloatRangeLessThan*>(object);
+  ::google::protobuf::int32 size; (void)size;
+  int depth; (void)depth;
+  ::google::protobuf::uint32 tag;
+  ::google::protobuf::internal::ParseFunc parser_till_end; (void)parser_till_end;
+  auto ptr = begin;
+  while (ptr < end) {
+    ptr = ::google::protobuf::io::Parse32(ptr, &tag);
+    GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+    switch (tag >> 3) {
+      // repeated float content = 1 [(.validate.rules) = {
+      case 1: {
+        if (static_cast<::google::protobuf::uint8>(tag) == 10) {
+          ptr = ::google::protobuf::io::ReadSize(ptr, &size);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
+          parser_till_end = ::google::protobuf::internal::PackedFloatParser;
+          object = msg->mutable_content();
+          if (size > end - ptr) goto len_delim_till_end;
+          auto newend = ptr + size;
+          if (size) ptr = parser_till_end(ptr, newend, object, ctx);
+          GOOGLE_PROTOBUF_PARSER_ASSERT(ptr == newend);
+          break;
+        } else if (static_cast<::google::protobuf::uint8>(tag) != 13) goto handle_unusual;
+        do {
+          msg->add_content(::google::protobuf::io::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+          if (ptr >= end) break;
+        } while ((::google::protobuf::io::UnalignedLoad<::google::protobuf::uint64>(ptr) & 255) == 13 && (ptr += 1));
+        break;
+      }
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->EndGroup(tag);
+          return ptr;
+        }
+        auto res = UnknownFieldParse(tag, {_InternalParse, msg},
+          ptr, end, msg->_internal_metadata_.mutable_unknown_fields(), ctx);
+        ptr = res.first;
+        GOOGLE_PROTOBUF_PARSER_ASSERT(ptr != nullptr);
+        if (res.second) return ptr;
+      }
+    }  // switch
+  }  // while
+  return ptr;
+len_delim_till_end:
+  return ctx->StoreAndTailCall(ptr, end, {_InternalParse, msg},
+                               {parser_till_end, object}, size);
+}
+#else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+bool FloatRangeLessThan::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:pgv.FloatRangeLessThan)
+  for (;;) {
+    ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated float content = 1 [(.validate.rules) = {
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_content())));
+        } else if (static_cast< ::google::protobuf::uint8>(tag) == (13 & 0xFF)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 1, 10u, input, this->mutable_content())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:pgv.FloatRangeLessThan)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:pgv.FloatRangeLessThan)
+  return false;
+#undef DO_
+}
+#endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+
+void FloatRangeLessThan::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:pgv.FloatRangeLessThan)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated float content = 1 [(.validate.rules) = {
+  if (this->content_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(_content_cached_byte_size_.load(
+        std::memory_order_relaxed));
+    ::google::protobuf::internal::WireFormatLite::WriteFloatArray(
+      this->content().data(), this->content_size(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:pgv.FloatRangeLessThan)
+}
+
+::google::protobuf::uint8* FloatRangeLessThan::InternalSerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:pgv.FloatRangeLessThan)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated float content = 1 [(.validate.rules) = {
+  if (this->content_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      1,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+        _content_cached_byte_size_.load(std::memory_order_relaxed),
+         target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteFloatNoTagToArray(this->content_, target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:pgv.FloatRangeLessThan)
+  return target;
+}
+
+size_t FloatRangeLessThan::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:pgv.FloatRangeLessThan)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated float content = 1 [(.validate.rules) = {
+  {
+    unsigned int count = static_cast<unsigned int>(this->content_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+            static_cast<::google::protobuf::int32>(data_size));
+    }
+    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
+    _content_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void FloatRangeLessThan::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:pgv.FloatRangeLessThan)
+  GOOGLE_DCHECK_NE(&from, this);
+  const FloatRangeLessThan* source =
+      ::google::protobuf::DynamicCastToGenerated<FloatRangeLessThan>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pgv.FloatRangeLessThan)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pgv.FloatRangeLessThan)
+    MergeFrom(*source);
+  }
+}
+
+void FloatRangeLessThan::MergeFrom(const FloatRangeLessThan& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:pgv.FloatRangeLessThan)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  content_.MergeFrom(from.content_);
+}
+
+void FloatRangeLessThan::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:pgv.FloatRangeLessThan)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FloatRangeLessThan::CopyFrom(const FloatRangeLessThan& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:pgv.FloatRangeLessThan)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FloatRangeLessThan::IsInitialized() const {
+  return true;
+}
+
+void FloatRangeLessThan::Swap(FloatRangeLessThan* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void FloatRangeLessThan::InternalSwap(FloatRangeLessThan* other) {
+  using std::swap;
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  content_.InternalSwap(&other->content_);
+}
+
+::google::protobuf::Metadata FloatRangeLessThan::GetMetadata() const {
+  ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_float_2eproto);
+  return ::file_level_metadata_float_2eproto[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void FloatRangeConst::InitAsDefaultInstance() {
 }
 class FloatRangeConst::HasBitSetters {
@@ -716,6 +1040,9 @@ namespace google {
 namespace protobuf {
 template<> PROTOBUF_NOINLINE ::pgv::FloatRangeGreaterThan* Arena::CreateMaybeMessage< ::pgv::FloatRangeGreaterThan >(Arena* arena) {
   return Arena::CreateInternal< ::pgv::FloatRangeGreaterThan >(arena);
+}
+template<> PROTOBUF_NOINLINE ::pgv::FloatRangeLessThan* Arena::CreateMaybeMessage< ::pgv::FloatRangeLessThan >(Arena* arena) {
+  return Arena::CreateInternal< ::pgv::FloatRangeLessThan >(arena);
 }
 template<> PROTOBUF_NOINLINE ::pgv::FloatRangeConst* Arena::CreateMaybeMessage< ::pgv::FloatRangeConst >(Arena* arena) {
   return Arena::CreateInternal< ::pgv::FloatRangeConst >(arena);

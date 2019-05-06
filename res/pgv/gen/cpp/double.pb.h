@@ -42,7 +42,7 @@ struct TableStruct_double_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[2]
+  static const ::google::protobuf::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -56,11 +56,15 @@ extern DoubleRangeConstDefaultTypeInternal _DoubleRangeConst_default_instance_;
 class DoubleRangeGreaterThan;
 class DoubleRangeGreaterThanDefaultTypeInternal;
 extern DoubleRangeGreaterThanDefaultTypeInternal _DoubleRangeGreaterThan_default_instance_;
+class DoubleRangeLessThan;
+class DoubleRangeLessThanDefaultTypeInternal;
+extern DoubleRangeLessThanDefaultTypeInternal _DoubleRangeLessThan_default_instance_;
 }  // namespace pgv
 namespace google {
 namespace protobuf {
 template<> ::pgv::DoubleRangeConst* Arena::CreateMaybeMessage<::pgv::DoubleRangeConst>(Arena*);
 template<> ::pgv::DoubleRangeGreaterThan* Arena::CreateMaybeMessage<::pgv::DoubleRangeGreaterThan>(Arena*);
+template<> ::pgv::DoubleRangeLessThan* Arena::CreateMaybeMessage<::pgv::DoubleRangeLessThan>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace pgv {
@@ -186,6 +190,125 @@ class DoubleRangeGreaterThan final :
 };
 // -------------------------------------------------------------------
 
+class DoubleRangeLessThan final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.DoubleRangeLessThan) */ {
+ public:
+  DoubleRangeLessThan();
+  virtual ~DoubleRangeLessThan();
+
+  DoubleRangeLessThan(const DoubleRangeLessThan& from);
+
+  inline DoubleRangeLessThan& operator=(const DoubleRangeLessThan& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  DoubleRangeLessThan(DoubleRangeLessThan&& from) noexcept
+    : DoubleRangeLessThan() {
+    *this = ::std::move(from);
+  }
+
+  inline DoubleRangeLessThan& operator=(DoubleRangeLessThan&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const DoubleRangeLessThan& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const DoubleRangeLessThan* internal_default_instance() {
+    return reinterpret_cast<const DoubleRangeLessThan*>(
+               &_DoubleRangeLessThan_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  void Swap(DoubleRangeLessThan* other);
+  friend void swap(DoubleRangeLessThan& a, DoubleRangeLessThan& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DoubleRangeLessThan* New() const final {
+    return CreateMaybeMessage<DoubleRangeLessThan>(nullptr);
+  }
+
+  DoubleRangeLessThan* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<DoubleRangeLessThan>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const DoubleRangeLessThan& from);
+  void MergeFrom(const DoubleRangeLessThan& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DoubleRangeLessThan* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated double content = 1 [(.validate.rules) = {
+  int content_size() const;
+  void clear_content();
+  static const int kContentFieldNumber = 1;
+  double content(int index) const;
+  void set_content(int index, double value);
+  void add_content(double value);
+  const ::google::protobuf::RepeatedField< double >&
+      content() const;
+  ::google::protobuf::RepeatedField< double >*
+      mutable_content();
+
+  // @@protoc_insertion_point(class_scope:pgv.DoubleRangeLessThan)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedField< double > content_;
+  mutable std::atomic<int> _content_cached_byte_size_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_double_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DoubleRangeConst final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.DoubleRangeConst) */ {
  public:
@@ -224,7 +347,7 @@ class DoubleRangeConst final :
                &_DoubleRangeConst_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(DoubleRangeConst* other);
   friend void swap(DoubleRangeConst& a, DoubleRangeConst& b) {
@@ -346,6 +469,40 @@ DoubleRangeGreaterThan::mutable_content() {
 
 // -------------------------------------------------------------------
 
+// DoubleRangeLessThan
+
+// repeated double content = 1 [(.validate.rules) = {
+inline int DoubleRangeLessThan::content_size() const {
+  return content_.size();
+}
+inline void DoubleRangeLessThan::clear_content() {
+  content_.Clear();
+}
+inline double DoubleRangeLessThan::content(int index) const {
+  // @@protoc_insertion_point(field_get:pgv.DoubleRangeLessThan.content)
+  return content_.Get(index);
+}
+inline void DoubleRangeLessThan::set_content(int index, double value) {
+  content_.Set(index, value);
+  // @@protoc_insertion_point(field_set:pgv.DoubleRangeLessThan.content)
+}
+inline void DoubleRangeLessThan::add_content(double value) {
+  content_.Add(value);
+  // @@protoc_insertion_point(field_add:pgv.DoubleRangeLessThan.content)
+}
+inline const ::google::protobuf::RepeatedField< double >&
+DoubleRangeLessThan::content() const {
+  // @@protoc_insertion_point(field_list:pgv.DoubleRangeLessThan.content)
+  return content_;
+}
+inline ::google::protobuf::RepeatedField< double >*
+DoubleRangeLessThan::mutable_content() {
+  // @@protoc_insertion_point(field_mutable_list:pgv.DoubleRangeLessThan.content)
+  return &content_;
+}
+
+// -------------------------------------------------------------------
+
 // DoubleRangeConst
 
 // repeated double content = 1 [(.validate.rules) = {
@@ -381,6 +538,8 @@ DoubleRangeConst::mutable_content() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

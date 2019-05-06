@@ -18,6 +18,9 @@ using std::string;
 pgv::Validator<::pgv::BytesRangeMaxLen> validator___pgv__BytesRangeMaxLen(static_cast<bool(*)(const ::pgv::BytesRangeMaxLen&, pgv::ValidationMsg*)>(::pgv::Validate));
 
 
+pgv::Validator<::pgv::BytesRangeMinLen> validator___pgv__BytesRangeMinLen(static_cast<bool(*)(const ::pgv::BytesRangeMinLen&, pgv::ValidationMsg*)>(::pgv::Validate));
+
+
 pgv::Validator<::pgv::BytesRangePrefix> validator___pgv__BytesRangePrefix(static_cast<bool(*)(const ::pgv::BytesRangePrefix&, pgv::ValidationMsg*)>(::pgv::Validate));
 
 
@@ -92,6 +95,89 @@ msg << ": " << "[\"value length must be at most \" '\\n' \" bytes\"]";
 return false;
 }
 		}
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+		}
+	
+
+	return true;
+}
+
+
+
+
+
+// Validate checks the field values on ::pgv::BytesRangeMinLen with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the return value is false and an error message is written to the
+// input string argument.
+
+	
+
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+
+
+
+bool Validate(const ::pgv::BytesRangeMinLen& m, pgv::ValidationMsg* err) {
+	(void)m;
+	(void)err;
+	
+
+	
+
+	
+
+	
+		for (int i = 0; i < m.content().size(); i++) {
+			const auto& item = m.content().Get(i);
+			(void)item;
+
+			
+
+			
+	
+	
+	
+
+	
+
+
+	
+	{
+		const auto length = item.size();
+		
+			if (length < 10) {
+				{
+std::ostringstream msg("invalid ");
+msg << "BytesRangeMinLenValidationError" << "." << "Content";
+msg << "[" << "i" << "]";
+msg << ": " << "[\"value length must be at least \" '\\n' \" bytes\"]";
+*err = msg.str();
+return false;
+}
+			}
+		
+	}
 	
 
 	

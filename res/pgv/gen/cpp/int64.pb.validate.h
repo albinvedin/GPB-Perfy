@@ -20,6 +20,9 @@ using std::string;
 extern bool Validate(const ::pgv::Int64RangeGreaterThan& m, pgv::ValidationMsg* err);
 
 
+extern bool Validate(const ::pgv::Int64RangeLessThan& m, pgv::ValidationMsg* err);
+
+
 extern bool Validate(const ::pgv::Int64RangeConst& m, pgv::ValidationMsg* err);
 
 
@@ -29,5 +32,6 @@ extern bool Validate(const ::pgv::Int64RangeConst& m, pgv::ValidationMsg* err);
 
 #define X_PGV_INT64(X) \
 X(::pgv::Int64RangeGreaterThan) \
+X(::pgv::Int64RangeLessThan) \
 X(::pgv::Int64RangeConst) \
 

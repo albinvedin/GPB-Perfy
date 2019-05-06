@@ -112,6 +112,85 @@ var _ interface {
 	ErrorName() string
 } = DoubleRangeGreaterThanValidationError{}
 
+// Validate checks the field values on DoubleRangeLessThan with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *DoubleRangeLessThan) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetContent() {
+		_, _ = idx, item
+
+		if item >= 100 {
+			return DoubleRangeLessThanValidationError{
+				field:  fmt.Sprintf("Content[%v]", idx),
+				reason: "value must be less than 100",
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// DoubleRangeLessThanValidationError is the validation error returned by
+// DoubleRangeLessThan.Validate if the designated constraints aren't met.
+type DoubleRangeLessThanValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DoubleRangeLessThanValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DoubleRangeLessThanValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DoubleRangeLessThanValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DoubleRangeLessThanValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DoubleRangeLessThanValidationError) ErrorName() string {
+	return "DoubleRangeLessThanValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DoubleRangeLessThanValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDoubleRangeLessThan.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DoubleRangeLessThanValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DoubleRangeLessThanValidationError{}
+
 // Validate checks the field values on DoubleRangeConst with the rules defined
 // in the proto definition for this message. If any rules are violated, an
 // error is returned.

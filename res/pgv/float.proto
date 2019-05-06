@@ -8,6 +8,10 @@ message FloatRangeGreaterThan {
     repeated float content = 1 [(validate.rules).repeated.items.float.gt = 100];
 }
 
+message FloatRangeLessThan {
+    repeated float content = 1 [(validate.rules).repeated.items.float.lt = 100];
+}
+
 message FloatRangeConst {
     repeated float content = 1 [(validate.rules).repeated.items.float.const = 100];
 }

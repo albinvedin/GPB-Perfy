@@ -22,7 +22,7 @@ func main() {
 	fmt.Println(string(output))
 }
 
-func validateN(iterations int, warmup int, message *pgv.BytesRangeContains) []int64 {
+func validateN(iterations int, warmup int, message *pgv.DoubleRangeLessThan) []int64 {
 	var elapsedTimes []int64
 	for i := 0; i < iterations; i++ {
 		elapsedTime := validate(message)
@@ -33,17 +33,17 @@ func validateN(iterations int, warmup int, message *pgv.BytesRangeContains) []in
 	return elapsedTimes
 }
 
-func validate(message *pgv.BytesRangeContains) int64 {
+func validate(message *pgv.DoubleRangeLessThan) int64 {
 	startTime := time.Now()
 	message.Validate()
 	elapsedTime := time.Since(startTime)
 	return elapsedTime.Nanoseconds()
 }
 
-func createMessage(messageLength int) *pgv.BytesRangeContains {
-	message := new(pgv.BytesRangeContains)
+func createMessage(messageLength int) *pgv.DoubleRangeLessThan {
+	message := new(pgv.DoubleRangeLessThan)
 	for i := 0; i < messageLength; i++ {
-		message.Content = append(message.Content, []byte("\x99"))
+		message.Content = append(message.Content, 99)
 	}
 	return message
 }

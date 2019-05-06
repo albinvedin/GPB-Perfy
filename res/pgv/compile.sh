@@ -16,6 +16,8 @@ protoc \
   $p/*.proto
 $p/validate/compile.sh
 
+python3 "$p/generate.py"
+
 # for d in */
 # do
 #   protoc \

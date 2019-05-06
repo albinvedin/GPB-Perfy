@@ -23,12 +23,6 @@ extern bool Validate(const ::pgv::StringRangePrefix& m, pgv::ValidationMsg* err)
 extern bool Validate(const ::pgv::StringRangeSuffix& m, pgv::ValidationMsg* err);
 
 
-extern bool Validate(const ::pgv::StringRangeMaxLen& m, pgv::ValidationMsg* err);
-
-
-extern bool Validate(const ::pgv::StringRangeMinLen& m, pgv::ValidationMsg* err);
-
-
 extern bool Validate(const ::pgv::StringRangeContains& m, pgv::ValidationMsg* err);
 
 
@@ -39,7 +33,5 @@ extern bool Validate(const ::pgv::StringRangeContains& m, pgv::ValidationMsg* er
 #define X_PGV_STRING(X) \
 X(::pgv::StringRangePrefix) \
 X(::pgv::StringRangeSuffix) \
-X(::pgv::StringRangeMaxLen) \
-X(::pgv::StringRangeMinLen) \
 X(::pgv::StringRangeContains) \
 

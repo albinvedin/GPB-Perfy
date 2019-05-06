@@ -18,6 +18,9 @@ using std::string;
 pgv::Validator<::pgv::FloatRangeGreaterThan> validator___pgv__FloatRangeGreaterThan(static_cast<bool(*)(const ::pgv::FloatRangeGreaterThan&, pgv::ValidationMsg*)>(::pgv::Validate));
 
 
+pgv::Validator<::pgv::FloatRangeLessThan> validator___pgv__FloatRangeLessThan(static_cast<bool(*)(const ::pgv::FloatRangeLessThan&, pgv::ValidationMsg*)>(::pgv::Validate));
+
+
 pgv::Validator<::pgv::FloatRangeConst> validator___pgv__FloatRangeConst(static_cast<bool(*)(const ::pgv::FloatRangeConst&, pgv::ValidationMsg*)>(::pgv::Validate));
 
 
@@ -83,6 +86,76 @@ msg << ": " << "[\"value must be greater than \" %!q(float32=100)]";
 return false;
 }
 		}
+	
+
+	
+
+
+		}
+	
+
+	return true;
+}
+
+
+
+
+
+// Validate checks the field values on ::pgv::FloatRangeLessThan with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the return value is false and an error message is written to the
+// input string argument.
+
+	
+
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+
+
+
+bool Validate(const ::pgv::FloatRangeLessThan& m, pgv::ValidationMsg* err) {
+	(void)m;
+	(void)err;
+	
+
+	
+
+	
+
+	
+		for (int i = 0; i < m.content().size(); i++) {
+			const auto& item = m.content().Get(i);
+			(void)item;
+
+			
+
+			
+	
+	
+
+	
+	
+		
+			if (item >= 100) {
+				{
+std::ostringstream msg("invalid ");
+msg << "FloatRangeLessThanValidationError" << "." << "Content";
+msg << "[" << "i" << "]";
+msg << ": " << "[\"value must be less than \" %!q(float32=100)]";
+*err = msg.str();
+return false;
+}
+			}
+		
 	
 
 	

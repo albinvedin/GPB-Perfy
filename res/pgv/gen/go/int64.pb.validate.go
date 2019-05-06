@@ -112,6 +112,85 @@ var _ interface {
 	ErrorName() string
 } = Int64RangeGreaterThanValidationError{}
 
+// Validate checks the field values on Int64RangeLessThan with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, an error is returned.
+func (m *Int64RangeLessThan) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetContent() {
+		_, _ = idx, item
+
+		if item >= 100 {
+			return Int64RangeLessThanValidationError{
+				field:  fmt.Sprintf("Content[%v]", idx),
+				reason: "value must be less than 100",
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// Int64RangeLessThanValidationError is the validation error returned by
+// Int64RangeLessThan.Validate if the designated constraints aren't met.
+type Int64RangeLessThanValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Int64RangeLessThanValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Int64RangeLessThanValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Int64RangeLessThanValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Int64RangeLessThanValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Int64RangeLessThanValidationError) ErrorName() string {
+	return "Int64RangeLessThanValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e Int64RangeLessThanValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sInt64RangeLessThan.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Int64RangeLessThanValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Int64RangeLessThanValidationError{}
+
 // Validate checks the field values on Int64RangeConst with the rules defined
 // in the proto definition for this message. If any rules are violated, an
 // error is returned.

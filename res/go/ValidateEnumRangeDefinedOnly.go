@@ -43,7 +43,7 @@ func validate(message *pgv.EnumRangeDefinedOnly) int64 {
 func createMessage(messageLength int) *pgv.EnumRangeDefinedOnly {
 	message := new(pgv.EnumRangeDefinedOnly)
 	for i := 0; i < messageLength; i++ {
-		message.Content = append(message.Content, true)
+		message.Content = append(message.Content, 0)
 	}
 	return message
 }

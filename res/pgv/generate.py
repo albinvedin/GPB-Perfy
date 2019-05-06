@@ -8,18 +8,38 @@ class MessageType:
     def __init__(self, messageType, contentValue, rule):
         self.messageType = messageType
         self.rule = rule
-        self.adjustValue(contentValue)
-    def adjustValue(self, value):
+        self.contentValue = contentValue
+
+    def adjustValue(self, lang):
         if self.rule.endswith("gt"):
-            self.contentValue = value + 1
+            self.contentValue = self.contentValue + 1
         elif self.rule.endswith("lt"):
-            self.contentValue = value - 1
-        elif "bytes" in self.rule and self.rule.endswith("min_len"):
-            self.contentValue = "\"" + r"\x99" * math.ceil(value / 4) + "\""
-        elif "bytes" in self.rule and self.rule.endswith("max_len"):
-            self.contentValue = "\"" + r"\x99" * math.floor(value / 4) + "\""
-        else:
-            self.contentValue = value
+            self.contentValue = self.contentValue - 1
+        elif "defined_only" in self.rule:
+            self.contentValue = 0
+
+        if lang == "go":
+            self.adjustValueForGo()
+        elif lang == "cpp":
+            self.adjustValueForCpp()
+
+    def adjustValueForGo(self):
+        # In Golang we want a bytestring to look something like this: []byte("\x99")
+        if "bytes" in self.rule:
+            byteString = r"[]byte(" + "\""
+            if self.rule.endswith("min_len"):
+                byteString += r"\x99" * math.ceil(self.contentValue / 4)
+            elif self.rule.endswith("max_len"):
+                byteString += r"\x99" * math.floor(self.contentValue / 4)
+            else:
+                byteString += r"\x99"
+            byteString += "\"" + r")"
+            self.contentValue = byteString
+
+    def adjustValueForCpp(self):
+        # This needs to be written for c++, language specific syntax for variable (probably only for the bytes type)
+        if "bytes" in self.rule:
+            pass
 
 def main():
     goTemplate = read(getPath() + "/templates/go/range.txt")
@@ -34,7 +54,7 @@ def main():
 # .proto-file parsers #
 def parse(filename):
     messages = []
-    string = read(filename)
+    string = read(getPath() + "/" + filename)
     types = parseTypes(string)
     values = parseValues(string)
     rules = parseRules(string)
@@ -57,15 +77,17 @@ def parseRules(string):
 # Golang generation #
 def generateGoFiles(messages, template):
     for message in messages:
+        message.adjustValue("go")
         generateGoFile(message.messageType, message.contentValue, template)
 
 def generateGoFile(messageType, contentValue, template):
     code = generateFile(messageType, contentValue, template)
-    write(getGoOutPath() ,messageType, code, "go")
+    write(getGoOutPath(), messageType, code, "go")
 
 # Cpp generation #
 def generateCppFiles(messages, template):
     for message in messages:
+        message.adjustValue("cpp")
         generateCppFile(message.messageType, message.contentValue, template)
 
 def generateCppFile(messageType, contentValue, template):
@@ -98,9 +120,12 @@ def write(path, filename, content, extension):
 
 # Type helpers #
 def convert(value):
-    if value.replace('.', '', 1).isdigit():
+    if (value.isdigit()):
         return int(value)
-    return value
+    try:
+        return float(value.replace(",", ".", 1))
+    except ValueError:
+        return value
 
 if __name__ == "__main__":
     main()

@@ -42,7 +42,7 @@ struct TableStruct_bytes_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[4]
+  static const ::google::protobuf::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -59,6 +59,9 @@ extern BytesRangeContainsDefaultTypeInternal _BytesRangeContains_default_instanc
 class BytesRangeMaxLen;
 class BytesRangeMaxLenDefaultTypeInternal;
 extern BytesRangeMaxLenDefaultTypeInternal _BytesRangeMaxLen_default_instance_;
+class BytesRangeMinLen;
+class BytesRangeMinLenDefaultTypeInternal;
+extern BytesRangeMinLenDefaultTypeInternal _BytesRangeMinLen_default_instance_;
 class BytesRangePrefix;
 class BytesRangePrefixDefaultTypeInternal;
 extern BytesRangePrefixDefaultTypeInternal _BytesRangePrefix_default_instance_;
@@ -68,6 +71,7 @@ namespace protobuf {
 template<> ::pgv::BytesRangeConst* Arena::CreateMaybeMessage<::pgv::BytesRangeConst>(Arena*);
 template<> ::pgv::BytesRangeContains* Arena::CreateMaybeMessage<::pgv::BytesRangeContains>(Arena*);
 template<> ::pgv::BytesRangeMaxLen* Arena::CreateMaybeMessage<::pgv::BytesRangeMaxLen>(Arena*);
+template<> ::pgv::BytesRangeMinLen* Arena::CreateMaybeMessage<::pgv::BytesRangeMinLen>(Arena*);
 template<> ::pgv::BytesRangePrefix* Arena::CreateMaybeMessage<::pgv::BytesRangePrefix>(Arena*);
 }  // namespace protobuf
 }  // namespace google
@@ -203,6 +207,134 @@ class BytesRangeMaxLen final :
 };
 // -------------------------------------------------------------------
 
+class BytesRangeMinLen final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.BytesRangeMinLen) */ {
+ public:
+  BytesRangeMinLen();
+  virtual ~BytesRangeMinLen();
+
+  BytesRangeMinLen(const BytesRangeMinLen& from);
+
+  inline BytesRangeMinLen& operator=(const BytesRangeMinLen& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  BytesRangeMinLen(BytesRangeMinLen&& from) noexcept
+    : BytesRangeMinLen() {
+    *this = ::std::move(from);
+  }
+
+  inline BytesRangeMinLen& operator=(BytesRangeMinLen&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return default_instance().GetDescriptor();
+  }
+  static const BytesRangeMinLen& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const BytesRangeMinLen* internal_default_instance() {
+    return reinterpret_cast<const BytesRangeMinLen*>(
+               &_BytesRangeMinLen_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  void Swap(BytesRangeMinLen* other);
+  friend void swap(BytesRangeMinLen& a, BytesRangeMinLen& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline BytesRangeMinLen* New() const final {
+    return CreateMaybeMessage<BytesRangeMinLen>(nullptr);
+  }
+
+  BytesRangeMinLen* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<BytesRangeMinLen>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const BytesRangeMinLen& from);
+  void MergeFrom(const BytesRangeMinLen& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
+  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
+  #else
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(BytesRangeMinLen* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated bytes content = 1 [(.validate.rules) = {
+  int content_size() const;
+  void clear_content();
+  static const int kContentFieldNumber = 1;
+  const ::std::string& content(int index) const;
+  ::std::string* mutable_content(int index);
+  void set_content(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_content(int index, ::std::string&& value);
+  #endif
+  void set_content(int index, const char* value);
+  void set_content(int index, const void* value, size_t size);
+  ::std::string* add_content();
+  void add_content(const ::std::string& value);
+  #if LANG_CXX11
+  void add_content(::std::string&& value);
+  #endif
+  void add_content(const char* value);
+  void add_content(const void* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField<::std::string>& content() const;
+  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_content();
+
+  // @@protoc_insertion_point(class_scope:pgv.BytesRangeMinLen)
+ private:
+  class HasBitSetters;
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField<::std::string> content_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_bytes_2eproto;
+};
+// -------------------------------------------------------------------
+
 class BytesRangePrefix final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.BytesRangePrefix) */ {
  public:
@@ -241,7 +373,7 @@ class BytesRangePrefix final :
                &_BytesRangePrefix_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(BytesRangePrefix* other);
   friend void swap(BytesRangePrefix& a, BytesRangePrefix& b) {
@@ -369,7 +501,7 @@ class BytesRangeContains final :
                &_BytesRangeContains_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(BytesRangeContains* other);
   friend void swap(BytesRangeContains& a, BytesRangeContains& b) {
@@ -497,7 +629,7 @@ class BytesRangeConst final :
                &_BytesRangeConst_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(BytesRangeConst* other);
   friend void swap(BytesRangeConst& a, BytesRangeConst& b) {
@@ -662,6 +794,79 @@ BytesRangeMaxLen::content() const {
 inline ::google::protobuf::RepeatedPtrField<::std::string>*
 BytesRangeMaxLen::mutable_content() {
   // @@protoc_insertion_point(field_mutable_list:pgv.BytesRangeMaxLen.content)
+  return &content_;
+}
+
+// -------------------------------------------------------------------
+
+// BytesRangeMinLen
+
+// repeated bytes content = 1 [(.validate.rules) = {
+inline int BytesRangeMinLen::content_size() const {
+  return content_.size();
+}
+inline void BytesRangeMinLen::clear_content() {
+  content_.Clear();
+}
+inline const ::std::string& BytesRangeMinLen::content(int index) const {
+  // @@protoc_insertion_point(field_get:pgv.BytesRangeMinLen.content)
+  return content_.Get(index);
+}
+inline ::std::string* BytesRangeMinLen::mutable_content(int index) {
+  // @@protoc_insertion_point(field_mutable:pgv.BytesRangeMinLen.content)
+  return content_.Mutable(index);
+}
+inline void BytesRangeMinLen::set_content(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:pgv.BytesRangeMinLen.content)
+  content_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void BytesRangeMinLen::set_content(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:pgv.BytesRangeMinLen.content)
+  content_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void BytesRangeMinLen::set_content(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  content_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:pgv.BytesRangeMinLen.content)
+}
+inline void BytesRangeMinLen::set_content(int index, const void* value, size_t size) {
+  content_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pgv.BytesRangeMinLen.content)
+}
+inline ::std::string* BytesRangeMinLen::add_content() {
+  // @@protoc_insertion_point(field_add_mutable:pgv.BytesRangeMinLen.content)
+  return content_.Add();
+}
+inline void BytesRangeMinLen::add_content(const ::std::string& value) {
+  content_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:pgv.BytesRangeMinLen.content)
+}
+#if LANG_CXX11
+inline void BytesRangeMinLen::add_content(::std::string&& value) {
+  content_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:pgv.BytesRangeMinLen.content)
+}
+#endif
+inline void BytesRangeMinLen::add_content(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  content_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:pgv.BytesRangeMinLen.content)
+}
+inline void BytesRangeMinLen::add_content(const void* value, size_t size) {
+  content_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:pgv.BytesRangeMinLen.content)
+}
+inline const ::google::protobuf::RepeatedPtrField<::std::string>&
+BytesRangeMinLen::content() const {
+  // @@protoc_insertion_point(field_list:pgv.BytesRangeMinLen.content)
+  return content_;
+}
+inline ::google::protobuf::RepeatedPtrField<::std::string>*
+BytesRangeMinLen::mutable_content() {
+  // @@protoc_insertion_point(field_mutable_list:pgv.BytesRangeMinLen.content)
   return &content_;
 }
 
@@ -887,6 +1092,8 @@ BytesRangeConst::mutable_content() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

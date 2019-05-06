@@ -42,7 +42,7 @@ struct TableStruct_string_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::google::protobuf::internal::ParseTable schema[5]
+  static const ::google::protobuf::internal::ParseTable schema[3]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
@@ -53,12 +53,6 @@ namespace pgv {
 class StringRangeContains;
 class StringRangeContainsDefaultTypeInternal;
 extern StringRangeContainsDefaultTypeInternal _StringRangeContains_default_instance_;
-class StringRangeMaxLen;
-class StringRangeMaxLenDefaultTypeInternal;
-extern StringRangeMaxLenDefaultTypeInternal _StringRangeMaxLen_default_instance_;
-class StringRangeMinLen;
-class StringRangeMinLenDefaultTypeInternal;
-extern StringRangeMinLenDefaultTypeInternal _StringRangeMinLen_default_instance_;
 class StringRangePrefix;
 class StringRangePrefixDefaultTypeInternal;
 extern StringRangePrefixDefaultTypeInternal _StringRangePrefix_default_instance_;
@@ -69,8 +63,6 @@ extern StringRangeSuffixDefaultTypeInternal _StringRangeSuffix_default_instance_
 namespace google {
 namespace protobuf {
 template<> ::pgv::StringRangeContains* Arena::CreateMaybeMessage<::pgv::StringRangeContains>(Arena*);
-template<> ::pgv::StringRangeMaxLen* Arena::CreateMaybeMessage<::pgv::StringRangeMaxLen>(Arena*);
-template<> ::pgv::StringRangeMinLen* Arena::CreateMaybeMessage<::pgv::StringRangeMinLen>(Arena*);
 template<> ::pgv::StringRangePrefix* Arena::CreateMaybeMessage<::pgv::StringRangePrefix>(Arena*);
 template<> ::pgv::StringRangeSuffix* Arena::CreateMaybeMessage<::pgv::StringRangeSuffix>(Arena*);
 }  // namespace protobuf
@@ -335,262 +327,6 @@ class StringRangeSuffix final :
 };
 // -------------------------------------------------------------------
 
-class StringRangeMaxLen final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.StringRangeMaxLen) */ {
- public:
-  StringRangeMaxLen();
-  virtual ~StringRangeMaxLen();
-
-  StringRangeMaxLen(const StringRangeMaxLen& from);
-
-  inline StringRangeMaxLen& operator=(const StringRangeMaxLen& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  StringRangeMaxLen(StringRangeMaxLen&& from) noexcept
-    : StringRangeMaxLen() {
-    *this = ::std::move(from);
-  }
-
-  inline StringRangeMaxLen& operator=(StringRangeMaxLen&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return default_instance().GetDescriptor();
-  }
-  static const StringRangeMaxLen& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const StringRangeMaxLen* internal_default_instance() {
-    return reinterpret_cast<const StringRangeMaxLen*>(
-               &_StringRangeMaxLen_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    2;
-
-  void Swap(StringRangeMaxLen* other);
-  friend void swap(StringRangeMaxLen& a, StringRangeMaxLen& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline StringRangeMaxLen* New() const final {
-    return CreateMaybeMessage<StringRangeMaxLen>(nullptr);
-  }
-
-  StringRangeMaxLen* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<StringRangeMaxLen>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const StringRangeMaxLen& from);
-  void MergeFrom(const StringRangeMaxLen& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
-  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
-  #else
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(StringRangeMaxLen* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated string content = 1 [(.validate.rules) = {
-  int content_size() const;
-  void clear_content();
-  static const int kContentFieldNumber = 1;
-  const ::std::string& content(int index) const;
-  ::std::string* mutable_content(int index);
-  void set_content(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_content(int index, ::std::string&& value);
-  #endif
-  void set_content(int index, const char* value);
-  void set_content(int index, const char* value, size_t size);
-  ::std::string* add_content();
-  void add_content(const ::std::string& value);
-  #if LANG_CXX11
-  void add_content(::std::string&& value);
-  #endif
-  void add_content(const char* value);
-  void add_content(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField<::std::string>& content() const;
-  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_content();
-
-  // @@protoc_insertion_point(class_scope:pgv.StringRangeMaxLen)
- private:
-  class HasBitSetters;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField<::std::string> content_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_string_2eproto;
-};
-// -------------------------------------------------------------------
-
-class StringRangeMinLen final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.StringRangeMinLen) */ {
- public:
-  StringRangeMinLen();
-  virtual ~StringRangeMinLen();
-
-  StringRangeMinLen(const StringRangeMinLen& from);
-
-  inline StringRangeMinLen& operator=(const StringRangeMinLen& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  #if LANG_CXX11
-  StringRangeMinLen(StringRangeMinLen&& from) noexcept
-    : StringRangeMinLen() {
-    *this = ::std::move(from);
-  }
-
-  inline StringRangeMinLen& operator=(StringRangeMinLen&& from) noexcept {
-    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
-      if (this != &from) InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-  #endif
-  static const ::google::protobuf::Descriptor* descriptor() {
-    return default_instance().GetDescriptor();
-  }
-  static const StringRangeMinLen& default_instance();
-
-  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const StringRangeMinLen* internal_default_instance() {
-    return reinterpret_cast<const StringRangeMinLen*>(
-               &_StringRangeMinLen_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    3;
-
-  void Swap(StringRangeMinLen* other);
-  friend void swap(StringRangeMinLen& a, StringRangeMinLen& b) {
-    a.Swap(&b);
-  }
-
-  // implements Message ----------------------------------------------
-
-  inline StringRangeMinLen* New() const final {
-    return CreateMaybeMessage<StringRangeMinLen>(nullptr);
-  }
-
-  StringRangeMinLen* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<StringRangeMinLen>(arena);
-  }
-  void CopyFrom(const ::google::protobuf::Message& from) final;
-  void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const StringRangeMinLen& from);
-  void MergeFrom(const StringRangeMinLen& from);
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  static const char* _InternalParse(const char* begin, const char* end, void* object, ::google::protobuf::internal::ParseContext* ctx);
-  ::google::protobuf::internal::ParseFunc _ParseFunc() const final { return _InternalParse; }
-  #else
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input) final;
-  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const final;
-  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
-      ::google::protobuf::uint8* target) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(StringRangeMinLen* other);
-  private:
-  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
-    return nullptr;
-  }
-  inline void* MaybeArenaPtr() const {
-    return nullptr;
-  }
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated string content = 1 [(.validate.rules) = {
-  int content_size() const;
-  void clear_content();
-  static const int kContentFieldNumber = 1;
-  const ::std::string& content(int index) const;
-  ::std::string* mutable_content(int index);
-  void set_content(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_content(int index, ::std::string&& value);
-  #endif
-  void set_content(int index, const char* value);
-  void set_content(int index, const char* value, size_t size);
-  ::std::string* add_content();
-  void add_content(const ::std::string& value);
-  #if LANG_CXX11
-  void add_content(::std::string&& value);
-  #endif
-  void add_content(const char* value);
-  void add_content(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField<::std::string>& content() const;
-  ::google::protobuf::RepeatedPtrField<::std::string>* mutable_content();
-
-  // @@protoc_insertion_point(class_scope:pgv.StringRangeMinLen)
- private:
-  class HasBitSetters;
-
-  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField<::std::string> content_;
-  mutable ::google::protobuf::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_string_2eproto;
-};
-// -------------------------------------------------------------------
-
 class StringRangeContains final :
     public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.StringRangeContains) */ {
  public:
@@ -629,7 +365,7 @@ class StringRangeContains final :
                &_StringRangeContains_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    2;
 
   void Swap(StringRangeContains* other);
   friend void swap(StringRangeContains& a, StringRangeContains& b) {
@@ -872,152 +608,6 @@ StringRangeSuffix::mutable_content() {
 
 // -------------------------------------------------------------------
 
-// StringRangeMaxLen
-
-// repeated string content = 1 [(.validate.rules) = {
-inline int StringRangeMaxLen::content_size() const {
-  return content_.size();
-}
-inline void StringRangeMaxLen::clear_content() {
-  content_.Clear();
-}
-inline const ::std::string& StringRangeMaxLen::content(int index) const {
-  // @@protoc_insertion_point(field_get:pgv.StringRangeMaxLen.content)
-  return content_.Get(index);
-}
-inline ::std::string* StringRangeMaxLen::mutable_content(int index) {
-  // @@protoc_insertion_point(field_mutable:pgv.StringRangeMaxLen.content)
-  return content_.Mutable(index);
-}
-inline void StringRangeMaxLen::set_content(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:pgv.StringRangeMaxLen.content)
-  content_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void StringRangeMaxLen::set_content(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:pgv.StringRangeMaxLen.content)
-  content_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void StringRangeMaxLen::set_content(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  content_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:pgv.StringRangeMaxLen.content)
-}
-inline void StringRangeMaxLen::set_content(int index, const char* value, size_t size) {
-  content_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:pgv.StringRangeMaxLen.content)
-}
-inline ::std::string* StringRangeMaxLen::add_content() {
-  // @@protoc_insertion_point(field_add_mutable:pgv.StringRangeMaxLen.content)
-  return content_.Add();
-}
-inline void StringRangeMaxLen::add_content(const ::std::string& value) {
-  content_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:pgv.StringRangeMaxLen.content)
-}
-#if LANG_CXX11
-inline void StringRangeMaxLen::add_content(::std::string&& value) {
-  content_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:pgv.StringRangeMaxLen.content)
-}
-#endif
-inline void StringRangeMaxLen::add_content(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  content_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:pgv.StringRangeMaxLen.content)
-}
-inline void StringRangeMaxLen::add_content(const char* value, size_t size) {
-  content_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:pgv.StringRangeMaxLen.content)
-}
-inline const ::google::protobuf::RepeatedPtrField<::std::string>&
-StringRangeMaxLen::content() const {
-  // @@protoc_insertion_point(field_list:pgv.StringRangeMaxLen.content)
-  return content_;
-}
-inline ::google::protobuf::RepeatedPtrField<::std::string>*
-StringRangeMaxLen::mutable_content() {
-  // @@protoc_insertion_point(field_mutable_list:pgv.StringRangeMaxLen.content)
-  return &content_;
-}
-
-// -------------------------------------------------------------------
-
-// StringRangeMinLen
-
-// repeated string content = 1 [(.validate.rules) = {
-inline int StringRangeMinLen::content_size() const {
-  return content_.size();
-}
-inline void StringRangeMinLen::clear_content() {
-  content_.Clear();
-}
-inline const ::std::string& StringRangeMinLen::content(int index) const {
-  // @@protoc_insertion_point(field_get:pgv.StringRangeMinLen.content)
-  return content_.Get(index);
-}
-inline ::std::string* StringRangeMinLen::mutable_content(int index) {
-  // @@protoc_insertion_point(field_mutable:pgv.StringRangeMinLen.content)
-  return content_.Mutable(index);
-}
-inline void StringRangeMinLen::set_content(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:pgv.StringRangeMinLen.content)
-  content_.Mutable(index)->assign(value);
-}
-#if LANG_CXX11
-inline void StringRangeMinLen::set_content(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:pgv.StringRangeMinLen.content)
-  content_.Mutable(index)->assign(std::move(value));
-}
-#endif
-inline void StringRangeMinLen::set_content(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  content_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:pgv.StringRangeMinLen.content)
-}
-inline void StringRangeMinLen::set_content(int index, const char* value, size_t size) {
-  content_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:pgv.StringRangeMinLen.content)
-}
-inline ::std::string* StringRangeMinLen::add_content() {
-  // @@protoc_insertion_point(field_add_mutable:pgv.StringRangeMinLen.content)
-  return content_.Add();
-}
-inline void StringRangeMinLen::add_content(const ::std::string& value) {
-  content_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:pgv.StringRangeMinLen.content)
-}
-#if LANG_CXX11
-inline void StringRangeMinLen::add_content(::std::string&& value) {
-  content_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:pgv.StringRangeMinLen.content)
-}
-#endif
-inline void StringRangeMinLen::add_content(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  content_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:pgv.StringRangeMinLen.content)
-}
-inline void StringRangeMinLen::add_content(const char* value, size_t size) {
-  content_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:pgv.StringRangeMinLen.content)
-}
-inline const ::google::protobuf::RepeatedPtrField<::std::string>&
-StringRangeMinLen::content() const {
-  // @@protoc_insertion_point(field_list:pgv.StringRangeMinLen.content)
-  return content_;
-}
-inline ::google::protobuf::RepeatedPtrField<::std::string>*
-StringRangeMinLen::mutable_content() {
-  // @@protoc_insertion_point(field_mutable_list:pgv.StringRangeMinLen.content)
-  return &content_;
-}
-
-// -------------------------------------------------------------------
-
 // StringRangeContains
 
 // repeated string content = 1 [(.validate.rules) = {
@@ -1092,10 +682,6 @@ StringRangeContains::mutable_content() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
