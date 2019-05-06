@@ -8,6 +8,10 @@ message BytesRangeMaxLen {
     repeated bytes content = 1 [(validate.rules).repeated.items.bytes.max_len = 10];
 }
 
+message BytesRangeMinLen {
+    repeated bytes content = 1 [(validate.rules).repeated.items.bytes.min_len = 10];
+}
+
 message BytesRangePrefix {
     repeated bytes content = 1 [(validate.rules).repeated.items.bytes.prefix = "\x99"];
 }

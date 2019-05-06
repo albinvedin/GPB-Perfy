@@ -112,6 +112,85 @@ var _ interface {
 	ErrorName() string
 } = StringRangePrefixValidationError{}
 
+// Validate checks the field values on StringRangeSuffix with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *StringRangeSuffix) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetContent() {
+		_, _ = idx, item
+
+		if !strings.HasSuffix(item, "Foo") {
+			return StringRangeSuffixValidationError{
+				field:  fmt.Sprintf("Content[%v]", idx),
+				reason: "value does not have suffix \"Foo\"",
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// StringRangeSuffixValidationError is the validation error returned by
+// StringRangeSuffix.Validate if the designated constraints aren't met.
+type StringRangeSuffixValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StringRangeSuffixValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StringRangeSuffixValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StringRangeSuffixValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StringRangeSuffixValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StringRangeSuffixValidationError) ErrorName() string {
+	return "StringRangeSuffixValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StringRangeSuffixValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStringRangeSuffix.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StringRangeSuffixValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StringRangeSuffixValidationError{}
+
 // Validate checks the field values on StringRangeMaxLen with the rules defined
 // in the proto definition for this message. If any rules are violated, an
 // error is returned.
@@ -190,6 +269,85 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = StringRangeMaxLenValidationError{}
+
+// Validate checks the field values on StringRangeMinLen with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *StringRangeMinLen) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	for idx, item := range m.GetContent() {
+		_, _ = idx, item
+
+		if utf8.RuneCountInString(item) < 2 {
+			return StringRangeMinLenValidationError{
+				field:  fmt.Sprintf("Content[%v]", idx),
+				reason: "value length must be at least 2 runes",
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// StringRangeMinLenValidationError is the validation error returned by
+// StringRangeMinLen.Validate if the designated constraints aren't met.
+type StringRangeMinLenValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e StringRangeMinLenValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e StringRangeMinLenValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e StringRangeMinLenValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e StringRangeMinLenValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e StringRangeMinLenValidationError) ErrorName() string {
+	return "StringRangeMinLenValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e StringRangeMinLenValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sStringRangeMinLen.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = StringRangeMinLenValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = StringRangeMinLenValidationError{}
 
 // Validate checks the field values on StringRangeContains with the rules
 // defined in the proto definition for this message. If any rules are

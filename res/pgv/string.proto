@@ -8,8 +8,8 @@ message StringRangePrefix {
     repeated string content = 1 [(validate.rules).repeated.items.string.prefix = "Foo"];
 }
 
-message StringRangeMaxLen {
-    repeated string content = 1 [(validate.rules).repeated.items.string.max_len = 5];
+message StringRangeSuffix {
+    repeated string content = 1 [(validate.rules).repeated.items.string.suffix = "Foo"];
 }
 
 message StringRangeContains {

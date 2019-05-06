@@ -35,18 +35,15 @@ func validateN(iterations int, warmup int, message *pgv.EnumRangeDefinedOnly) []
 
 func validate(message *pgv.EnumRangeDefinedOnly) int64 {
 	startTime := time.Now()
-	err := message.Validate()
+	message.Validate()
 	elapsedTime := time.Since(startTime)
-	if err != nil {
-		panic(err)
-	}
 	return elapsedTime.Nanoseconds()
 }
 
 func createMessage(messageLength int) *pgv.EnumRangeDefinedOnly {
 	message := new(pgv.EnumRangeDefinedOnly)
 	for i := 0; i < messageLength; i++ {
-		message.Content = append(message.Content, 0)
+		message.Content = append(message.Content, true)
 	}
 	return message
 }

@@ -8,6 +8,10 @@ message Int64RangeGreaterThan {
     repeated int64 content = 1 [(validate.rules).repeated.items.int64.gt = 100];
 }
 
+message Int64RangeLessThan {
+    repeated int64 content = 1 [(validate.rules).repeated.items.int64.lt = 100];
+}
+
 message Int64RangeConst {
     repeated int64 content = 1 [(validate.rules).repeated.items.int64.const = 100];
 }

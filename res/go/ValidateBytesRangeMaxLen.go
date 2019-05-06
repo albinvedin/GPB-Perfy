@@ -35,18 +35,15 @@ func validateN(iterations int, warmup int, message *pgv.BytesRangeMaxLen) []int6
 
 func validate(message *pgv.BytesRangeMaxLen) int64 {
 	startTime := time.Now()
-	err := message.Validate()
+	message.Validate()
 	elapsedTime := time.Since(startTime)
-	if err != nil {
-		panic(err)
-	}
 	return elapsedTime.Nanoseconds()
 }
 
 func createMessage(messageLength int) *pgv.BytesRangeMaxLen {
 	message := new(pgv.BytesRangeMaxLen)
 	for i := 0; i < messageLength; i++ {
-		message.Content = append(message.Content, []byte("\x99"))
+		message.Content = append(message.Content, "\x99\x99")
 	}
 	return message
 }

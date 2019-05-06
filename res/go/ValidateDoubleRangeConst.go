@@ -4,8 +4,8 @@ import (
 	"GPB-Perfy/res/pgv/gen/go"
 	"GPB-Perfy/src/helpers"
 	"encoding/json"
-	"os"
 	"fmt"
+	"os"
 	"time"
 )
 
@@ -35,11 +35,8 @@ func validateN(iterations int, warmup int, message *pgv.DoubleRangeConst) []int6
 
 func validate(message *pgv.DoubleRangeConst) int64 {
 	startTime := time.Now()
-	err := message.Validate()
+	message.Validate()
 	elapsedTime := time.Since(startTime)
-	if err != nil {
-		panic(err)
-	}
 	return elapsedTime.Nanoseconds()
 }
 
