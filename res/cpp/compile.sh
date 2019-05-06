@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 p=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
-for file in "$p/*.cc"
+mkdir -p $p/out
+for file in $p/*.cc
 do
   name=$(echo $file | sed "s/.*\///" | sed "s/\.cc//")
   dtype=$(echo $name | sed "s/Validate//" | perl -pe "s/[A-Z][a-z\d]*\K.*//" | sed "s/.*/\L&/" )

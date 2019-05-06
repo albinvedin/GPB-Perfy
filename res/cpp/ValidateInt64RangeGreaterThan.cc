@@ -11,7 +11,7 @@ pgv::Int64RangeGreaterThan createMessage(
 ){
   auto message = pgv::Int64RangeGreaterThan();
   for (int i = 0; i < messageLength; ++i) {
-    message.add_content(105);
+    message.add_content(101);
   }
   return message;
 }

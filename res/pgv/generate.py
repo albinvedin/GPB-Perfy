@@ -6,18 +6,18 @@ messageTypeRegex = re.compile("(?<=message)\s+\w+")
 ruleRegex = re.compile("\(validate\.rules\).*(?=\s+=)")
 
 class MessageType:
-    def __init__(self, messageType, contentValue, rule):
+    def __init__(self, messageType, contentValue, rule, filename):
         self.messageType = messageType
         self.rule = rule
-        self.contentValue = contentValue
+        self.originalValue = contentValue
+        self.adjustedValue = contentValue
+        self.filename = filename
 
     def adjustValue(self, lang):
         if self.rule.endswith("gt"):
-            self.contentValue = self.contentValue + 1
+            self.adjustedValue = self.originalValue + 1
         elif self.rule.endswith("lt"):
-            self.contentValue = self.contentValue - 1
-        elif "defined_only" in self.rule:
-            self.contentValue = 0
+            self.adjustedValue= self.originalValue - 1
 
         if lang == "go":
             self.adjustValueForGo()
@@ -29,18 +29,27 @@ class MessageType:
         if "bytes" in self.rule:
             byteString = r"[]byte(" + "\""
             if self.rule.endswith("min_len"):
-                byteString += r"\x99" * math.ceil(self.contentValue / 4)
+                byteString += r"\x99" * math.ceil(self.originalValue / 4)
             elif self.rule.endswith("max_len"):
-                byteString += r"\x99" * math.floor(self.contentValue / 4)
+                byteString += r"\x99" * math.floor(self.originalValue / 4)
             else:
                 byteString += r"\x99"
             byteString += "\"" + r")"
-            self.contentValue = byteString
+            self.adjustedValue = byteString
+        elif "defined_only" in self.rule:
+            self.adjustedValue = 0
 
     def adjustValueForCpp(self):
-        # This needs to be written for c++, language specific syntax for variable (probably only for the bytes type)
+        # In C++ (with protobuf) bytes are represented as string.
         if "bytes" in self.rule:
-            pass
+            if self.rule.endswith("min_len"):
+                self.adjustedValue = str("\"" + r"\x99" * math.ceil(self.originalValue / 4) + "\"")
+            elif self.rule.endswith("max_len"):
+                self.adjustedValue = str("\"" + r"\x99" * math.floor(self.originalValue / 4) + "\"")
+            else:
+                self.adjustedValue = str("\"" + r"\x99" + "\"")
+        elif "enum" in self.rule:
+            self.adjustedValue = "pgv::" + self.messageType + "_Sex::" + self.messageType + "_Sex_MALE"
 
 def main():
     goTemplate = read(getPath() + "/templates/go/range.txt")
@@ -49,8 +58,7 @@ def main():
         if filename.endswith(".proto"):
             messages = parse(filename)
             generateGoFiles(messages, goTemplate)
-            # Uncomment this when Cpp template is ready
-            #generateCppFiles(messages, cppTemplate)
+            generateCppFiles(messages, cppTemplate)
 
 # .proto-file parsers #
 def parse(filename):
@@ -60,7 +68,7 @@ def parse(filename):
     values = parseValues(string)
     rules = parseRules(string)
     for i in range(len(types)):
-        messages.append(MessageType(types[i], convert(values[i]), rules[i]))
+        messages.append(MessageType(types[i], convert(values[i]), rules[i], filename))
     return messages
 
 def parseTypes(string):
@@ -79,21 +87,22 @@ def parseRules(string):
 def generateGoFiles(messages, template):
     for message in messages:
         message.adjustValue("go")
-        generateGoFile(message.messageType, message.contentValue, template)
+        generateGoFile(message, template)
 
-def generateGoFile(messageType, contentValue, template):
-    code = generateFile(messageType, contentValue, template)
-    write(getGoOutPath(), messageType, code, "go")
+def generateGoFile(message, template):
+    code = generateFile(message.messageType, message.adjustedValue, template)
+    write(getGoOutPath(), message.messageType, code, "go")
 
 # Cpp generation #
 def generateCppFiles(messages, template):
     for message in messages:
         message.adjustValue("cpp")
-        generateCppFile(message.messageType, message.contentValue, template)
+        generateCppFile(message, template)
 
-def generateCppFile(messageType, contentValue, template):
-    code = generateFile(messageType, contentValue, template)
-    write(getCppOutPath(), messageType, code, "cc")
+def generateCppFile(message, template):
+    code = generateFile(message.messageType, message.adjustedValue, template)
+    code = re.sub(r"{{\s*importType\s*}}", message.filename.split(".")[0], code)
+    write(getCppOutPath(), message.messageType, code, "cc")
 
 def generateFile(messageType, contentValue, template):
     code = re.sub(r"{{\s*messageType\s*}}", messageType, template)

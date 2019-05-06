@@ -52,6 +52,10 @@ Place the .proto-files under "/res/pgv" and run the script "compile.sh". The com
 $ ./res/pgv/compile.sh
 ```
 
+### TODO DOCUMENTATION
+- ~/.bashrc.user "export LD_LIBRARY_PATH=$HOME/.local/lib"
+- Have protobuff (C++) includes in ~/.local/include
+
 ## Usage
 ### Example
 ```

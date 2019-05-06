@@ -3,21 +3,21 @@
 #include <vector>
 #include <chrono>
 #include <cstdint>
-#include "../pgv/gen/cpp/{{ importType }}.pb.h"
-#include "../pgv/gen/cpp/{{ importType }}.pb.validate.h"
+#include "../pgv/gen/cpp/enum.pb.h"
+#include "../pgv/gen/cpp/enum.pb.validate.h"
 
-pgv::{{ messageType }} createMessage(
+pgv::EnumRangeConst createMessage(
     int messageLength
 ){
-  auto message = pgv::{{ messageType }}();
+  auto message = pgv::EnumRangeConst();
   for (int i = 0; i < messageLength; ++i) {
-    message.add_content({{ contentValue }});
+    message.add_content(pgv::EnumRangeConst_Sex::EnumRangeConst_Sex_MALE);
   }
   return message;
 }
 
 std::int64_t validateOne(
-    pgv::{{ messageType }} const& message
+    pgv::EnumRangeConst const& message
   , pgv::ValidationMsg& err
 ){
   auto t1 = std::chrono::high_resolution_clock::now();
@@ -29,7 +29,7 @@ std::int64_t validateOne(
 std::vector<std::int64_t> validateN(
     int const iterations
   , int const warmup
-  , pgv::{{ messageType }} const& message
+  , pgv::EnumRangeConst const& message
   , pgv::ValidationMsg& err
 ){
   auto elapsedTimes = std::vector<std::int64_t>();
