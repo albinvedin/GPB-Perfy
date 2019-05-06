@@ -2,32 +2,20 @@ package helpers
 
 import (
 	"fmt"
-	pb "github.com/golang/protobuf/proto"
+	protobuf "github.com/golang/protobuf/proto"
 	"os"
+	"log"
 	"os/exec"
 	"path/filepath"
 	"strings"
-	"time"
 	"strconv"
 	"math"
 )
 
-func SumDurations(durations []time.Duration) time.Duration {
-	var sum time.Duration
-	for _, duration := range durations {
-		sum += duration
-	}
-	return sum
-}
-
-func FilterWarmups(durations []time.Duration, warmup_iterations int) []time.Duration {
-	return durations[warmup_iterations:]
-}
-
-func Marshal(message pb.Message) []byte {
-	bytes, err := pb.Marshal(message)
+func Marshal(message protobuf.Message) []byte {
+	bytes, err := protobuf.Marshal(message)
 	if err != nil {
-		panic(err)
+		log.Fatalf(err.Error())
 	}
 	return bytes
 }
@@ -70,7 +58,7 @@ func DisplayAvailableTests(lang string) {
 func GetPath() string {
 	ex, err := os.Executable()
 	if err != nil {
-		panic(err)
+		log.Fatalf(err.Error())
 	}
 	exPath := filepath.Dir(ex)
 	return exPath
@@ -91,6 +79,7 @@ func ValidateRangeTestArguments(args []string) (int, int, int) {
 		words := strings.Split(args[0], "/")
 		name := words[len(words) - 1]
 		msg := name + ": Requires 3 arguments (Iterations, Warmup, Element Count)"
+		// This must be a panic. Do not change.
 		panic(msg)	
 	} else {
 		iterations, _ := strconv.Atoi(args[1])
