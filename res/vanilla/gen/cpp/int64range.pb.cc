@@ -16,7 +16,7 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 
-namespace pgv {
+namespace vanilla {
 class Int64RangeDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<Int64Range> _instance;
@@ -29,16 +29,16 @@ class DoubleRangeDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<DoubleRange> _instance;
 } _DoubleRange_default_instance_;
-}  // namespace pgv
+}  // namespace vanilla
 static void InitDefaultsInt64Range_int64range_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::pgv::_Int64Range_default_instance_;
-    new (ptr) ::pgv::Int64Range();
+    void* ptr = &::vanilla::_Int64Range_default_instance_;
+    new (ptr) ::vanilla::Int64Range();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::pgv::Int64Range::InitAsDefaultInstance();
+  ::vanilla::Int64Range::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_Int64Range_int64range_2eproto =
@@ -48,11 +48,11 @@ static void InitDefaultsFloatRange_int64range_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::pgv::_FloatRange_default_instance_;
-    new (ptr) ::pgv::FloatRange();
+    void* ptr = &::vanilla::_FloatRange_default_instance_;
+    new (ptr) ::vanilla::FloatRange();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::pgv::FloatRange::InitAsDefaultInstance();
+  ::vanilla::FloatRange::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_FloatRange_int64range_2eproto =
@@ -62,11 +62,11 @@ static void InitDefaultsDoubleRange_int64range_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::pgv::_DoubleRange_default_instance_;
-    new (ptr) ::pgv::DoubleRange();
+    void* ptr = &::vanilla::_DoubleRange_default_instance_;
+    new (ptr) ::vanilla::DoubleRange();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::pgv::DoubleRange::InitAsDefaultInstance();
+  ::vanilla::DoubleRange::InitAsDefaultInstance();
 }
 
 ::google::protobuf::internal::SCCInfo<0> scc_info_DoubleRange_int64range_2eproto =
@@ -84,34 +84,34 @@ constexpr ::google::protobuf::ServiceDescriptor const** file_level_service_descr
 
 const ::google::protobuf::uint32 TableStruct_int64range_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::pgv::Int64Range, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::vanilla::Int64Range, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::pgv::Int64Range, content_),
+  PROTOBUF_FIELD_OFFSET(::vanilla::Int64Range, content_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::pgv::FloatRange, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::vanilla::FloatRange, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::pgv::FloatRange, content_),
+  PROTOBUF_FIELD_OFFSET(::vanilla::FloatRange, content_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::pgv::DoubleRange, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::vanilla::DoubleRange, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::pgv::DoubleRange, content_),
+  PROTOBUF_FIELD_OFFSET(::vanilla::DoubleRange, content_),
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::pgv::Int64Range)},
-  { 6, -1, sizeof(::pgv::FloatRange)},
-  { 12, -1, sizeof(::pgv::DoubleRange)},
+  { 0, -1, sizeof(::vanilla::Int64Range)},
+  { 6, -1, sizeof(::vanilla::FloatRange)},
+  { 12, -1, sizeof(::vanilla::DoubleRange)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_Int64Range_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_FloatRange_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_DoubleRange_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::vanilla::_Int64Range_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::vanilla::_FloatRange_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::vanilla::_DoubleRange_default_instance_),
 };
 
 ::google::protobuf::internal::AssignDescriptorsTable assign_descriptors_table_int64range_2eproto = {
@@ -121,31 +121,27 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_int64range_2eproto[] =
-  "\n\020int64range.proto\022\003pgv\032\027validate/valida"
-  "te.proto\"8\n\nInt64Range\022*\n\007content\030\001 \003(\003B"
-  "\031\272\351\300\003\024\222\001\021\"\017\"\r\020d \234\377\377\377\377\377\377\377\377\001\"5\n\nFloatRange"
-  "\022\'\n\007content\030\001 \003(\002B\026\272\351\300\003\021\222\001\016\"\014\n\n\025\000\000\310B%\000\000\310"
-  "\302\">\n\013DoubleRange\022/\n\007content\030\001 \003(\001B\036\272\351\300\003\031"
-  "\222\001\026\"\024\022\022\021\000\000\000\000\000\000Y@!\000\000\000\000\000\000Y\300b\006proto3"
+  "\n\020int64range.proto\022\007vanilla\"\035\n\nInt64Rang"
+  "e\022\017\n\007content\030\001 \003(\003\"\035\n\nFloatRange\022\017\n\007cont"
+  "ent\030\001 \003(\002\"\036\n\013DoubleRange\022\017\n\007content\030\001 \003("
+  "\001b\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_int64range_2eproto = {
   false, InitDefaults_int64range_2eproto, 
   descriptor_table_protodef_int64range_2eproto,
-  "int64range.proto", &assign_descriptors_table_int64range_2eproto, 233,
+  "int64range.proto", &assign_descriptors_table_int64range_2eproto, 129,
 };
 
 void AddDescriptors_int64range_2eproto() {
   static constexpr ::google::protobuf::internal::InitFunc deps[1] =
   {
-    // ::AddDescriptors_validate_2eproto,
-    // ::AddDescriptors_validate_2fvalidate_2eproto,
   };
- ::google::protobuf::internal::AddDescriptors(&descriptor_table_int64range_2eproto, deps, 1);
+ ::google::protobuf::internal::AddDescriptors(&descriptor_table_int64range_2eproto, deps, 0);
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_int64range_2eproto = []() { AddDescriptors_int64range_2eproto(); return true; }();
-namespace pgv {
+namespace vanilla {
 
 // ===================================================================
 
@@ -162,21 +158,21 @@ const int Int64Range::kContentFieldNumber;
 Int64Range::Int64Range()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:pgv.Int64Range)
+  // @@protoc_insertion_point(constructor:vanilla.Int64Range)
 }
 Int64Range::Int64Range(const Int64Range& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr),
       content_(from.content_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:pgv.Int64Range)
+  // @@protoc_insertion_point(copy_constructor:vanilla.Int64Range)
 }
 
 void Int64Range::SharedCtor() {
 }
 
 Int64Range::~Int64Range() {
-  // @@protoc_insertion_point(destructor:pgv.Int64Range)
+  // @@protoc_insertion_point(destructor:vanilla.Int64Range)
   SharedDtor();
 }
 
@@ -193,7 +189,7 @@ const Int64Range& Int64Range::default_instance() {
 
 
 void Int64Range::Clear() {
-// @@protoc_insertion_point(message_clear_start:pgv.Int64Range)
+// @@protoc_insertion_point(message_clear_start:vanilla.Int64Range)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -215,7 +211,7 @@ const char* Int64Range::_InternalParse(const char* begin, const char* end, void*
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // repeated int64 content = 1 [(.validate.rules) = {
+      // repeated int64 content = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) == 10) {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
@@ -259,13 +255,13 @@ bool Int64Range::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:pgv.Int64Range)
+  // @@protoc_insertion_point(parse_start:vanilla.Int64Range)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated int64 content = 1 [(.validate.rules) = {
+      // repeated int64 content = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
@@ -293,10 +289,10 @@ bool Int64Range::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:pgv.Int64Range)
+  // @@protoc_insertion_point(parse_success:vanilla.Int64Range)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:pgv.Int64Range)
+  // @@protoc_insertion_point(parse_failure:vanilla.Int64Range)
   return false;
 #undef DO_
 }
@@ -304,11 +300,11 @@ failure:
 
 void Int64Range::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:pgv.Int64Range)
+  // @@protoc_insertion_point(serialize_start:vanilla.Int64Range)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated int64 content = 1 [(.validate.rules) = {
+  // repeated int64 content = 1;
   if (this->content_size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(_content_cached_byte_size_.load(
@@ -323,16 +319,16 @@ void Int64Range::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:pgv.Int64Range)
+  // @@protoc_insertion_point(serialize_end:vanilla.Int64Range)
 }
 
 ::google::protobuf::uint8* Int64Range::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:pgv.Int64Range)
+  // @@protoc_insertion_point(serialize_to_array_start:vanilla.Int64Range)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated int64 content = 1 [(.validate.rules) = {
+  // repeated int64 content = 1;
   if (this->content_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
       1,
@@ -349,12 +345,12 @@ void Int64Range::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:pgv.Int64Range)
+  // @@protoc_insertion_point(serialize_to_array_end:vanilla.Int64Range)
   return target;
 }
 
 size_t Int64Range::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:pgv.Int64Range)
+// @@protoc_insertion_point(message_byte_size_start:vanilla.Int64Range)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -366,7 +362,7 @@ size_t Int64Range::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated int64 content = 1 [(.validate.rules) = {
+  // repeated int64 content = 1;
   {
     size_t data_size = ::google::protobuf::internal::WireFormatLite::
       Int64Size(this->content_);
@@ -387,22 +383,22 @@ size_t Int64Range::ByteSizeLong() const {
 }
 
 void Int64Range::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:pgv.Int64Range)
+// @@protoc_insertion_point(generalized_merge_from_start:vanilla.Int64Range)
   GOOGLE_DCHECK_NE(&from, this);
   const Int64Range* source =
       ::google::protobuf::DynamicCastToGenerated<Int64Range>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pgv.Int64Range)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:vanilla.Int64Range)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:pgv.Int64Range)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:vanilla.Int64Range)
     MergeFrom(*source);
   }
 }
 
 void Int64Range::MergeFrom(const Int64Range& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:pgv.Int64Range)
+// @@protoc_insertion_point(class_specific_merge_from_start:vanilla.Int64Range)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -412,14 +408,14 @@ void Int64Range::MergeFrom(const Int64Range& from) {
 }
 
 void Int64Range::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:pgv.Int64Range)
+// @@protoc_insertion_point(generalized_copy_from_start:vanilla.Int64Range)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void Int64Range::CopyFrom(const Int64Range& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:pgv.Int64Range)
+// @@protoc_insertion_point(class_specific_copy_from_start:vanilla.Int64Range)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -460,21 +456,21 @@ const int FloatRange::kContentFieldNumber;
 FloatRange::FloatRange()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:pgv.FloatRange)
+  // @@protoc_insertion_point(constructor:vanilla.FloatRange)
 }
 FloatRange::FloatRange(const FloatRange& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr),
       content_(from.content_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:pgv.FloatRange)
+  // @@protoc_insertion_point(copy_constructor:vanilla.FloatRange)
 }
 
 void FloatRange::SharedCtor() {
 }
 
 FloatRange::~FloatRange() {
-  // @@protoc_insertion_point(destructor:pgv.FloatRange)
+  // @@protoc_insertion_point(destructor:vanilla.FloatRange)
   SharedDtor();
 }
 
@@ -491,7 +487,7 @@ const FloatRange& FloatRange::default_instance() {
 
 
 void FloatRange::Clear() {
-// @@protoc_insertion_point(message_clear_start:pgv.FloatRange)
+// @@protoc_insertion_point(message_clear_start:vanilla.FloatRange)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -513,7 +509,7 @@ const char* FloatRange::_InternalParse(const char* begin, const char* end, void*
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // repeated float content = 1 [(.validate.rules) = {
+      // repeated float content = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) == 10) {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
@@ -557,13 +553,13 @@ bool FloatRange::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:pgv.FloatRange)
+  // @@protoc_insertion_point(parse_start:vanilla.FloatRange)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated float content = 1 [(.validate.rules) = {
+      // repeated float content = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
@@ -591,10 +587,10 @@ bool FloatRange::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:pgv.FloatRange)
+  // @@protoc_insertion_point(parse_success:vanilla.FloatRange)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:pgv.FloatRange)
+  // @@protoc_insertion_point(parse_failure:vanilla.FloatRange)
   return false;
 #undef DO_
 }
@@ -602,11 +598,11 @@ failure:
 
 void FloatRange::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:pgv.FloatRange)
+  // @@protoc_insertion_point(serialize_start:vanilla.FloatRange)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated float content = 1 [(.validate.rules) = {
+  // repeated float content = 1;
   if (this->content_size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(_content_cached_byte_size_.load(
@@ -619,16 +615,16 @@ void FloatRange::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:pgv.FloatRange)
+  // @@protoc_insertion_point(serialize_end:vanilla.FloatRange)
 }
 
 ::google::protobuf::uint8* FloatRange::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:pgv.FloatRange)
+  // @@protoc_insertion_point(serialize_to_array_start:vanilla.FloatRange)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated float content = 1 [(.validate.rules) = {
+  // repeated float content = 1;
   if (this->content_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
       1,
@@ -645,12 +641,12 @@ void FloatRange::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:pgv.FloatRange)
+  // @@protoc_insertion_point(serialize_to_array_end:vanilla.FloatRange)
   return target;
 }
 
 size_t FloatRange::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:pgv.FloatRange)
+// @@protoc_insertion_point(message_byte_size_start:vanilla.FloatRange)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -662,7 +658,7 @@ size_t FloatRange::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated float content = 1 [(.validate.rules) = {
+  // repeated float content = 1;
   {
     unsigned int count = static_cast<unsigned int>(this->content_size());
     size_t data_size = 4UL * count;
@@ -683,22 +679,22 @@ size_t FloatRange::ByteSizeLong() const {
 }
 
 void FloatRange::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:pgv.FloatRange)
+// @@protoc_insertion_point(generalized_merge_from_start:vanilla.FloatRange)
   GOOGLE_DCHECK_NE(&from, this);
   const FloatRange* source =
       ::google::protobuf::DynamicCastToGenerated<FloatRange>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pgv.FloatRange)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:vanilla.FloatRange)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:pgv.FloatRange)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:vanilla.FloatRange)
     MergeFrom(*source);
   }
 }
 
 void FloatRange::MergeFrom(const FloatRange& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:pgv.FloatRange)
+// @@protoc_insertion_point(class_specific_merge_from_start:vanilla.FloatRange)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -708,14 +704,14 @@ void FloatRange::MergeFrom(const FloatRange& from) {
 }
 
 void FloatRange::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:pgv.FloatRange)
+// @@protoc_insertion_point(generalized_copy_from_start:vanilla.FloatRange)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void FloatRange::CopyFrom(const FloatRange& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:pgv.FloatRange)
+// @@protoc_insertion_point(class_specific_copy_from_start:vanilla.FloatRange)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -756,21 +752,21 @@ const int DoubleRange::kContentFieldNumber;
 DoubleRange::DoubleRange()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:pgv.DoubleRange)
+  // @@protoc_insertion_point(constructor:vanilla.DoubleRange)
 }
 DoubleRange::DoubleRange(const DoubleRange& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr),
       content_(from.content_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:pgv.DoubleRange)
+  // @@protoc_insertion_point(copy_constructor:vanilla.DoubleRange)
 }
 
 void DoubleRange::SharedCtor() {
 }
 
 DoubleRange::~DoubleRange() {
-  // @@protoc_insertion_point(destructor:pgv.DoubleRange)
+  // @@protoc_insertion_point(destructor:vanilla.DoubleRange)
   SharedDtor();
 }
 
@@ -787,7 +783,7 @@ const DoubleRange& DoubleRange::default_instance() {
 
 
 void DoubleRange::Clear() {
-// @@protoc_insertion_point(message_clear_start:pgv.DoubleRange)
+// @@protoc_insertion_point(message_clear_start:vanilla.DoubleRange)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -809,7 +805,7 @@ const char* DoubleRange::_InternalParse(const char* begin, const char* end, void
     ptr = ::google::protobuf::io::Parse32(ptr, &tag);
     GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
     switch (tag >> 3) {
-      // repeated double content = 1 [(.validate.rules) = {
+      // repeated double content = 1;
       case 1: {
         if (static_cast<::google::protobuf::uint8>(tag) == 10) {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
@@ -853,13 +849,13 @@ bool DoubleRange::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:pgv.DoubleRange)
+  // @@protoc_insertion_point(parse_start:vanilla.DoubleRange)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated double content = 1 [(.validate.rules) = {
+      // repeated double content = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) == (10 & 0xFF)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
@@ -887,10 +883,10 @@ bool DoubleRange::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:pgv.DoubleRange)
+  // @@protoc_insertion_point(parse_success:vanilla.DoubleRange)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:pgv.DoubleRange)
+  // @@protoc_insertion_point(parse_failure:vanilla.DoubleRange)
   return false;
 #undef DO_
 }
@@ -898,11 +894,11 @@ failure:
 
 void DoubleRange::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:pgv.DoubleRange)
+  // @@protoc_insertion_point(serialize_start:vanilla.DoubleRange)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated double content = 1 [(.validate.rules) = {
+  // repeated double content = 1;
   if (this->content_size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(_content_cached_byte_size_.load(
@@ -915,16 +911,16 @@ void DoubleRange::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:pgv.DoubleRange)
+  // @@protoc_insertion_point(serialize_end:vanilla.DoubleRange)
 }
 
 ::google::protobuf::uint8* DoubleRange::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:pgv.DoubleRange)
+  // @@protoc_insertion_point(serialize_to_array_start:vanilla.DoubleRange)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated double content = 1 [(.validate.rules) = {
+  // repeated double content = 1;
   if (this->content_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
       1,
@@ -941,12 +937,12 @@ void DoubleRange::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:pgv.DoubleRange)
+  // @@protoc_insertion_point(serialize_to_array_end:vanilla.DoubleRange)
   return target;
 }
 
 size_t DoubleRange::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:pgv.DoubleRange)
+// @@protoc_insertion_point(message_byte_size_start:vanilla.DoubleRange)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -958,7 +954,7 @@ size_t DoubleRange::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated double content = 1 [(.validate.rules) = {
+  // repeated double content = 1;
   {
     unsigned int count = static_cast<unsigned int>(this->content_size());
     size_t data_size = 8UL * count;
@@ -979,22 +975,22 @@ size_t DoubleRange::ByteSizeLong() const {
 }
 
 void DoubleRange::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:pgv.DoubleRange)
+// @@protoc_insertion_point(generalized_merge_from_start:vanilla.DoubleRange)
   GOOGLE_DCHECK_NE(&from, this);
   const DoubleRange* source =
       ::google::protobuf::DynamicCastToGenerated<DoubleRange>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pgv.DoubleRange)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:vanilla.DoubleRange)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:pgv.DoubleRange)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:vanilla.DoubleRange)
     MergeFrom(*source);
   }
 }
 
 void DoubleRange::MergeFrom(const DoubleRange& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:pgv.DoubleRange)
+// @@protoc_insertion_point(class_specific_merge_from_start:vanilla.DoubleRange)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -1004,14 +1000,14 @@ void DoubleRange::MergeFrom(const DoubleRange& from) {
 }
 
 void DoubleRange::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:pgv.DoubleRange)
+// @@protoc_insertion_point(generalized_copy_from_start:vanilla.DoubleRange)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void DoubleRange::CopyFrom(const DoubleRange& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:pgv.DoubleRange)
+// @@protoc_insertion_point(class_specific_copy_from_start:vanilla.DoubleRange)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1038,17 +1034,17 @@ void DoubleRange::InternalSwap(DoubleRange* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace pgv
+}  // namespace vanilla
 namespace google {
 namespace protobuf {
-template<> PROTOBUF_NOINLINE ::pgv::Int64Range* Arena::CreateMaybeMessage< ::pgv::Int64Range >(Arena* arena) {
-  return Arena::CreateInternal< ::pgv::Int64Range >(arena);
+template<> PROTOBUF_NOINLINE ::vanilla::Int64Range* Arena::CreateMaybeMessage< ::vanilla::Int64Range >(Arena* arena) {
+  return Arena::CreateInternal< ::vanilla::Int64Range >(arena);
 }
-template<> PROTOBUF_NOINLINE ::pgv::FloatRange* Arena::CreateMaybeMessage< ::pgv::FloatRange >(Arena* arena) {
-  return Arena::CreateInternal< ::pgv::FloatRange >(arena);
+template<> PROTOBUF_NOINLINE ::vanilla::FloatRange* Arena::CreateMaybeMessage< ::vanilla::FloatRange >(Arena* arena) {
+  return Arena::CreateInternal< ::vanilla::FloatRange >(arena);
 }
-template<> PROTOBUF_NOINLINE ::pgv::DoubleRange* Arena::CreateMaybeMessage< ::pgv::DoubleRange >(Arena* arena) {
-  return Arena::CreateInternal< ::pgv::DoubleRange >(arena);
+template<> PROTOBUF_NOINLINE ::vanilla::DoubleRange* Arena::CreateMaybeMessage< ::vanilla::DoubleRange >(Arena* arena) {
+  return Arena::CreateInternal< ::vanilla::DoubleRange >(arena);
 }
 }  // namespace protobuf
 }  // namespace google
