@@ -35,18 +35,15 @@ func validateN(iterations int, warmup int, message *pgv.FloatRangeGreaterThan) [
 
 func validate(message *pgv.FloatRangeGreaterThan) int64 {
 	startTime := time.Now()
-	err := message.Validate()
+	message.Validate()
 	elapsedTime := time.Since(startTime)
-	if err != nil {
-		panic(err)
-	}
 	return elapsedTime.Nanoseconds()
 }
 
 func createMessage(messageLength int) *pgv.FloatRangeGreaterThan {
 	message := new(pgv.FloatRangeGreaterThan)
 	for i := 0; i < messageLength; i++ {
-		message.Content = append(message.Content, 105)
+		message.Content = append(message.Content, 101)
 	}
 	return message
 }

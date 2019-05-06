@@ -20,6 +20,9 @@ using std::string;
 extern bool Validate(const ::pgv::FloatRangeGreaterThan& m, pgv::ValidationMsg* err);
 
 
+extern bool Validate(const ::pgv::FloatRangeLessThan& m, pgv::ValidationMsg* err);
+
+
 extern bool Validate(const ::pgv::FloatRangeConst& m, pgv::ValidationMsg* err);
 
 
@@ -29,5 +32,6 @@ extern bool Validate(const ::pgv::FloatRangeConst& m, pgv::ValidationMsg* err);
 
 #define X_PGV_FLOAT(X) \
 X(::pgv::FloatRangeGreaterThan) \
+X(::pgv::FloatRangeLessThan) \
 X(::pgv::FloatRangeConst) \
 

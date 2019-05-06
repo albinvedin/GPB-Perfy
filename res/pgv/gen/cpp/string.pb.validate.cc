@@ -18,7 +18,7 @@ using std::string;
 pgv::Validator<::pgv::StringRangePrefix> validator___pgv__StringRangePrefix(static_cast<bool(*)(const ::pgv::StringRangePrefix&, pgv::ValidationMsg*)>(::pgv::Validate));
 
 
-pgv::Validator<::pgv::StringRangeMaxLen> validator___pgv__StringRangeMaxLen(static_cast<bool(*)(const ::pgv::StringRangeMaxLen&, pgv::ValidationMsg*)>(::pgv::Validate));
+pgv::Validator<::pgv::StringRangeSuffix> validator___pgv__StringRangeSuffix(static_cast<bool(*)(const ::pgv::StringRangeSuffix&, pgv::ValidationMsg*)>(::pgv::Validate));
 
 
 pgv::Validator<::pgv::StringRangeContains> validator___pgv__StringRangeContains(static_cast<bool(*)(const ::pgv::StringRangeContains&, pgv::ValidationMsg*)>(::pgv::Validate));
@@ -115,7 +115,7 @@ return false;
 
 
 
-// Validate checks the field values on ::pgv::StringRangeMaxLen with the rules
+// Validate checks the field values on ::pgv::StringRangeSuffix with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the return value is false and an error message is written to the
 // input string argument.
@@ -136,7 +136,7 @@ return false;
 
 
 
-bool Validate(const ::pgv::StringRangeMaxLen& m, pgv::ValidationMsg* err) {
+bool Validate(const ::pgv::StringRangeSuffix& m, pgv::ValidationMsg* err) {
 	(void)m;
 	(void)err;
 	
@@ -160,14 +160,26 @@ bool Validate(const ::pgv::StringRangeMaxLen& m, pgv::ValidationMsg* err) {
 	
 
 	
-		throw pgv::UnimplementedException();
-		
-	
 
 	
 
 	
 
+	
+	{
+		const std::string suffix = "Foo";
+		const std::string& value = item;
+		if (!pgv::IsSuffix(suffix, value)) {
+			{
+std::ostringstream msg("invalid ");
+msg << "StringRangeSuffixValidationError" << "." << "Content";
+msg << "[" << "i" << "]";
+msg << ": " << "[\"value does not have suffix \" \"\\\"Foo\\\"\"]";
+*err = msg.str();
+return false;
+}
+		}
+	}
 	
 
 	

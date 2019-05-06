@@ -35,11 +35,8 @@ func validateN(iterations int, warmup int, message *pgv.Int64RangeConst) []int64
 
 func validate(message *pgv.Int64RangeConst) int64 {
 	startTime := time.Now()
-	err := message.Validate()
+	message.Validate()
 	elapsedTime := time.Since(startTime)
-	if err != nil {
-		panic(err)
-	}
 	return elapsedTime.Nanoseconds()
 }
 

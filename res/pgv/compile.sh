@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 p=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
+# generate go tests
+python3 "$p/generate.py"
+
 # proto => go
 protoc \
   -I $p \

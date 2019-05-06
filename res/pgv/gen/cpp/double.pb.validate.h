@@ -20,6 +20,9 @@ using std::string;
 extern bool Validate(const ::pgv::DoubleRangeGreaterThan& m, pgv::ValidationMsg* err);
 
 
+extern bool Validate(const ::pgv::DoubleRangeLessThan& m, pgv::ValidationMsg* err);
+
+
 extern bool Validate(const ::pgv::DoubleRangeConst& m, pgv::ValidationMsg* err);
 
 
@@ -29,5 +32,6 @@ extern bool Validate(const ::pgv::DoubleRangeConst& m, pgv::ValidationMsg* err);
 
 #define X_PGV_DOUBLE(X) \
 X(::pgv::DoubleRangeGreaterThan) \
+X(::pgv::DoubleRangeLessThan) \
 X(::pgv::DoubleRangeConst) \
 

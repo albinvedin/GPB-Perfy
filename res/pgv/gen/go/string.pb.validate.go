@@ -112,10 +112,10 @@ var _ interface {
 	ErrorName() string
 } = StringRangePrefixValidationError{}
 
-// Validate checks the field values on StringRangeMaxLen with the rules defined
+// Validate checks the field values on StringRangeSuffix with the rules defined
 // in the proto definition for this message. If any rules are violated, an
 // error is returned.
-func (m *StringRangeMaxLen) Validate() error {
+func (m *StringRangeSuffix) Validate() error {
 	if m == nil {
 		return nil
 	}
@@ -123,10 +123,10 @@ func (m *StringRangeMaxLen) Validate() error {
 	for idx, item := range m.GetContent() {
 		_, _ = idx, item
 
-		if utf8.RuneCountInString(item) > 5 {
-			return StringRangeMaxLenValidationError{
+		if !strings.HasSuffix(item, "Foo") {
+			return StringRangeSuffixValidationError{
 				field:  fmt.Sprintf("Content[%v]", idx),
-				reason: "value length must be at most 5 runes",
+				reason: "value does not have suffix \"Foo\"",
 			}
 		}
 
@@ -135,9 +135,9 @@ func (m *StringRangeMaxLen) Validate() error {
 	return nil
 }
 
-// StringRangeMaxLenValidationError is the validation error returned by
-// StringRangeMaxLen.Validate if the designated constraints aren't met.
-type StringRangeMaxLenValidationError struct {
+// StringRangeSuffixValidationError is the validation error returned by
+// StringRangeSuffix.Validate if the designated constraints aren't met.
+type StringRangeSuffixValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -145,24 +145,24 @@ type StringRangeMaxLenValidationError struct {
 }
 
 // Field function returns field value.
-func (e StringRangeMaxLenValidationError) Field() string { return e.field }
+func (e StringRangeSuffixValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e StringRangeMaxLenValidationError) Reason() string { return e.reason }
+func (e StringRangeSuffixValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e StringRangeMaxLenValidationError) Cause() error { return e.cause }
+func (e StringRangeSuffixValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e StringRangeMaxLenValidationError) Key() bool { return e.key }
+func (e StringRangeSuffixValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e StringRangeMaxLenValidationError) ErrorName() string {
-	return "StringRangeMaxLenValidationError"
+func (e StringRangeSuffixValidationError) ErrorName() string {
+	return "StringRangeSuffixValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e StringRangeMaxLenValidationError) Error() string {
+func (e StringRangeSuffixValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -174,14 +174,14 @@ func (e StringRangeMaxLenValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sStringRangeMaxLen.%s: %s%s",
+		"invalid %sStringRangeSuffix.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = StringRangeMaxLenValidationError{}
+var _ error = StringRangeSuffixValidationError{}
 
 var _ interface {
 	Field() string
@@ -189,7 +189,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = StringRangeMaxLenValidationError{}
+} = StringRangeSuffixValidationError{}
 
 // Validate checks the field values on StringRangeContains with the rules
 // defined in the proto definition for this message. If any rules are

@@ -20,6 +20,9 @@ using std::string;
 extern bool Validate(const ::pgv::BytesRangeMaxLen& m, pgv::ValidationMsg* err);
 
 
+extern bool Validate(const ::pgv::BytesRangeMinLen& m, pgv::ValidationMsg* err);
+
+
 extern bool Validate(const ::pgv::BytesRangePrefix& m, pgv::ValidationMsg* err);
 
 
@@ -35,6 +38,7 @@ extern bool Validate(const ::pgv::BytesRangeConst& m, pgv::ValidationMsg* err);
 
 #define X_PGV_BYTES(X) \
 X(::pgv::BytesRangeMaxLen) \
+X(::pgv::BytesRangeMinLen) \
 X(::pgv::BytesRangePrefix) \
 X(::pgv::BytesRangeContains) \
 X(::pgv::BytesRangeConst) \

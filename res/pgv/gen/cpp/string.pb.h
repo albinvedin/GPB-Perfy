@@ -53,18 +53,18 @@ namespace pgv {
 class StringRangeContains;
 class StringRangeContainsDefaultTypeInternal;
 extern StringRangeContainsDefaultTypeInternal _StringRangeContains_default_instance_;
-class StringRangeMaxLen;
-class StringRangeMaxLenDefaultTypeInternal;
-extern StringRangeMaxLenDefaultTypeInternal _StringRangeMaxLen_default_instance_;
 class StringRangePrefix;
 class StringRangePrefixDefaultTypeInternal;
 extern StringRangePrefixDefaultTypeInternal _StringRangePrefix_default_instance_;
+class StringRangeSuffix;
+class StringRangeSuffixDefaultTypeInternal;
+extern StringRangeSuffixDefaultTypeInternal _StringRangeSuffix_default_instance_;
 }  // namespace pgv
 namespace google {
 namespace protobuf {
 template<> ::pgv::StringRangeContains* Arena::CreateMaybeMessage<::pgv::StringRangeContains>(Arena*);
-template<> ::pgv::StringRangeMaxLen* Arena::CreateMaybeMessage<::pgv::StringRangeMaxLen>(Arena*);
 template<> ::pgv::StringRangePrefix* Arena::CreateMaybeMessage<::pgv::StringRangePrefix>(Arena*);
+template<> ::pgv::StringRangeSuffix* Arena::CreateMaybeMessage<::pgv::StringRangeSuffix>(Arena*);
 }  // namespace protobuf
 }  // namespace google
 namespace pgv {
@@ -199,25 +199,25 @@ class StringRangePrefix final :
 };
 // -------------------------------------------------------------------
 
-class StringRangeMaxLen final :
-    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.StringRangeMaxLen) */ {
+class StringRangeSuffix final :
+    public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:pgv.StringRangeSuffix) */ {
  public:
-  StringRangeMaxLen();
-  virtual ~StringRangeMaxLen();
+  StringRangeSuffix();
+  virtual ~StringRangeSuffix();
 
-  StringRangeMaxLen(const StringRangeMaxLen& from);
+  StringRangeSuffix(const StringRangeSuffix& from);
 
-  inline StringRangeMaxLen& operator=(const StringRangeMaxLen& from) {
+  inline StringRangeSuffix& operator=(const StringRangeSuffix& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  StringRangeMaxLen(StringRangeMaxLen&& from) noexcept
-    : StringRangeMaxLen() {
+  StringRangeSuffix(StringRangeSuffix&& from) noexcept
+    : StringRangeSuffix() {
     *this = ::std::move(from);
   }
 
-  inline StringRangeMaxLen& operator=(StringRangeMaxLen&& from) noexcept {
+  inline StringRangeSuffix& operator=(StringRangeSuffix&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -229,34 +229,34 @@ class StringRangeMaxLen final :
   static const ::google::protobuf::Descriptor* descriptor() {
     return default_instance().GetDescriptor();
   }
-  static const StringRangeMaxLen& default_instance();
+  static const StringRangeSuffix& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const StringRangeMaxLen* internal_default_instance() {
-    return reinterpret_cast<const StringRangeMaxLen*>(
-               &_StringRangeMaxLen_default_instance_);
+  static inline const StringRangeSuffix* internal_default_instance() {
+    return reinterpret_cast<const StringRangeSuffix*>(
+               &_StringRangeSuffix_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  void Swap(StringRangeMaxLen* other);
-  friend void swap(StringRangeMaxLen& a, StringRangeMaxLen& b) {
+  void Swap(StringRangeSuffix* other);
+  friend void swap(StringRangeSuffix& a, StringRangeSuffix& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline StringRangeMaxLen* New() const final {
-    return CreateMaybeMessage<StringRangeMaxLen>(nullptr);
+  inline StringRangeSuffix* New() const final {
+    return CreateMaybeMessage<StringRangeSuffix>(nullptr);
   }
 
-  StringRangeMaxLen* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<StringRangeMaxLen>(arena);
+  StringRangeSuffix* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<StringRangeSuffix>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const StringRangeMaxLen& from);
-  void MergeFrom(const StringRangeMaxLen& from);
+  void CopyFrom(const StringRangeSuffix& from);
+  void MergeFrom(const StringRangeSuffix& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -278,7 +278,7 @@ class StringRangeMaxLen final :
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(StringRangeMaxLen* other);
+  void InternalSwap(StringRangeSuffix* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return nullptr;
@@ -316,7 +316,7 @@ class StringRangeMaxLen final :
   const ::google::protobuf::RepeatedPtrField<::std::string>& content() const;
   ::google::protobuf::RepeatedPtrField<::std::string>* mutable_content();
 
-  // @@protoc_insertion_point(class_scope:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(class_scope:pgv.StringRangeSuffix)
  private:
   class HasBitSetters;
 
@@ -535,74 +535,74 @@ StringRangePrefix::mutable_content() {
 
 // -------------------------------------------------------------------
 
-// StringRangeMaxLen
+// StringRangeSuffix
 
 // repeated string content = 1 [(.validate.rules) = {
-inline int StringRangeMaxLen::content_size() const {
+inline int StringRangeSuffix::content_size() const {
   return content_.size();
 }
-inline void StringRangeMaxLen::clear_content() {
+inline void StringRangeSuffix::clear_content() {
   content_.Clear();
 }
-inline const ::std::string& StringRangeMaxLen::content(int index) const {
-  // @@protoc_insertion_point(field_get:pgv.StringRangeMaxLen.content)
+inline const ::std::string& StringRangeSuffix::content(int index) const {
+  // @@protoc_insertion_point(field_get:pgv.StringRangeSuffix.content)
   return content_.Get(index);
 }
-inline ::std::string* StringRangeMaxLen::mutable_content(int index) {
-  // @@protoc_insertion_point(field_mutable:pgv.StringRangeMaxLen.content)
+inline ::std::string* StringRangeSuffix::mutable_content(int index) {
+  // @@protoc_insertion_point(field_mutable:pgv.StringRangeSuffix.content)
   return content_.Mutable(index);
 }
-inline void StringRangeMaxLen::set_content(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:pgv.StringRangeMaxLen.content)
+inline void StringRangeSuffix::set_content(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:pgv.StringRangeSuffix.content)
   content_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void StringRangeMaxLen::set_content(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:pgv.StringRangeMaxLen.content)
+inline void StringRangeSuffix::set_content(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:pgv.StringRangeSuffix.content)
   content_.Mutable(index)->assign(std::move(value));
 }
 #endif
-inline void StringRangeMaxLen::set_content(int index, const char* value) {
+inline void StringRangeSuffix::set_content(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   content_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:pgv.StringRangeMaxLen.content)
+  // @@protoc_insertion_point(field_set_char:pgv.StringRangeSuffix.content)
 }
-inline void StringRangeMaxLen::set_content(int index, const char* value, size_t size) {
+inline void StringRangeSuffix::set_content(int index, const char* value, size_t size) {
   content_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:pgv.StringRangeMaxLen.content)
+  // @@protoc_insertion_point(field_set_pointer:pgv.StringRangeSuffix.content)
 }
-inline ::std::string* StringRangeMaxLen::add_content() {
-  // @@protoc_insertion_point(field_add_mutable:pgv.StringRangeMaxLen.content)
+inline ::std::string* StringRangeSuffix::add_content() {
+  // @@protoc_insertion_point(field_add_mutable:pgv.StringRangeSuffix.content)
   return content_.Add();
 }
-inline void StringRangeMaxLen::add_content(const ::std::string& value) {
+inline void StringRangeSuffix::add_content(const ::std::string& value) {
   content_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:pgv.StringRangeMaxLen.content)
+  // @@protoc_insertion_point(field_add:pgv.StringRangeSuffix.content)
 }
 #if LANG_CXX11
-inline void StringRangeMaxLen::add_content(::std::string&& value) {
+inline void StringRangeSuffix::add_content(::std::string&& value) {
   content_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:pgv.StringRangeMaxLen.content)
+  // @@protoc_insertion_point(field_add:pgv.StringRangeSuffix.content)
 }
 #endif
-inline void StringRangeMaxLen::add_content(const char* value) {
+inline void StringRangeSuffix::add_content(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   content_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:pgv.StringRangeMaxLen.content)
+  // @@protoc_insertion_point(field_add_char:pgv.StringRangeSuffix.content)
 }
-inline void StringRangeMaxLen::add_content(const char* value, size_t size) {
+inline void StringRangeSuffix::add_content(const char* value, size_t size) {
   content_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:pgv.StringRangeMaxLen.content)
+  // @@protoc_insertion_point(field_add_pointer:pgv.StringRangeSuffix.content)
 }
 inline const ::google::protobuf::RepeatedPtrField<::std::string>&
-StringRangeMaxLen::content() const {
-  // @@protoc_insertion_point(field_list:pgv.StringRangeMaxLen.content)
+StringRangeSuffix::content() const {
+  // @@protoc_insertion_point(field_list:pgv.StringRangeSuffix.content)
   return content_;
 }
 inline ::google::protobuf::RepeatedPtrField<::std::string>*
-StringRangeMaxLen::mutable_content() {
-  // @@protoc_insertion_point(field_mutable_list:pgv.StringRangeMaxLen.content)
+StringRangeSuffix::mutable_content() {
+  // @@protoc_insertion_point(field_mutable_list:pgv.StringRangeSuffix.content)
   return &content_;
 }
 

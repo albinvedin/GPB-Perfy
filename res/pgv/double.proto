@@ -8,6 +8,10 @@ message DoubleRangeGreaterThan {
     repeated double content = 1 [(validate.rules).repeated.items.double.gt = 100];
 }
 
+message DoubleRangeLessThan {
+    repeated double content = 1 [(validate.rules).repeated.items.double.lt = 100];
+}
+
 message DoubleRangeConst {
     repeated double content = 1 [(validate.rules).repeated.items.double.const = 100];
 }

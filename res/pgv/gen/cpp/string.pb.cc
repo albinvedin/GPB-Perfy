@@ -21,10 +21,10 @@ class StringRangePrefixDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<StringRangePrefix> _instance;
 } _StringRangePrefix_default_instance_;
-class StringRangeMaxLenDefaultTypeInternal {
+class StringRangeSuffixDefaultTypeInternal {
  public:
-  ::google::protobuf::internal::ExplicitlyConstructed<StringRangeMaxLen> _instance;
-} _StringRangeMaxLen_default_instance_;
+  ::google::protobuf::internal::ExplicitlyConstructed<StringRangeSuffix> _instance;
+} _StringRangeSuffix_default_instance_;
 class StringRangeContainsDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<StringRangeContains> _instance;
@@ -44,19 +44,19 @@ static void InitDefaultsStringRangePrefix_string_2eproto() {
 ::google::protobuf::internal::SCCInfo<0> scc_info_StringRangePrefix_string_2eproto =
     {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsStringRangePrefix_string_2eproto}, {}};
 
-static void InitDefaultsStringRangeMaxLen_string_2eproto() {
+static void InitDefaultsStringRangeSuffix_string_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::pgv::_StringRangeMaxLen_default_instance_;
-    new (ptr) ::pgv::StringRangeMaxLen();
+    void* ptr = &::pgv::_StringRangeSuffix_default_instance_;
+    new (ptr) ::pgv::StringRangeSuffix();
     ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::pgv::StringRangeMaxLen::InitAsDefaultInstance();
+  ::pgv::StringRangeSuffix::InitAsDefaultInstance();
 }
 
-::google::protobuf::internal::SCCInfo<0> scc_info_StringRangeMaxLen_string_2eproto =
-    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsStringRangeMaxLen_string_2eproto}, {}};
+::google::protobuf::internal::SCCInfo<0> scc_info_StringRangeSuffix_string_2eproto =
+    {{ATOMIC_VAR_INIT(::google::protobuf::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsStringRangeSuffix_string_2eproto}, {}};
 
 static void InitDefaultsStringRangeContains_string_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -74,7 +74,7 @@ static void InitDefaultsStringRangeContains_string_2eproto() {
 
 void InitDefaults_string_2eproto() {
   ::google::protobuf::internal::InitSCC(&scc_info_StringRangePrefix_string_2eproto.base);
-  ::google::protobuf::internal::InitSCC(&scc_info_StringRangeMaxLen_string_2eproto.base);
+  ::google::protobuf::internal::InitSCC(&scc_info_StringRangeSuffix_string_2eproto.base);
   ::google::protobuf::internal::InitSCC(&scc_info_StringRangeContains_string_2eproto.base);
 }
 
@@ -90,11 +90,11 @@ const ::google::protobuf::uint32 TableStruct_string_2eproto::offsets[] PROTOBUF_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::pgv::StringRangePrefix, content_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::pgv::StringRangeMaxLen, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pgv::StringRangeSuffix, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::pgv::StringRangeMaxLen, content_),
+  PROTOBUF_FIELD_OFFSET(::pgv::StringRangeSuffix, content_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::pgv::StringRangeContains, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -104,13 +104,13 @@ const ::google::protobuf::uint32 TableStruct_string_2eproto::offsets[] PROTOBUF_
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::pgv::StringRangePrefix)},
-  { 6, -1, sizeof(::pgv::StringRangeMaxLen)},
+  { 6, -1, sizeof(::pgv::StringRangeSuffix)},
   { 12, -1, sizeof(::pgv::StringRangeContains)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_StringRangePrefix_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_StringRangeMaxLen_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_StringRangeSuffix_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::pgv::_StringRangeContains_default_instance_),
 };
 
@@ -123,15 +123,15 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
 const char descriptor_table_protodef_string_2eproto[] =
   "\n\014string.proto\022\003pgv\032\027validate/validate.p"
   "roto\"7\n\021StringRangePrefix\022\"\n\007content\030\001 \003"
-  "(\tB\021\272\351\300\003\014\222\001\t\"\007r\005:\003Foo\"4\n\021StringRangeMaxL"
-  "en\022\037\n\007content\030\001 \003(\tB\016\272\351\300\003\t\222\001\006\"\004r\002\030\005\"9\n\023S"
-  "tringRangeContains\022\"\n\007content\030\001 \003(\tB\021\272\351\300"
-  "\003\014\222\001\t\"\007r\005J\003Foob\006proto3"
+  "(\tB\021\272\351\300\003\014\222\001\t\"\007r\005:\003Foo\"7\n\021StringRangeSuff"
+  "ix\022\"\n\007content\030\001 \003(\tB\021\272\351\300\003\014\222\001\t\"\007r\005B\003Foo\"9"
+  "\n\023StringRangeContains\022\"\n\007content\030\001 \003(\tB\021"
+  "\272\351\300\003\014\222\001\t\"\007r\005J\003Foob\006proto3"
   ;
 ::google::protobuf::internal::DescriptorTable descriptor_table_string_2eproto = {
   false, InitDefaults_string_2eproto, 
   descriptor_table_protodef_string_2eproto,
-  "string.proto", &assign_descriptors_table_string_2eproto, 222,
+  "string.proto", &assign_descriptors_table_string_2eproto, 225,
 };
 
 void AddDescriptors_string_2eproto() {
@@ -440,53 +440,53 @@ void StringRangePrefix::InternalSwap(StringRangePrefix* other) {
 
 // ===================================================================
 
-void StringRangeMaxLen::InitAsDefaultInstance() {
+void StringRangeSuffix::InitAsDefaultInstance() {
 }
-class StringRangeMaxLen::HasBitSetters {
+class StringRangeSuffix::HasBitSetters {
  public:
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int StringRangeMaxLen::kContentFieldNumber;
+const int StringRangeSuffix::kContentFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-StringRangeMaxLen::StringRangeMaxLen()
+StringRangeSuffix::StringRangeSuffix()
   : ::google::protobuf::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(constructor:pgv.StringRangeSuffix)
 }
-StringRangeMaxLen::StringRangeMaxLen(const StringRangeMaxLen& from)
+StringRangeSuffix::StringRangeSuffix(const StringRangeSuffix& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(nullptr),
       content_(from.content_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(copy_constructor:pgv.StringRangeSuffix)
 }
 
-void StringRangeMaxLen::SharedCtor() {
+void StringRangeSuffix::SharedCtor() {
   ::google::protobuf::internal::InitSCC(
-      &scc_info_StringRangeMaxLen_string_2eproto.base);
+      &scc_info_StringRangeSuffix_string_2eproto.base);
 }
 
-StringRangeMaxLen::~StringRangeMaxLen() {
-  // @@protoc_insertion_point(destructor:pgv.StringRangeMaxLen)
+StringRangeSuffix::~StringRangeSuffix() {
+  // @@protoc_insertion_point(destructor:pgv.StringRangeSuffix)
   SharedDtor();
 }
 
-void StringRangeMaxLen::SharedDtor() {
+void StringRangeSuffix::SharedDtor() {
 }
 
-void StringRangeMaxLen::SetCachedSize(int size) const {
+void StringRangeSuffix::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const StringRangeMaxLen& StringRangeMaxLen::default_instance() {
-  ::google::protobuf::internal::InitSCC(&::scc_info_StringRangeMaxLen_string_2eproto.base);
+const StringRangeSuffix& StringRangeSuffix::default_instance() {
+  ::google::protobuf::internal::InitSCC(&::scc_info_StringRangeSuffix_string_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void StringRangeMaxLen::Clear() {
-// @@protoc_insertion_point(message_clear_start:pgv.StringRangeMaxLen)
+void StringRangeSuffix::Clear() {
+// @@protoc_insertion_point(message_clear_start:pgv.StringRangeSuffix)
   ::google::protobuf::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -496,9 +496,9 @@ void StringRangeMaxLen::Clear() {
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* StringRangeMaxLen::_InternalParse(const char* begin, const char* end, void* object,
+const char* StringRangeSuffix::_InternalParse(const char* begin, const char* end, void* object,
                   ::google::protobuf::internal::ParseContext* ctx) {
-  auto msg = static_cast<StringRangeMaxLen*>(object);
+  auto msg = static_cast<StringRangeSuffix*>(object);
   ::google::protobuf::int32 size; (void)size;
   int depth; (void)depth;
   ::google::protobuf::uint32 tag;
@@ -514,7 +514,7 @@ const char* StringRangeMaxLen::_InternalParse(const char* begin, const char* end
         do {
           ptr = ::google::protobuf::io::ReadSize(ptr, &size);
           GOOGLE_PROTOBUF_PARSER_ASSERT(ptr);
-          ctx->extra_parse_data().SetFieldName("pgv.StringRangeMaxLen.content");
+          ctx->extra_parse_data().SetFieldName("pgv.StringRangeSuffix.content");
           object = msg->add_content();
           if (size > end - ptr + ::google::protobuf::internal::ParseContext::kSlopBytes) {
             parser_till_end = ::google::protobuf::internal::GreedyStringParserUTF8;
@@ -551,11 +551,11 @@ len_delim_till_end:
                                {parser_till_end, object}, size);
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool StringRangeMaxLen::MergePartialFromCodedStream(
+bool StringRangeSuffix::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(parse_start:pgv.StringRangeSuffix)
   for (;;) {
     ::std::pair<::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -570,7 +570,7 @@ bool StringRangeMaxLen::MergePartialFromCodedStream(
             this->content(this->content_size() - 1).data(),
             static_cast<int>(this->content(this->content_size() - 1).length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "pgv.StringRangeMaxLen.content"));
+            "pgv.StringRangeSuffix.content"));
         } else {
           goto handle_unusual;
         }
@@ -589,18 +589,18 @@ bool StringRangeMaxLen::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(parse_success:pgv.StringRangeSuffix)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(parse_failure:pgv.StringRangeSuffix)
   return false;
 #undef DO_
 }
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
-void StringRangeMaxLen::SerializeWithCachedSizes(
+void StringRangeSuffix::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(serialize_start:pgv.StringRangeSuffix)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -609,7 +609,7 @@ void StringRangeMaxLen::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->content(i).data(), static_cast<int>(this->content(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "pgv.StringRangeMaxLen.content");
+      "pgv.StringRangeSuffix.content");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       1, this->content(i), output);
   }
@@ -618,12 +618,12 @@ void StringRangeMaxLen::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(serialize_end:pgv.StringRangeSuffix)
 }
 
-::google::protobuf::uint8* StringRangeMaxLen::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* StringRangeSuffix::InternalSerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(serialize_to_array_start:pgv.StringRangeSuffix)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -632,7 +632,7 @@ void StringRangeMaxLen::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->content(i).data(), static_cast<int>(this->content(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "pgv.StringRangeMaxLen.content");
+      "pgv.StringRangeSuffix.content");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(1, this->content(i), target);
   }
@@ -641,12 +641,12 @@ void StringRangeMaxLen::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(serialize_to_array_end:pgv.StringRangeSuffix)
   return target;
 }
 
-size_t StringRangeMaxLen::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:pgv.StringRangeMaxLen)
+size_t StringRangeSuffix::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:pgv.StringRangeSuffix)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -671,23 +671,23 @@ size_t StringRangeMaxLen::ByteSizeLong() const {
   return total_size;
 }
 
-void StringRangeMaxLen::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:pgv.StringRangeMaxLen)
+void StringRangeSuffix::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:pgv.StringRangeSuffix)
   GOOGLE_DCHECK_NE(&from, this);
-  const StringRangeMaxLen* source =
-      ::google::protobuf::DynamicCastToGenerated<StringRangeMaxLen>(
+  const StringRangeSuffix* source =
+      ::google::protobuf::DynamicCastToGenerated<StringRangeSuffix>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pgv.StringRangeSuffix)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:pgv.StringRangeMaxLen)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pgv.StringRangeSuffix)
     MergeFrom(*source);
   }
 }
 
-void StringRangeMaxLen::MergeFrom(const StringRangeMaxLen& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:pgv.StringRangeMaxLen)
+void StringRangeSuffix::MergeFrom(const StringRangeSuffix& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:pgv.StringRangeSuffix)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -696,35 +696,35 @@ void StringRangeMaxLen::MergeFrom(const StringRangeMaxLen& from) {
   content_.MergeFrom(from.content_);
 }
 
-void StringRangeMaxLen::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:pgv.StringRangeMaxLen)
+void StringRangeSuffix::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:pgv.StringRangeSuffix)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void StringRangeMaxLen::CopyFrom(const StringRangeMaxLen& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:pgv.StringRangeMaxLen)
+void StringRangeSuffix::CopyFrom(const StringRangeSuffix& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:pgv.StringRangeSuffix)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool StringRangeMaxLen::IsInitialized() const {
+bool StringRangeSuffix::IsInitialized() const {
   return true;
 }
 
-void StringRangeMaxLen::Swap(StringRangeMaxLen* other) {
+void StringRangeSuffix::Swap(StringRangeSuffix* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void StringRangeMaxLen::InternalSwap(StringRangeMaxLen* other) {
+void StringRangeSuffix::InternalSwap(StringRangeSuffix* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   content_.InternalSwap(CastToBase(&other->content_));
 }
 
-::google::protobuf::Metadata StringRangeMaxLen::GetMetadata() const {
+::google::protobuf::Metadata StringRangeSuffix::GetMetadata() const {
   ::google::protobuf::internal::AssignDescriptors(&::assign_descriptors_table_string_2eproto);
   return ::file_level_metadata_string_2eproto[kIndexInFileMessages];
 }
@@ -1029,8 +1029,8 @@ namespace protobuf {
 template<> PROTOBUF_NOINLINE ::pgv::StringRangePrefix* Arena::CreateMaybeMessage< ::pgv::StringRangePrefix >(Arena* arena) {
   return Arena::CreateInternal< ::pgv::StringRangePrefix >(arena);
 }
-template<> PROTOBUF_NOINLINE ::pgv::StringRangeMaxLen* Arena::CreateMaybeMessage< ::pgv::StringRangeMaxLen >(Arena* arena) {
-  return Arena::CreateInternal< ::pgv::StringRangeMaxLen >(arena);
+template<> PROTOBUF_NOINLINE ::pgv::StringRangeSuffix* Arena::CreateMaybeMessage< ::pgv::StringRangeSuffix >(Arena* arena) {
+  return Arena::CreateInternal< ::pgv::StringRangeSuffix >(arena);
 }
 template<> PROTOBUF_NOINLINE ::pgv::StringRangeContains* Arena::CreateMaybeMessage< ::pgv::StringRangeContains >(Arena* arena) {
   return Arena::CreateInternal< ::pgv::StringRangeContains >(arena);
