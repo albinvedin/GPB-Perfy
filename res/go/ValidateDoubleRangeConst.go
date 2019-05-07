@@ -1,4 +1,4 @@
-// generated from generate_perf_tests, do not edit
+// Template for generating Golang tests, DO NOT EDIT!
 
 package main
 

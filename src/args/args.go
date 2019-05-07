@@ -7,7 +7,7 @@ import (
 
 type Args struct {
 	Output     string
-	Content    string
+	Statistic  string
 	Lang       string
 	Test       string
 	Iterations string
@@ -19,7 +19,7 @@ type Args struct {
 
 func Fetch() Args {
 	output := prepareStringArg("output", "o", "", "Specify log output file (defaults to console if empty)")
-	content := prepareStringArg("content", "c", "all", "Specify log content (all, average, median)")
+	statistic := prepareStringArg("statistic", "s", "total", "Specify output statistic (total, average, median)")
 	lang := prepareStringArg("lang", "l", "go", "Language to run performance tests in")
 	test := prepareStringArg("test", "t", "", "Test to run")
 	iterations := prepareIntArg("iterations", "i", 10000, "Number of iterations for the performance test")
@@ -33,7 +33,7 @@ func Fetch() Args {
 
 	args := Args{
 		Output:     *output,
-		Content:    *content,
+		Statistic:  *statistic,
 		Lang:       *lang,
 		Test:       *test,
 		Iterations: strconv.Itoa(*iterations),

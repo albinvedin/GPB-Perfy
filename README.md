@@ -94,8 +94,8 @@ $ ./res/pgv/compile.sh
 $ ./perfy -i=10000 -w=100 -t=all -f=perfy.log 100
 ```
 ### Flags
-  - -c (string) : Specify log content (all, average, median) (shorthand) (default "all")
-  - -content (string) : Specify log content (all, average, median) (default "all")
+  - -s (string) : Specify output statistic (total, average, median) (shorthand) (default "total")
+  - -statistic (string) : Specify output statistic (total, average, median) (default "total")
 
   - -h : List available tests for any given language (shorthand)
   - -help : List available tests for any given language

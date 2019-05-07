@@ -42,7 +42,7 @@ func main() {
 			if err != nil {
 				panic(err)
 			}
-			logger.Info.Printf("%s: %."+arguments.Precision+"fs\n", test, helpers.ResultInSeconds(result))
+			logger.Info.Printf("%s (%s): %."+arguments.Precision+"fs\n", test, arguments.Statistic, helpers.GetStatistic(arguments.Statistic, result))
 		}
 	}
 

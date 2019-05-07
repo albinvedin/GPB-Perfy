@@ -10,6 +10,7 @@ import (
 	"strings"
 	"strconv"
 	"math"
+	"sort"
 )
 
 func Marshal(message protobuf.Message) []byte {
@@ -93,7 +94,33 @@ func ValidateRangeTestArguments(args []string) (int, int, int) {
 func ResultInSeconds(result []int64) float64 {
 	var sum float64
 	for _, val := range result {
-		sum += float64(val) / float64(math.Pow(10, 9))
+		sum += NanoToSecond(val)
 	}
 	return sum
+}
+
+func NanoToSecond(value int64) float64 {
+	return float64(value) / float64(math.Pow(10, 9))
+}
+
+func GetAverage(result []int64) float64 {
+	return ResultInSeconds(result) / float64(len(result))
+}
+
+func GetMedian(result []int64) float64 {
+	sort.Slice(result, func(i, j int) bool { return result[i] < result[j] })
+	return NanoToSecond(result[int64(len(result) / 2)])
+}
+
+func GetStatistic(variant string, result []int64) float64 {
+	switch variant {
+	case "total":
+		return ResultInSeconds(result)
+	case "median":
+		return GetMedian(result)
+	case "average":
+		return GetAverage(result)
+	default:
+		panic("GetStatistic - Error: (" + variant + ") not recognised")
+	}
 }

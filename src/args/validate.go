@@ -12,9 +12,9 @@ func Validate(args Args) {
 		log.Fatalf("Language '%s' is not supported.\n", args.Lang)
 	}
 
-	acceptedContents := []string{"all", "average", "median"}
-	if !HasElem(acceptedContents, args.Content) {
-		log.Fatalf("Content '%s' is not supported.\n", args.Content)
+	acceptedStatistics := []string{"total", "average", "median"}
+	if !HasElem(acceptedStatistics, args.Statistic) {
+		log.Fatalf("Statistic '%s' is not supported.\n", args.Statistic)
 	}
 
 	if args.Test != "all" && !HasElem(helpers.GetAvailableTests(args.Lang), args.Test) {
