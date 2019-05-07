@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 p=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
-# generate go tests
-python3 "$p/generate.py"
+# generates performance tests from ./templates/ under ../cpp/ and ../go/
+$p/template_generate
 
 # proto => go
 protoc \
@@ -14,7 +14,7 @@ protoc \
   $p/*.proto
 
 # validation-proto => c++
-$p/validate/compile.sh
+$p/validate/compile
 
 # proto => c++
 protoc \
