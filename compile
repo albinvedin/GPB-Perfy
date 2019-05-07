@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 p=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-$p/res/pgv/compile.sh
-$p/res/vanilla/compile.sh
-$p/res/go/compile.sh
-$p/res/cpp/compile.sh
+$p/res/pgv/compile
+$p/res/vanilla/compile
+$p/res/go/compile
+$p/res/cpp/compile
 go build -gcflags '-N -l' $p/perfy.go

@@ -1,3 +1,5 @@
+// generated from generate_perf_tests, do not edit
+
 #include <iostream>
 #include <string>
 #include <vector>

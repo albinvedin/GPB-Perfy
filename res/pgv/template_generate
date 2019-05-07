@@ -52,8 +52,8 @@ class MessageType:
             self.adjustedValue = "pgv::" + self.messageType + "_Sex::" + self.messageType + "_Sex_MALE"
 
 def main():
-    goTemplate = read(getPath() + "/templates/go/range.txt")
-    cppTemplate = read(getPath() + "/templates/cpp/range.txt")
+    goTemplate = read(getPath() + "/templates/go/range_template.go")
+    cppTemplate = read(getPath() + "/templates/cpp/range_template.cc")
     for filename in os.listdir(getPath()):
         if filename.endswith(".proto"):
             messages = parse(filename)

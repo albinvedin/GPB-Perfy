@@ -1,3 +1,5 @@
+// generated from generate_perf_tests, do not edit
+
 package main
 
 import (
@@ -12,7 +14,7 @@ import (
 func main() {
 	iterations, warmup, elementCount := helpers.ValidateRangeTestArguments(os.Args)
 
-	elapsedTimes := validateN(iterations, warmup, createMessage(elementCount))[warmup:]
+	elapsedTimes := validateN(iterations, warmup, createMessage(elementCount))
 
 	output, err := json.Marshal(elapsedTimes)
 	if err != nil {
