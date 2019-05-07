@@ -104,6 +104,7 @@ def generateCppFile(message, template):
     code = re.sub(r"{{\s*importType\s*}}", message.filename.split(".")[0], code)
     write(getCppOutPath(), message.messageType, code, "cc")
 
+# Generation helper functions #
 def generateFile(messageType, contentValue, template):
     code = re.sub(r"{{\s*messageType\s*}}", messageType, template)
     return re.sub(r"{{\s*contentValue\s*}}", str(contentValue), code)

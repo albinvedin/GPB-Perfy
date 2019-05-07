@@ -10,16 +10,16 @@ Tests are written for:
 ### Google Protocol Buffers
 For more information, visit Google Protocol Buffers [installation guide](https://developers.google.com/protocol-buffers/docs/tutorials).
 
-Add the exports below to ~/.bashrc.user if you do not already have them by running the following commands:
+Make sure you have the following paths in ~/.bashrc.user:
 ```
-$ echo "export PATH=$HOME/.local/bin:$PATH" >> ~/.bashrc.user
-$ echo "export GOROOT=/usr/local/go" >> ~/.bashrc.user
-$ echo "export GOPATH=$HOME/go" >> ~/.bashrc.user
-$ echo "export PATH=$GOROOT/bin:$GOPATH/bin:$PATH" >> ~/.bashrc.user
-$ echo "export LD_LIBRARY_PATH=$HOME/.local/lib" >> ~/.bashrc.user
+export PATH=$HOME/.local/bin:$PATH
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/.local/lib
 ```
 
-Source the file to activate the newly added paths:
+Source the file to activate the newly added paths by running the following command:
 ```
 $ source ~/.bashrc.user
 ```
