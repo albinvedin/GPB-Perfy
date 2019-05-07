@@ -8,14 +8,50 @@ Tests are written for:
 
 ## Installation
 ### Google Protocol Buffers
-Follow the [installation guide](https://developers.google.com/protocol-buffers/docs/tutorials) for the desired language.
+For more information, visit Google Protocol Buffers [installation guide](https://developers.google.com/protocol-buffers/docs/tutorials).
 
-### PGV
+Add the exports below to ~/.bashrc.user if you do not already have them by running the following commands:
 ```
-# Fetches PGV repo into $GOPATH
+$ echo "export PATH=$HOME/.local/bin:$PATH" >> ~/.bashrc.user
+$ echo "export GOROOT=/usr/local/go" >> ~/.bashrc.user
+$ echo "export GOPATH=$HOME/go" >> ~/.bashrc.user
+$ echo "export PATH=$GOROOT/bin:$GOPATH/bin:$PATH" >> ~/.bashrc.user
+$ echo "export LD_LIBRARY_PATH=$HOME/.local/lib" >> ~/.bashrc.user
+```
+
+Source the file to activate the newly added paths:
+```
+$ source ~/.bashrc.user
+```
+
+#### Golang
+To install the Go protocol buffers plugin execute the following:
+```
+go get -u github.com/golang/protobuf/protoc-gen-go
+```
+
+#### C++
+```
+$ git clone https://github.com/protocolbuffers/protobuf.git
+$ cd protobuf
+$ git submodule update --init --recursive
+$ ./autogen.sh
+```
+
+To build and install the C++ Protocol Buffer runtime and the Protocol Buffer compiler (protoc) execute the following:
+```
+$ ./configure --prefix=$HOME/.local
+$ make
+$ make check
+$ sudo make install
+```
+
+### protoc-gen-validate
+```
+# Fetches protoc-gen-validate repo into $GOPATH
 $ go get -d github.com/envoyproxy/protoc-gen-validate
 
-# Installs PGV into $GOPATH/bin
+# Installs protoc-gen-validate into $GOPATH/bin
 $ make build
 ```
 For more information, visit the projects [GitHub page](https://github.com/envoyproxy/protoc-gen-validate).
@@ -51,10 +87,6 @@ Place the .proto-files under "/res/pgv" and run the script "compile.sh". The com
 ```
 $ ./res/pgv/compile.sh
 ```
-
-### TODO DOCUMENTATION
-- ~/.bashrc.user "export LD_LIBRARY_PATH=$HOME/.local/lib"
-- Have protobuff (C++) includes in ~/.local/include
 
 ## Usage
 ### Example
