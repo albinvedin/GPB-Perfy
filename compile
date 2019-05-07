@@ -1,7 +1,30 @@
 #!/usr/bin/env bash
 p=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-$p/res/pgv/compile
-$p/res/vanilla/compile
-$p/res/go/compile
-$p/res/cpp/compile
-go build -gcflags '-N -l' $p/perfy.go
+
+showLoading() {
+    mypid=$!
+    loadingText=$1
+    GREEN="\033[0;32m"
+    NC="\033[0m"
+    echo -ne "$loadingText\r"
+
+    while kill -0 $mypid 2>/dev/null; do
+        echo -ne "$loadingText.\r"
+        sleep 0.5
+        echo -ne "$loadingText..\r"
+        sleep 0.5
+        echo -ne "$loadingText...\r"
+        sleep 0.5
+        echo -ne "\r\033[K"
+        echo -ne "$loadingText\r"
+        sleep 0.5
+    done
+
+    echo -e "$loadingText : ${GREEN}FINISHED${NC}"
+}
+
+$p/res/pgv/compile & showLoading "Generating tests"
+$p/res/vanilla/compile & showLoading "Compiling .proto-files"
+$p/res/go/compile & showLoading "Compiling Go"
+$p/res/cpp/compile & showLoading "Compiling C++"
+go build -gcflags '-N -l' $p/perfy.go & showLoading "Compiling perfy.go"
