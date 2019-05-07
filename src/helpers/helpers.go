@@ -91,7 +91,7 @@ func ValidateRangeTestArguments(args []string) (int, int, int) {
 	}
 }
 
-func ResultInSeconds(result []int64) float64 {
+func GetTotal(result []int64) float64 {
 	var sum float64
 	for _, val := range result {
 		sum += NanoToSecond(val)
@@ -99,12 +99,8 @@ func ResultInSeconds(result []int64) float64 {
 	return sum
 }
 
-func NanoToSecond(value int64) float64 {
-	return float64(value) / float64(math.Pow(10, 9))
-}
-
 func GetAverage(result []int64) float64 {
-	return ResultInSeconds(result) / float64(len(result))
+	return GetTotal(result) / float64(len(result))
 }
 
 func GetMedian(result []int64) float64 {
@@ -112,10 +108,14 @@ func GetMedian(result []int64) float64 {
 	return NanoToSecond(result[int64(len(result) / 2)])
 }
 
+func NanoToSecond(value int64) float64 {
+	return float64(value) / float64(math.Pow(10, 9))
+}
+
 func GetStatistic(variant string, result []int64) float64 {
 	switch variant {
 	case "total":
-		return ResultInSeconds(result)
+		return GetTotal(result)
 	case "median":
 		return GetMedian(result)
 	case "average":
