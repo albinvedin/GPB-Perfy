@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+p=$( cd $(dirname ${BASH_SOURCE[0]}) ; pwd -P )
+
+arm_tools=/app/rbs/wrtools/tools-sdk-20160517/usr/bin/arm-wrs-linux-gnueabi
+
+x64_include=$HOME/.local/include
+arm_include=$HOME/.local/include_arm
+
+x64_lib=$HOME/.local/lib
+arm_lib=$HOME/.local/lib_arm
+
+
+mkdir -p $p/out
+
+for source_file in $p/*.cc
+do
+  source_name=$(echo $source_file | sed "s/.*\///" | sed "s/\.cc//")
+  source_type=$(echo $source_name | sed "s/Validate//" | perl -pe "s/[A-Z][a-z\d]*\K.*//" | sed "s/.*/\L&/" )
+
+  source_proto_file=$p/../pgv/gen/cpp/$source_type.pb.cc
+  source_validate_file=$p/../pgv/gen/cpp/$source_type.pb.validate.cc
+  general_validate_file=$p/../pgv/gen/cpp/validate/validate.pb.cc
+
+  x64_binary_file=$p/out/$source_name.x64
+  arm_binary_file=$p/out/$source_name.arm
+  arm_debug_file=$arm_binary_file.debug_info
+
+  # x86_64 compile
+  echo $(g++ -std=c++11 -o$x64_binary_file -g -Wall $source_file $source_proto_file $source_validate_file $general_validate_file -I$x64_include -Wl,-Bstatic -L$x64_lib -lprotobuf -Wl,-Bdynamic -pthread -lpthread)
+
+  # arm compile
+  echo $($arm_tools/arm-wrs-linux-gnueabi-g++ -std=c++11 -o$arm_binary_file -fno-omit-frame-pointer -fasynchronous-unwind-tables --sysroot /proj/rbsNodeIfStorage/nodeif/DISTRO_CXA11448/R18G13/arm-wr6/ -g -Wall -lrt $source_file $source_proto_file $source_validate_file $general_validate_file -I $arm_include -Wl,-Bstatic -L$HOME/.local/lib_arm -lprotobuf -Wl,-Bdynamic -pthread -lpthread)
+
+  # arm other
+  echo $($arm_tools/arm-wrs-linux-gnueabi-objcopy --only-keep-debug $arm_binary_file $arm_debug_file)
+  echo $($arm_tools/arm-wrs-linux-gnueabi-strip --strip-debug --strip-unneeded $arm_binary_file)
+  echo $($arm_tools/arm-wrs-linux-gnueabi-objcopy --add-gnu-debuglink=$arm_debug_file $arm_binary_file)
+done
