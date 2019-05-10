@@ -3,13 +3,13 @@ package helpers
 import (
 	"fmt"
 	protobuf "github.com/golang/protobuf/proto"
-	"os"
 	"log"
+	"math"
+	"os"
 	"os/exec"
 	"path/filepath"
-	"strings"
 	"strconv"
-	"math"
+	"strings"
 )
 
 func Marshal(message protobuf.Message) []byte {
@@ -20,14 +20,14 @@ func Marshal(message protobuf.Message) []byte {
 	return bytes
 }
 
-func GetAvailableTests(lang string) []string {
-	path := GetPath() + "/res/" + lang + "/out/"
+func GetAvailableTests(lang string, arch string) []string {
+	path := GetPath() + "/../res/" + lang + "/out/" + arch + "/"
 	exists, _ := PathExists(path)
 	if !exists {
 		return make([]string, 0)
 	}
-	cmd := exec.Command("/bin/ls", path)
-	stdout, _ := cmd.Output()
+	stdout, _ := exec.Command("bash", "-c", "ls -p "+path+" | grep -v /").Output()
+	fmt.Println(string(stdout))
 	tests := strings.Split(strings.TrimSpace(string(stdout)), "\n")
 	return tests
 }
@@ -43,12 +43,12 @@ func PathExists(path string) (bool, error) {
 	return true, err
 }
 
-func DisplayAvailableTests(lang string) {
-	tests := GetAvailableTests(lang)
+func DisplayAvailableTests(lang string, arch string) {
+	tests := GetAvailableTests(lang, arch)
 	if len(tests) == 0 {
-		fmt.Printf("There are no tests available for language '%s'\n", lang)
+		fmt.Printf("There are no tests available for language '%s' and architecture '%s'\n", lang, arch)
 	} else {
-		fmt.Printf("Available tests for language '%s'\n", lang)
+		fmt.Printf("Available tests for language '%s' and architecture '%s'\n", lang, arch)
 		for i := 0; i < len(tests); i++ {
 			fmt.Printf("- %s\n", tests[i])
 		}
@@ -64,10 +64,10 @@ func GetPath() string {
 	return exPath
 }
 
-func GetTests(input string, lang string) []string {
+func GetTests(input string, lang string, arch string) []string {
 	var tests []string
 	if input == "all" {
-		tests = GetAvailableTests(lang)
+		tests = GetAvailableTests(lang, arch)
 	} else {
 		tests = append(tests, input)
 	}
@@ -75,12 +75,12 @@ func GetTests(input string, lang string) []string {
 }
 
 func ValidateRangeTestArguments(args []string) (int, int, int) {
-	if (len(args) < 4) {
+	if len(args) < 4 {
 		words := strings.Split(args[0], "/")
-		name := words[len(words) - 1]
+		name := words[len(words)-1]
 		msg := name + ": Requires 3 arguments (Iterations, Warmup, Element Count)"
 		// This must be a panic. Do not change.
-		panic(msg)	
+		panic(msg)
 	} else {
 		iterations, _ := strconv.Atoi(args[1])
 		warmup, _ := strconv.Atoi(args[2])

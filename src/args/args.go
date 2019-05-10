@@ -9,6 +9,7 @@ type Args struct {
 	Output     string
 	Content    string
 	Lang       string
+	Arch       string
 	Test       string
 	Iterations string
 	Warmup     string
@@ -21,6 +22,7 @@ func Fetch() Args {
 	output := prepareStringArg("output", "o", "", "Specify log output file (defaults to console if empty)")
 	content := prepareStringArg("content", "c", "all", "Specify log content (all, average, median)")
 	lang := prepareStringArg("lang", "l", "go", "Language to run performance tests in")
+	arch := prepareStringArg("arch", "a", "x64", "CPU Archetype (x64, arm)")
 	test := prepareStringArg("test", "t", "", "Test to run")
 	iterations := prepareIntArg("iterations", "i", 10000, "Number of iterations for the performance test")
 	warmup := prepareIntArg("warmup", "w", 1000, "Number of warmup-iterations for the performance test")
@@ -35,6 +37,7 @@ func Fetch() Args {
 		Output:     *output,
 		Content:    *content,
 		Lang:       *lang,
+		Arch:       *arch,
 		Test:       *test,
 		Iterations: strconv.Itoa(*iterations),
 		Warmup:     strconv.Itoa(*warmup),

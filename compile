@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
-p=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-$p/res/pgv/compile
-$p/res/vanilla/compile
-$p/res/go/compile
-$p/res/cpp/compile
-go build -gcflags '-N -l' $p/perfy.go
+p=$(cd $(dirname $BASH_SOURCE[0]); pwd -P)
+
+$p/res/pgv/compile "$1"
+
+$p/res/vanilla/compile "$1"
+
+if [ "$1" = "go" ] || [ "$1" = "all" ]
+then
+  $p/res/go/compile "$2"
+fi
+
+if [ "$1" = "cpp" ] || [ "$1" = "all" ]
+then
+  $p/res/cpp/compile "$2"
+fi
+
+go build -gcflags '-N -l' -o $p/out/perfy $p/perfy.go

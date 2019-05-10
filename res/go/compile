@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
-p=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-mkdir -p $p/out
-for path in $p/*.go; do
-  name=$(echo $path | sed "s/.*\///")
-  go build -gcflags '-N -l' -o $p/out/${name::-3} $path
+p=$(cd $(dirname $BASH_SOURCE[0]); pwd -P)
+mkdir -p $p/out/x64
+mkdir -p $p/out/arm
+for source_file in $p/*.go; do
+  source_name=$(echo $source_file | sed "s/.*\///")
+  source_name=${source_name::-3}
+  if [ "$1" = "x64" ] || [ "$1" = "all" ]
+  then
+    binary_file=$p/out/x64/$source_name
+    go build -gcflags '-N -l' -o $binary_file $source_file
+    chmod +x $binary_file
+  fi
 done
-chmod +x $p/out/*
