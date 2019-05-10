@@ -46,7 +46,7 @@ then
   fi
 fi
 
-if [ "$1" = "perfy" ]
+if [ "$1" = "perfy" ] || [ "$1" = "all" ]
 then
   go build -gcflags '-N -l' -o $p/out/perfy $p/perfy.go & showLoading "Compiling perfy.go"
 fi
