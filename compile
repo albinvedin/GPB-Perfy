@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-p=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+p=$(cd $(dirname $BASH_SOURCE[0]); pwd -P)
 
 showLoading() {
     mypid=$!
@@ -23,8 +23,30 @@ showLoading() {
     echo -e "$loadingText : ${GREEN}FINISHED${NC}"
 }
 
-$p/res/pgv/compile & showLoading "Generating tests"
-$p/res/vanilla/compile & showLoading "Compiling .proto-files"
-$p/res/go/compile & showLoading "Compiling Go"
-$p/res/cpp/compile & showLoading "Compiling C++"
-go build -gcflags '-N -l' $p/perfy.go & showLoading "Compiling perfy.go"
+if [ "$2" = "pgv" ] || [ "$2" = "all" ]
+then
+  $p/res/pgv/compile "$3" & showLoading "Compiling .proto-files with protoc+pgv and generating tests"
+fi
+
+if [ "$2" = "vanilla" ] || [ "$2" = "all" ]
+then
+  $p/res/vanilla/compile "$3" & showLoading "Compiling .proto-files with protoc"
+fi
+
+if [ "$4" = "x64" ] || [ "$4" = "arm" ] || [ "$4" = "all" ]
+then
+  if [ "$3" = "go" ] || [ "$3" = "all" ]
+  then
+    $p/res/go/compile "$4" & showLoading "Compiling Go"
+  fi
+
+  if [ "$3" = "cpp" ] || [ "$3" = "all" ]
+  then
+    $p/res/cpp/compile "$4" & showLoading "Compiling C++"
+  fi
+fi
+
+if [ "$1" = "perfy" ]
+then
+  go build -gcflags '-N -l' -o $p/out/perfy $p/perfy.go & showLoading "Compiling perfy.go"
+fi

@@ -17,7 +17,7 @@ func Validate(args Args) {
 		log.Fatalf("Statistic '%s' is not supported.\n", args.Statistic)
 	}
 
-	if args.Test != "all" && !HasElem(helpers.GetAvailableTests(args.Lang), args.Test) {
+	if args.Test != "all" && !HasElem(helpers.GetAvailableTests(args.Lang, args.Arch), args.Test) {
 		log.Fatalf("Test '%s' does not exists.\n", args.Test)
 	}
 }
