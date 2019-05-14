@@ -58,20 +58,13 @@ then
   fi
 fi
 
-if ([ "$4" = "arm" ] || [ "$4" = "all" ]) && [ "$5" != "" ]
+if [ "$5" != "" ]
 then
-  echo "Copying binary to remote (need pw)..."
-  first=$(echo "$5" | cut -d: -f1)
-  second=$(echo "$5" | cut -d: -f2)
-  scp $p/out/arm/perfy "$first:$second/out/arm/perfy"
-  cat << EOF > $p/out/arm/perfy.remote
-#!/usr/bin/env bash
-test=\$(echo "\$@" | grep -o "\-t .*" | cut -d" " -f2)
-lang=\$(echo "\$@" | grep -o "\-l .*" | cut -d" " -f2)
-echo "Copying test (need pw)..."
-scp $p/res/\$lang/out/arm/\$test $first:$second/res/\$lang/out/arm/\$test
-echo "Executing command (need pw)..."
-ssh $first "$second/out/arm/perfy \$@"
-EOF
+  # scp $p/out/arm/perfy "$5/out/arm/perfy"
+  echo <<<EOF
+\#!/usr/bin/env bash
+exec_cmd="${5#*:}/out/arm/perfy \$@"
+ssh root@10.58.115.69 "\$exec_cmd"
+EOF > $p/out/arm/perfy.remote
   chmod +x $p/out/arm/perfy.remote
 fi
