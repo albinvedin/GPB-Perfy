@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+package pgv;
+
+import "../validate/validate.proto";
+
+
+message MessageB {
+    uint32 field0 = 1 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field1 = 2 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field2 = 3 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    MessageE field3 = 4;
+    MessageF field4 = 5;
+}
+
+message MessageC {
+    uint32 field0 = 1 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field1 = 2 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field2 = 3 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    MessageE field3 = 4;
+    MessageF field4 = 5;
+}
+
+message MessageD {
+    uint32 field0 = 1 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field1 = 2 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field2 = 3 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    MessageE field3 = 4;
+    MessageF field4 = 5;
+}
+
+message MessageE {
+    uint32 field0 = 1 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field1 = 2 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field2 = 3 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field3 = 4 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    MessageF field4 = 5;
+}
+
+message MessageF {
+    uint32 field0 = 1 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field1 = 2 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field2 = 3 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field3 = 4 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+    uint32 field4 = 5 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; //Range0-1000
+}
+
+message MessageA {
+    uint32 field0 = 1 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     //Range 0-10
+    uint32 field1 = 2 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     //Range 0-10
+    uint32 field2 = 3 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     //Range 0-10
+    uint32 field3 = 4 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     //Range 0-10
+    uint32 field4 = 5 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     //Range 0-10
+    uint32 field5 = 6 [(validate.rules).uint32 = { gt: 10, lte: 50 }];     //Range 10-50
+    uint32 field6 = 7 [(validate.rules).uint32 = { gt: 10, lte: 50 }];     //Range 10-50
+    uint32 field7 = 8 [(validate.rules).uint32 = { gt: 10, lte: 50 }];     //Range 10-50
+    uint32 field8 = 9 [(validate.rules).uint32 = { gt: 10, lte: 50 }];     //Range 10-50
+    uint32 field9 = 10 [(validate.rules).uint32 = { gt: 10, lte: 50 }];     //Range 10-50
+    uint32 field10 = 11 [(validate.rules).uint32 = { gt: 5, lte: 15 }];   //Range 5-15
+    uint32 field11 = 12 [(validate.rules).uint32 = { gt: 5, lte: 15 }];   //Range 5-15
+    uint32 field12 = 13 [(validate.rules).uint32 = { gt: 5, lte: 15 }];   //Range 5-15
+    uint32 field13 = 14 [(validate.rules).uint32 = { gt: 5, lte: 15 }];   //Range 5-15
+    uint32 field14 = 15 [(validate.rules).uint32 = { gt: 5, lte: 15 }];   //Range 5-15
+    uint32 field15 = 16 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field16 = 17 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field17 = 18 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field18 = 19 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field19 = 20 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field20 = 21 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field21 = 22 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field22 = 23 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field23 = 24 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field24 = 25 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field25 = 26 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field26 = 27 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field27 = 28 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field28 = 29 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+    uint32 field29 = 30 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   //Range 5-100
+
+    uint64 field30 = 31 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   //Range 20-2500000000
+    uint64 field31 = 32 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   //Range 20-2500000000
+    uint64 field32 = 33 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   //Range 20-2500000000
+    uint64 field33 = 34 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   //Range 20-2500000000
+    uint64 field34 = 35 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   //Range 20-2500000000
+    uint64 field35 = 36 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   //Range 20-2500000000
+    uint64 field36 = 37 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   //Range 20-2500000000
+    uint64 field37 = 38 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   //Range 20-2500000000
+    uint64 field38 = 39 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   //Range 20-2500000000
+    uint64 field39 = 40 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   //Range 20-2500000000
+
+    MessageB field40 = 41;
+    MessageC field41 = 42;
+    MessageD field42 = 43;
+    MessageE field43 = 44;
+    MessageF field44 = 45;
+    MessageB field45 = 46;
+    MessageC field46 = 47;
+    MessageD field47 = 48;
+    MessageE field48 = 49;
+    MessageF field49 = 50;
+
+    bytes field50 = 51 [(validate.rules).bytes.max_len = 10];  //MaxLength = 11
+    bytes field51 = 52 [(validate.rules).bytes.max_len = 20];  //MaxLength = 21
+    bytes field52 = 53 [(validate.rules).bytes.max_len = 30];  //MaxLength = 31
+    bytes field53 = 54 [(validate.rules).bytes.max_len = 40];  //MaxLength = 41
+    bytes field54 = 55 [(validate.rules).bytes.max_len = 50]; //MaxLength = 51
+
+    MessageB field60 = 61;
+    MessageC field61 = 62;
+    MessageD field62 = 63;
+    MessageE field63 = 64;
+    MessageF field64 = 65;
+    MessageB field65 = 66;
+    MessageC field66 = 67;
+    MessageD field67 = 68;
+    MessageE field68 = 69;
+    MessageF field69 = 70;
+
+    sint32 field100 = 101 [(validate.rules).sint32 = { gt: -100, lte: 100 }]; //Range -100-100
+    sint32 field101 = 102 [(validate.rules).sint32 = { gt: -100, lte: 100 }]; //Range -100-100
+    sint32 field102 = 103 [(validate.rules).sint32 = { gt: -100, lte: 100 }]; //Range -100-100
+    sint32 field103 = 104 [(validate.rules).sint32 = { gt: -100, lte: 100 }]; //Range -100-100
+    sint32 field104 = 105 [(validate.rules).sint32 = { gt: -100, lte: 100 }]; //Range -100-100
+}
