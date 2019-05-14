@@ -1,150 +1,37 @@
 #!/usr/bin/env python3
 import os, re, math
+from generator import parser
+from generator.go import GoGenerator
+from generator.cpp import CppGenerator
 
-contentValueRegex = re.compile("\[\(validate.rules\).*?=\s*(.*)?\]")
-messageTypeRegex = re.compile("(?<=message)\s+\w+")
-ruleRegex = re.compile("\(validate\.rules\).*(?=\s+=)")
-
-class MessageType:
-    def __init__(self, messageType, contentValue, rule, filename):
-        self.messageType = messageType
-        self.rule = rule
-        self.originalValue = contentValue
-        self.adjustedValue = contentValue
-        self.filename = filename
-
-    def adjustValue(self, lang):
-        if self.rule.endswith("gt"):
-            self.adjustedValue = self.originalValue + 1
-        elif self.rule.endswith("lt"):
-            self.adjustedValue= self.originalValue - 1
-
-        if lang == "go":
-            self.adjustValueForGo()
-        elif lang == "cpp":
-            self.adjustValueForCpp()
-
-    def adjustValueForGo(self):
-        # In Golang we want a bytestring to look something like this: []byte("\x99")
-        if "bytes" in self.rule:
-            byteString = r"[]byte(" + "\""
-            if self.rule.endswith("min_len"):
-                byteString += r"\x99" * math.ceil(self.originalValue / 4)
-            elif self.rule.endswith("max_len"):
-                byteString += r"\x99" * math.floor(self.originalValue / 4)
-            else:
-                byteString += r"\x99"
-            byteString += "\"" + r")"
-            self.adjustedValue = byteString
-        elif "defined_only" in self.rule:
-            self.adjustedValue = 0
-
-    def adjustValueForCpp(self):
-        # In C++ (with protobuf) bytes are represented as string.
-        if "bytes" in self.rule:
-            if self.rule.endswith("min_len"):
-                self.adjustedValue = str("\"" + r"\x99" * math.ceil(self.originalValue / 4) + "\"")
-            elif self.rule.endswith("max_len"):
-                self.adjustedValue = str("\"" + r"\x99" * math.floor(self.originalValue / 4) + "\"")
-            else:
-                self.adjustedValue = str("\"" + r"\x99" + "\"")
-        elif "enum" in self.rule:
-            self.adjustedValue = "pgv::" + self.messageType + "_Sex::" + self.messageType + "_Sex_MALE"
+def getPath(lang = ""):
+    path = os.path.dirname(os.path.realpath(__file__))
+    if lang == "":
+        return path
+    return "/".join(path.split("/")[:-1]) + "/" + lang
 
 def main():
-    goTemplate = read(getPath() + "/templates/go/range_template.go")
-    cppTemplate = read(getPath() + "/templates/cpp/range_template.cc")
-    for filename in os.listdir(getPath()):
+    path = getPath()
+    cppOut = getPath("cpp")
+    goOut = getPath("go")
+
+    goRangeTemplate = open("%s/generator/templates/go/%s" % (path, "range_template.go"), "r").read()
+    cppRangeTemplate = open("%s/generator/templates/cpp/%s" % (path, "range_template.cc"), "r").read()
+
+    goGenerator = GoGenerator(goOut, goRangeTemplate)
+    cppGenerator = CppGenerator(cppOut, cppRangeTemplate)
+
+    for filename in os.listdir(path):
         if filename.endswith(".proto"):
-            messages = parse(filename)
-            generateGoFiles(messages, goTemplate)
-            generateCppFiles(messages, cppTemplate)
+            p = parser.Parse(open("%s/%s" % (path, filename), "r").read(), filename)
 
-# .proto-file parsers #
-def parse(filename):
-    messages = []
-    string = read(getPath() + "/" + filename)
-    types = parseTypes(string)
-    values = parseValues(string)
-    rules = parseRules(string)
-    for i in range(len(types)):
-        messages.append(MessageType(types[i], convert(values[i]), rules[i], filename))
-    return messages
+            goGenerator.addMessages(p.messages)
+            goGenerator.addEnums(p.enums)
 
-def parseTypes(string):
-    messageTypes = re.findall(messageTypeRegex, string)
-    return list(map(str.strip, messageTypes))
+            cppGenerator.addMessages(p.messages)
+            cppGenerator.addEnums(p.enums)
 
-def parseValues(string):
-    contentValues = re.findall(contentValueRegex, string)
-    return contentValues
+    goGenerator.generate()
+    cppGenerator.generate()
 
-def parseRules(string):
-    rules = re.findall(ruleRegex, string)
-    return rules
-
-# Golang generation #
-def generateGoFiles(messages, template):
-    for message in messages:
-        message.adjustValue("go")
-        generateGoFile(message, template)
-
-def generateGoFile(message, template):
-    code = generateFile(message.messageType, message.adjustedValue, template)
-    write(getGoOutPath(), message.messageType, code, "go")
-
-# Cpp generation #
-def generateCppFiles(messages, template):
-    for message in messages:
-        message.adjustValue("cpp")
-        generateCppFile(message, template)
-
-def generateCppFile(message, template):
-    code = generateFile(message.messageType, message.adjustedValue, template)
-    code = re.sub(r"{{\s*importType\s*}}", message.filename.split(".")[0], code)
-    write(getCppOutPath(), message.messageType, code, "cc")
-
-# Generation helper functions #
-def generateFile(messageType, contentValue, template):
-    code = re.sub(r"{{\s*messageType\s*}}", messageType, template)
-    code = re.sub(r"{{\s*contentValue\s*}}", str(contentValue), code)
-    code = replaceStub(code)
-    return code
-
-def replaceStub(string):
-    split = string.splitlines(True)
-    split[0] = "// Generated by " + __file__ + ".\n"
-    string = "".join(split)
-    return string
-
-# Path helpers #
-def getPath():
-    return os.path.dirname(os.path.realpath(__file__))
-
-def getCppOutPath():
-    return "/".join(getPath().split("/")[:-1]) + "/cpp"
-
-def getGoOutPath():
-    return "/".join(getPath().split("/")[:-1]) + "/go"
-
-# I/O helpers #
-def read(path):
-    f = open(path, "r")
-    return f.read()
-
-def write(path, filename, content, extension):
-    f = open(path + "/Validate" + filename + "." + extension, "w")
-    f.write(content)
-    f.close()
-
-# Type helpers #
-def convert(value):
-    if (value.isdigit()):
-        return int(value)
-    try:
-        return float(value.replace(",", ".", 1))
-    except ValueError:
-        return value
-
-if __name__ == "__main__":
-    main()
+main()

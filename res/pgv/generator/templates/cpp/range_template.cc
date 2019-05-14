@@ -5,21 +5,21 @@
 #include <vector>
 #include <chrono>
 #include <cstdint>
-#include "../pgv/gen/cpp/int64.pb.h"
-#include "../pgv/gen/cpp/int64.pb.validate.h"
+#include "../pgv/gen/cpp/{{ importType }}.pb.h"
+#include "../pgv/gen/cpp/{{ importType }}.pb.validate.h"
 
-pgv::Int64RangeLessThan createMessage(
+pgv::{{ messageType }} createMessage(
     int messageLength
 ){
-  auto message = pgv::Int64RangeLessThan();
+  auto message = pgv::{{ messageType }}();
   for (int i = 0; i < messageLength; ++i) {
-    message.add_content(99);
+    message.add_content({{ contentValue }});
   }
   return message;
 }
 
 std::int64_t validateOne(
-    pgv::Int64RangeLessThan const& message
+    pgv::{{ messageType }} const& message
   , pgv::ValidationMsg& err
 ){
   auto t1 = std::chrono::high_resolution_clock::now();
@@ -31,7 +31,7 @@ std::int64_t validateOne(
 std::vector<std::int64_t> validateN(
     int const iterations
   , int const warmup
-  , pgv::Int64RangeLessThan const& message
+  , pgv::{{ messageType }} const& message
   , pgv::ValidationMsg& err
 ){
   auto elapsedTimes = std::vector<std::int64_t>();
