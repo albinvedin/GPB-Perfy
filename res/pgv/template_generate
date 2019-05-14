@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, re, math
+import os, re, math, sys
 from generator import parser
 from generator.go import GoGenerator
 from generator.cpp import CppGenerator
@@ -11,6 +11,9 @@ def getPath(lang = ""):
     return "/".join(path.split("/")[:-1]) + "/" + lang
 
 def main():
+    lang = sys.argv[1]
+    ignores = sys.argv[2].split("|")
+
     path = getPath()
     cppOut = getPath("cpp")
     goOut = getPath("go")
@@ -21,17 +24,22 @@ def main():
     goGenerator = GoGenerator(goOut, goRangeTemplate)
     cppGenerator = CppGenerator(cppOut, cppRangeTemplate)
 
+    generators = []
+    if lang == "all":
+        generators += [goGenerator, cppGenerator]
+    elif lang == "go":
+        generators += [goGenerator]
+    elif lang == "cpp":
+        generators += [cppGenerator]
+
     for filename in os.listdir(path):
-        if filename.endswith(".proto"):
+        if filename.endswith(".proto") and filename.split(".")[0] not in ignores:
             p = parser.Parse(open("%s/%s" % (path, filename), "r").read(), filename)
+            for generator in generators:
+                generator.addMessages(p.messages)
+                generator.addEnums(p.enums)
 
-            goGenerator.addMessages(p.messages)
-            goGenerator.addEnums(p.enums)
-
-            cppGenerator.addMessages(p.messages)
-            cppGenerator.addEnums(p.enums)
-
-    goGenerator.generate()
-    cppGenerator.generate()
+    for generator in generators:
+        generator.generate()
 
 main()
