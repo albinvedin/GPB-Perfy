@@ -71,7 +71,7 @@ lang=\$(echo "\$@" | grep -o "\-l .*" | cut -d" " -f2)
 echo "Copying test (need pw)..."
 scp $p/res/\$lang/out/arm/\$test $first:$second/res/\$lang/out/arm/\$test
 echo "Executing command (need pw)..."
-ssh $first "$second/out/arm/perfy \$@"
+ssh $first "$second/out/arm/perfy \$@ && rm $second/res/\$lang/out/arm/\$test"
 EOF
   chmod +x $p/out/arm/perfy.remote
 fi

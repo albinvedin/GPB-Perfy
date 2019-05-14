@@ -31,7 +31,7 @@ func main() {
 	data := append([]string{arguments.Iterations, arguments.Warmup}, arguments.Tail...)
 
 	for _, test := range tests {
-		path := "res/" + arguments.Lang + "/out/" + arguments.Arch + "/" + test
+		path := helpers.GetPath() + "/../../res/" + arguments.Lang + "/out/" + arguments.Arch + "/" + test
 		cmd := exec.Command(path, data...)
 		output, err := cmd.CombinedOutput()
 		if err != nil {
