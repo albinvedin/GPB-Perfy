@@ -12,7 +12,7 @@ func main() {
 	arguments := args.Fetch()
 
 	if arguments.Help {
-		helpers.DisplayAvailableTests(arguments.Lang)
+		helpers.DisplayAvailableTests(arguments.Lang, arguments.Arch)
 		return
 	}
 
@@ -27,11 +27,11 @@ func main() {
 	logger.Info.Println("Warmup:", arguments.Warmup)
 	logger.Info.Println("Tail:", arguments.Tail)
 
-	tests := helpers.GetTests(arguments.Test, arguments.Lang)
+	tests := helpers.GetTests(arguments.Test, arguments.Lang, arguments.Arch)
 	data := append([]string{arguments.Iterations, arguments.Warmup}, arguments.Tail...)
 
 	for _, test := range tests {
-		path := "res/" + arguments.Lang + "/out/" + test
+		path := "res/" + arguments.Lang + "/out/" + arguments.Arch + "/" + test
 		cmd := exec.Command(path, data...)
 		output, err := cmd.CombinedOutput()
 		if err != nil {
