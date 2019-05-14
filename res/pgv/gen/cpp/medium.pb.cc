@@ -157,7 +157,7 @@ const char descriptor_table_protodef_medium_2eproto[] =
 void AddDescriptors_medium_2eproto() {
   static constexpr ::google::protobuf::internal::InitFunc deps[2] =
   {
-    ::AddDescriptors_validate_2fvalidate_2eproto,
+    ::AddDescriptors_validate_2eproto,
     ::AddDescriptors_messages_2eproto,
   };
  ::google::protobuf::internal::AddDescriptors(&descriptor_table_medium_2eproto, deps, 2);

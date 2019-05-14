@@ -137,7 +137,7 @@ const char descriptor_table_protodef_float_2eproto[] =
 void AddDescriptors_float_2eproto() {
   static constexpr ::google::protobuf::internal::InitFunc deps[1] =
   {
-    ::AddDescriptors_validate_2fvalidate_2eproto,
+    ::AddDescriptors_validate_2eproto,
   };
  ::google::protobuf::internal::AddDescriptors(&descriptor_table_float_2eproto, deps, 1);
 }
