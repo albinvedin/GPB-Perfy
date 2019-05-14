@@ -7,7 +7,6 @@ showLoading() {
     GREEN="\033[0;32m"
     NC="\033[0m"
     echo -ne "$loadingText\r"
-
     while kill -0 $mypid 2>/dev/null; do
         echo -ne "$loadingText.\r"
         sleep 0.5
@@ -19,7 +18,6 @@ showLoading() {
         echo -ne "$loadingText\r"
         sleep 0.5
     done
-
     echo -e "$loadingText : ${GREEN}FINISHED${NC}"
 }
 
@@ -48,5 +46,14 @@ fi
 
 if [ "$1" = "perfy" ] || [ "$1" = "all" ]
 then
-  go build -gcflags '-N -l' -o $p/out/perfy $p/perfy.go & showLoading "Compiling perfy.go"
+  if ([ "$4" = "x64" ] && [ "$4" = "arm" ]) || [ "$4" = "all" ]
+  then
+    GOOS=linux GOARCH=amd64 go build -o $p/out/x64/perfy $p/perfy.go & GOOS=linux GOARCH=arm64 go build -o $p/out/arm/perfy $p/perfy.go & showLoading "Compiling perfy.go"
+  elif [ "$4" = "x64" ]
+  then
+    GOOS=linux GOARCH=amd64 go build -o $p/out/x64/perfy $p/perfy.go & showLoading "Compiling perfy.go"
+  elif [ "$4" = "arm" ]
+  then
+    GOOS=linux GOARCH=arm64 go build -o $p/out/arm/perfy $p/perfy.go & showLoading "Compiling perfy.go"
+  fi
 fi
