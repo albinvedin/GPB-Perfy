@@ -2,7 +2,9 @@
 p=$(cd $(dirname $BASH_SOURCE[0]); pwd -P)
 
 # generates performance tests from ./templates/ under ../cpp/ and ../go/
-$p/template_generate "$1"
+# First Argument = Desired Language ("all", "cpp" or "go")
+# Second Argument = Names of files that should be ignored seperated by "|" (Since we know it can't handle them)
+$p/template_generate "$1" "messages|small|medium|large"
 
 if [ "$1" == "go" ] || [ "$1" == "all" ]
 then
@@ -28,9 +30,14 @@ then
     --cpp_out=":$p/gen/cpp" \
     --validate_out="lang=cc:$p/gen/cpp" \
     $p/*.proto
+
   # fix $(proto => c++)
   for file in $p/gen/cpp/*.pb.cc
   do
+    # protoc 3.4
     sed -i "s/::validate::protobuf_validate_2fvalidate_2eproto/::validate::protobuf_validate_2eproto/" $file
+
+    # protoc 3.7
+    sed -i "s/::AddDescriptors_validate_2fvalidate_2eproto/::AddDescriptors_validate_2eproto/" $file
   done
 fi

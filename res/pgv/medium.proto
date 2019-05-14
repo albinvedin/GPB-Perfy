@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package pgv;
+
+import "validate/validate.proto";
+import "messages.proto";
+
+message Medium {
+    uint32 field1 = 1 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     
+    uint32 field2 = 2 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     
+    uint32 field3 = 3 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     
+    uint32 field4 = 4 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     
+    uint32 field5 = 5 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     
+    uint32 field6 = 6 [(validate.rules).uint32 = { gt: 10, lte: 50 }];     
+    uint32 field7 = 7 [(validate.rules).uint32 = { gt: 10, lte: 50 }];     
+    uint32 field8 = 8 [(validate.rules).uint32 = { gt: 10, lte: 50 }];     
+    uint32 field9 = 9 [(validate.rules).uint32 = { gt: 10, lte: 50 }];     
+    uint32 field10 = 10 [(validate.rules).uint32 = { gt: 10, lte: 50 }];     
+    uint32 field11 = 11 [(validate.rules).uint32 = { gt: 5, lte: 15 }];   
+    uint32 field12 = 12 [(validate.rules).uint32 = { gt: 5, lte: 15 }];   
+    uint32 field13 = 13 [(validate.rules).uint32 = { gt: 5, lte: 15 }];   
+    uint32 field14 = 14 [(validate.rules).uint32 = { gt: 5, lte: 15 }];   
+    uint32 field15 = 15 [(validate.rules).uint32 = { gt: 5, lte: 15 }];   
+    uint32 field16 = 16 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   
+    uint32 field17 = 17 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   
+    uint32 field18 = 18 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   
+    uint32 field19 = 19 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   
+    uint32 field20 = 20 [(validate.rules).uint32 = { gt: 5, lte: 100 }];   
+
+    uint64 field31 = 31 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   
+    uint64 field32 = 32 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   
+    uint64 field33 = 33 [(validate.rules).uint64 = { gt: 20, lte: 2500000000 }];   
+
+    MessageB field41 = 41;
+    MessageC field42 = 42;
+    MessageD field43 = 43;
+    MessageE field44 = 44;
+    MessageF field45 = 45;
+    MessageB field46 = 46;
+    MessageC field47 = 47;
+    MessageD field48 = 48;
+    MessageE field49 = 49;
+    MessageF field50 = 50;
+
+    bytes field51 = 51 [(validate.rules).bytes.max_len = 10];  
+    bytes field52 = 52 [(validate.rules).bytes.max_len = 20];  
+    bytes field53 = 53 [(validate.rules).bytes.max_len = 30];  
+
+    sint32 field101 = 101 [(validate.rules).sint32 = { gt: -100, lte: 100}]; 
+    sint32 field102 = 102 [(validate.rules).sint32 = { gt: -100, lte: 100}]; 
+    sint32 field103 = 103 [(validate.rules).sint32 = { gt: -100, lte: 100}]; 
+
+}

@@ -22,12 +22,12 @@ func Marshal(message protobuf.Message) []byte {
 }
 
 func GetAvailableTests(lang string, arch string) []string {
-	path := GetPath() + "/../res/" + lang + "/out/" + arch + "/"
+	path := GetPath() + "/../../res/" + lang + "/out/" + arch + "/"
 	exists, _ := PathExists(path)
 	if !exists {
 		return make([]string, 0)
 	}
-	stdout, _ := exec.Command("bash", "-c", "ls -p "+path+" | grep -v /").Output()
+	stdout, _ := exec.Command("bash", "-c", "ls -p " + path + " | grep -v /").Output()
 	tests := strings.Split(strings.TrimSpace(string(stdout)), "\n")
 	return tests
 }
@@ -72,6 +72,20 @@ func GetTests(input string, lang string, arch string) []string {
 		tests = append(tests, input)
 	}
 	return tests
+}
+
+func ValidateTestArguments(args []string) (int, int) {
+	if len(args) < 3 {
+		words := strings.Split(args[0], "/")
+		name := words[len(words)-1]
+		msg := name + ": Requires 3 arguments (Iterations, Warmup)"
+		// This must be a panic. Do not change.
+		panic(msg)
+	} else {
+		iterations, _ := strconv.Atoi(args[1])
+		warmup, _ := strconv.Atoi(args[2])
+		return iterations, warmup
+	}
 }
 
 func ValidateRangeTestArguments(args []string) (int, int, int) {
