@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+p=$(cd $(dirname $BASH_SOURCE[0]); pwd -P)
+
+env="arm"
+iterations=100
+warmup=10
+contentCount=10
+
+declare -a langs=("go", "cpp")
+for lang in "${langs[@]}" do
+    for path in $p/res/$lang/out/$env/* do
+        test=$(echo $path | sed "s/.*\///")
+        ./out/$env/perfy.remote -l=$lang -i=$iterations -w=$warmup -t=$test $contentCount
+    done
+done
