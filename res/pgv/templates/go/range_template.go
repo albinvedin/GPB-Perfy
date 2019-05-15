@@ -4,7 +4,7 @@ package main
 
 import (
 	"GPB-Perfy/res/pgv/gen/go"
-	"GPB-Perfy/src/helpers"
+	"GPB-Perfy/src/args"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	iterations, warmup, elementCount := helpers.ValidateRangeTestArguments(os.Args)
+	iterations, warmup, elementCount := args.ValidateRangeTestArguments(os.Args)
 
 	elapsedTimes := validateN(iterations, warmup, createMessage(elementCount))
 

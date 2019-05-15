@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+p=$(cd $(dirname $BASH_SOURCE[0]); pwd -P)
+
+# Small
+#g++ -std=c++11 -o $p/out/x64/SerializeSmall -Wall SerializeSmall.cpp ../pgv/gen/cpp/small.pb.cc ../pgv/gen/cpp/messages.pb.cc ../pgv/gen/cpp/validate/validate.pb.cc -I ~/.local/include -Wl,-Bstatic -L ~/.local/lib -lprotobuf -Wl,-Bdynamic -pthread -lpthread
+#g++ -std=c++11 -o $p/out/x64/DeserializeSmall -Wall DeserializeSmall.cpp ../pgv/gen/cpp/small.pb.cc ../pgv/gen/cpp/messages.pb.cc ../pgv/gen/cpp/validate/validate.pb.cc -I ~/.local/include -Wl,-Bstatic -L ~/.local/lib -lprotobuf -Wl,-Bdynamic -pthread -lpthread
+g++ -std=c++11 -o $p/out/x64/ValidateSmall -Wall ValidateSmall.cpp ../pgv/gen/cpp/small.pb.cc ../pgv/gen/cpp/messages.pb.cc ../pgv/gen/cpp/validate/validate.pb.cc -I ~/.local/include -Wl,-Bstatic -L ~/.local/lib -lprotobuf -Wl,-Bdynamic -pthread -lpthread
+
+
+# Medium
+#g++ -std=c++11 -o $p/out/x64/SerializeMedium -Wall SerializeMedium.cpp ../pgv/gen/cpp/medium.pb.cc ../pgv/gen/cpp/messages.pb.cc ../pgv/gen/cpp/validate/validate.pb.cc -I ~/.local/include -Wl,-Bstatic -L ~/.local/lib -lprotobuf -Wl,-Bdynamic -pthread -lpthread
+#g++ -std=c++11 -o $p/out/x64/DeserializeMedium -Wall DeserializeMedium.cpp ../pgv/gen/cpp/medium.pb.cc ../pgv/gen/cpp/messages.pb.cc ../pgv/gen/cpp/validate/validate.pb.cc -I ~/.local/include -Wl,-Bstatic -L ~/.local/lib -lprotobuf -Wl,-Bdynamic -pthread -lpthread
+
+# Large
+#g++ -std=c++11 -o $p/out/x64/SerializeLarge -Wall SerializeLarge.cpp ../pgv/gen/cpp/large.pb.cc ../pgv/gen/cpp/messages.pb.cc ../pgv/gen/cpp/validate/validate.pb.cc -I ~/.local/include -Wl,-Bstatic -L ~/.local/lib -lprotobuf -Wl,-Bdynamic -pthread -lpthread
+#g++ -std=c++11 -o $p/out/x64/DeserializeLarge -Wall DeserializeLarge.cpp ../pgv/gen/cpp/large.pb.cc ../pgv/gen/cpp/messages.pb.cc ../pgv/gen/cpp/validate/validate.pb.cc -I ~/.local/include -Wl,-Bstatic -L ~/.local/lib -lprotobuf -Wl,-Bdynamic -pthread -lpthread

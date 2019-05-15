@@ -2,17 +2,16 @@ package main
 
 import (
 	"GPB-Perfy/res/pgv/gen/go"
+	"GPB-Perfy/src/args"
 	"encoding/json"
 	"fmt"
 	"github.com/golang/protobuf/proto"
 	"os"
-	"strconv"
 	"time"
 )
 
 func main() {
-	iterations, _ := strconv.Atoi(os.Args[1])
-	warmup, _ := strconv.Atoi(os.Args[2])
+	iterations, warmup := args.ValidateTestArguments(os.Args)
 
 	message := createMessage()
 	elapsedTimes := repeatedSerialize(message, iterations)[warmup:]
