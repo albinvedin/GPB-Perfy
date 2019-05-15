@@ -75,8 +75,8 @@ func createMessage() *pgv.Small {
 	return message
 }
 
-func createMessageF() *pgv.MessageF {
-	message := new(pgv.MessageF)
+func createMessageF() *pgv.Small_MessageF {
+	message := new(pgv.Small_MessageF)
 	message.Field1 = 500
 	message.Field2 = 500
 	message.Field3 = 500
@@ -85,8 +85,8 @@ func createMessageF() *pgv.MessageF {
 	return message
 }
 
-func createMessageE() *pgv.MessageE {
-	message := new(pgv.MessageE)
+func createMessageE() *pgv.Small_MessageE {
+	message := new(pgv.Small_MessageE)
 	message.Field1 = 500
 	message.Field2 = 500
 	message.Field3 = 500
@@ -96,8 +96,8 @@ func createMessageE() *pgv.MessageE {
 }
 
 
-func createMessageB() *pgv.MessageB {
-	message := new(pgv.MessageB)
+func createMessageB() *pgv.Small_MessageB {
+	message := new(pgv.Small_MessageB)
 	message.Field1 = 500
 	message.Field2 = 500
 	message.Field3 = 500
@@ -106,8 +106,8 @@ func createMessageB() *pgv.MessageB {
 	return message
 }
 
-func createMessageC() *pgv.MessageC {
-	message := new(pgv.MessageC)
+func createMessageC() *pgv.Small_MessageC {
+	message := new(pgv.Small_MessageC)
 	message.Field1 = 500
 	message.Field2 = 500
 	message.Field3 = 500
@@ -116,8 +116,8 @@ func createMessageC() *pgv.MessageC {
 	return message
 }
 
-func createMessageD() *pgv.MessageD {
-	message := new(pgv.MessageD)
+func createMessageD() *pgv.Small_MessageD {
+	message := new(pgv.Small_MessageD)
 	message.Field1 = 500
 	message.Field2 = 500
 	message.Field3 = 500

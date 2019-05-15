@@ -3,7 +3,6 @@ syntax = "proto3";
 package pgv;
 
 import "validate/validate.proto";
-import "messages.proto";
 
 message Large {
     uint32 field1 = 1 [(validate.rules).uint32 = { gt: 0, lte: 10 }];     
@@ -84,4 +83,44 @@ message Large {
     sint32 field103 = 103 [(validate.rules).sint32 = { gt: -100, lte: 100 }]; 
     sint32 field104 = 104 [(validate.rules).sint32 = { gt: -100, lte: 100 }]; 
     sint32 field105 = 105 [(validate.rules).sint32 = { gt: -100, lte: 100 }]; 
+
+    message MessageB {
+        uint32 field1 = 1 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field2 = 2 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field3 = 3 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        MessageE field4 = 4;
+        MessageF field5 = 5;
+    }
+    
+    message MessageC {
+        uint32 field1 = 1 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field2 = 2 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field3 = 3 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        MessageE field4 = 4;
+        MessageF field5 = 5;
+    }
+    
+    message MessageD {
+        uint32 field1 = 1 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field2 = 2 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field3 = 3 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        MessageE field4 = 4;
+        MessageF field5 = 5;
+    }
+    
+    message MessageE {
+        uint32 field1 = 1 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field2 = 2 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field3 = 3 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field4 = 4 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        MessageF field5 = 5;
+    }
+    
+    message MessageF {
+        uint32 field1 = 1 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field2 = 2 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field3 = 3 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field4 = 4 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+        uint32 field5 = 5 [(validate.rules).uint32 = { gt: 0, lte: 1000 }]; 
+    }
 }

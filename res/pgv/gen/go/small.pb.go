@@ -22,28 +22,28 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type Small struct {
-	Field1               uint32    `protobuf:"varint,1,opt,name=field1,proto3" json:"field1,omitempty"`
-	Field2               uint32    `protobuf:"varint,2,opt,name=field2,proto3" json:"field2,omitempty"`
-	Field3               uint32    `protobuf:"varint,3,opt,name=field3,proto3" json:"field3,omitempty"`
-	Field4               uint32    `protobuf:"varint,4,opt,name=field4,proto3" json:"field4,omitempty"`
-	Field5               uint32    `protobuf:"varint,5,opt,name=field5,proto3" json:"field5,omitempty"`
-	Field6               uint32    `protobuf:"varint,6,opt,name=field6,proto3" json:"field6,omitempty"`
-	Field7               uint32    `protobuf:"varint,7,opt,name=field7,proto3" json:"field7,omitempty"`
-	Field8               uint32    `protobuf:"varint,8,opt,name=field8,proto3" json:"field8,omitempty"`
-	Field9               uint32    `protobuf:"varint,9,opt,name=field9,proto3" json:"field9,omitempty"`
-	Field10              uint32    `protobuf:"varint,10,opt,name=field10,proto3" json:"field10,omitempty"`
-	Field31              uint64    `protobuf:"varint,31,opt,name=field31,proto3" json:"field31,omitempty"`
-	Field32              uint64    `protobuf:"varint,32,opt,name=field32,proto3" json:"field32,omitempty"`
-	Field41              *MessageB `protobuf:"bytes,41,opt,name=field41,proto3" json:"field41,omitempty"`
-	Field42              *MessageC `protobuf:"bytes,42,opt,name=field42,proto3" json:"field42,omitempty"`
-	Field43              *MessageD `protobuf:"bytes,43,opt,name=field43,proto3" json:"field43,omitempty"`
-	Field44              *MessageE `protobuf:"bytes,44,opt,name=field44,proto3" json:"field44,omitempty"`
-	Field45              *MessageF `protobuf:"bytes,45,opt,name=field45,proto3" json:"field45,omitempty"`
-	Field51              []byte    `protobuf:"bytes,51,opt,name=field51,proto3" json:"field51,omitempty"`
-	Field101             int32     `protobuf:"zigzag32,101,opt,name=field101,proto3" json:"field101,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}  `json:"-"`
-	XXX_unrecognized     []byte    `json:"-"`
-	XXX_sizecache        int32     `json:"-"`
+	Field1               uint32          `protobuf:"varint,1,opt,name=field1,proto3" json:"field1,omitempty"`
+	Field2               uint32          `protobuf:"varint,2,opt,name=field2,proto3" json:"field2,omitempty"`
+	Field3               uint32          `protobuf:"varint,3,opt,name=field3,proto3" json:"field3,omitempty"`
+	Field4               uint32          `protobuf:"varint,4,opt,name=field4,proto3" json:"field4,omitempty"`
+	Field5               uint32          `protobuf:"varint,5,opt,name=field5,proto3" json:"field5,omitempty"`
+	Field6               uint32          `protobuf:"varint,6,opt,name=field6,proto3" json:"field6,omitempty"`
+	Field7               uint32          `protobuf:"varint,7,opt,name=field7,proto3" json:"field7,omitempty"`
+	Field8               uint32          `protobuf:"varint,8,opt,name=field8,proto3" json:"field8,omitempty"`
+	Field9               uint32          `protobuf:"varint,9,opt,name=field9,proto3" json:"field9,omitempty"`
+	Field10              uint32          `protobuf:"varint,10,opt,name=field10,proto3" json:"field10,omitempty"`
+	Field31              uint64          `protobuf:"varint,31,opt,name=field31,proto3" json:"field31,omitempty"`
+	Field32              uint64          `protobuf:"varint,32,opt,name=field32,proto3" json:"field32,omitempty"`
+	Field41              *Small_MessageB `protobuf:"bytes,41,opt,name=field41,proto3" json:"field41,omitempty"`
+	Field42              *Small_MessageC `protobuf:"bytes,42,opt,name=field42,proto3" json:"field42,omitempty"`
+	Field43              *Small_MessageD `protobuf:"bytes,43,opt,name=field43,proto3" json:"field43,omitempty"`
+	Field44              *Small_MessageE `protobuf:"bytes,44,opt,name=field44,proto3" json:"field44,omitempty"`
+	Field45              *Small_MessageF `protobuf:"bytes,45,opt,name=field45,proto3" json:"field45,omitempty"`
+	Field51              []byte          `protobuf:"bytes,51,opt,name=field51,proto3" json:"field51,omitempty"`
+	Field101             int32           `protobuf:"zigzag32,101,opt,name=field101,proto3" json:"field101,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
 }
 
 func (m *Small) Reset()         { *m = Small{} }
@@ -155,35 +155,35 @@ func (m *Small) GetField32() uint64 {
 	return 0
 }
 
-func (m *Small) GetField41() *MessageB {
+func (m *Small) GetField41() *Small_MessageB {
 	if m != nil {
 		return m.Field41
 	}
 	return nil
 }
 
-func (m *Small) GetField42() *MessageC {
+func (m *Small) GetField42() *Small_MessageC {
 	if m != nil {
 		return m.Field42
 	}
 	return nil
 }
 
-func (m *Small) GetField43() *MessageD {
+func (m *Small) GetField43() *Small_MessageD {
 	if m != nil {
 		return m.Field43
 	}
 	return nil
 }
 
-func (m *Small) GetField44() *MessageE {
+func (m *Small) GetField44() *Small_MessageE {
 	if m != nil {
 		return m.Field44
 	}
 	return nil
 }
 
-func (m *Small) GetField45() *MessageF {
+func (m *Small) GetField45() *Small_MessageF {
 	if m != nil {
 		return m.Field45
 	}
@@ -204,34 +204,400 @@ func (m *Small) GetField101() int32 {
 	return 0
 }
 
+type Small_MessageB struct {
+	Field1               uint32          `protobuf:"varint,1,opt,name=field1,proto3" json:"field1,omitempty"`
+	Field2               uint32          `protobuf:"varint,2,opt,name=field2,proto3" json:"field2,omitempty"`
+	Field3               uint32          `protobuf:"varint,3,opt,name=field3,proto3" json:"field3,omitempty"`
+	Field4               *Small_MessageE `protobuf:"bytes,4,opt,name=field4,proto3" json:"field4,omitempty"`
+	Field5               *Small_MessageF `protobuf:"bytes,5,opt,name=field5,proto3" json:"field5,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *Small_MessageB) Reset()         { *m = Small_MessageB{} }
+func (m *Small_MessageB) String() string { return proto.CompactTextString(m) }
+func (*Small_MessageB) ProtoMessage()    {}
+func (*Small_MessageB) Descriptor() ([]byte, []int) {
+	return fileDescriptor_2f3c1ebfb751e739, []int{0, 0}
+}
+
+func (m *Small_MessageB) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Small_MessageB.Unmarshal(m, b)
+}
+func (m *Small_MessageB) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Small_MessageB.Marshal(b, m, deterministic)
+}
+func (m *Small_MessageB) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Small_MessageB.Merge(m, src)
+}
+func (m *Small_MessageB) XXX_Size() int {
+	return xxx_messageInfo_Small_MessageB.Size(m)
+}
+func (m *Small_MessageB) XXX_DiscardUnknown() {
+	xxx_messageInfo_Small_MessageB.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Small_MessageB proto.InternalMessageInfo
+
+func (m *Small_MessageB) GetField1() uint32 {
+	if m != nil {
+		return m.Field1
+	}
+	return 0
+}
+
+func (m *Small_MessageB) GetField2() uint32 {
+	if m != nil {
+		return m.Field2
+	}
+	return 0
+}
+
+func (m *Small_MessageB) GetField3() uint32 {
+	if m != nil {
+		return m.Field3
+	}
+	return 0
+}
+
+func (m *Small_MessageB) GetField4() *Small_MessageE {
+	if m != nil {
+		return m.Field4
+	}
+	return nil
+}
+
+func (m *Small_MessageB) GetField5() *Small_MessageF {
+	if m != nil {
+		return m.Field5
+	}
+	return nil
+}
+
+type Small_MessageC struct {
+	Field1               uint32          `protobuf:"varint,1,opt,name=field1,proto3" json:"field1,omitempty"`
+	Field2               uint32          `protobuf:"varint,2,opt,name=field2,proto3" json:"field2,omitempty"`
+	Field3               uint32          `protobuf:"varint,3,opt,name=field3,proto3" json:"field3,omitempty"`
+	Field4               *Small_MessageE `protobuf:"bytes,4,opt,name=field4,proto3" json:"field4,omitempty"`
+	Field5               *Small_MessageF `protobuf:"bytes,5,opt,name=field5,proto3" json:"field5,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *Small_MessageC) Reset()         { *m = Small_MessageC{} }
+func (m *Small_MessageC) String() string { return proto.CompactTextString(m) }
+func (*Small_MessageC) ProtoMessage()    {}
+func (*Small_MessageC) Descriptor() ([]byte, []int) {
+	return fileDescriptor_2f3c1ebfb751e739, []int{0, 1}
+}
+
+func (m *Small_MessageC) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Small_MessageC.Unmarshal(m, b)
+}
+func (m *Small_MessageC) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Small_MessageC.Marshal(b, m, deterministic)
+}
+func (m *Small_MessageC) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Small_MessageC.Merge(m, src)
+}
+func (m *Small_MessageC) XXX_Size() int {
+	return xxx_messageInfo_Small_MessageC.Size(m)
+}
+func (m *Small_MessageC) XXX_DiscardUnknown() {
+	xxx_messageInfo_Small_MessageC.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Small_MessageC proto.InternalMessageInfo
+
+func (m *Small_MessageC) GetField1() uint32 {
+	if m != nil {
+		return m.Field1
+	}
+	return 0
+}
+
+func (m *Small_MessageC) GetField2() uint32 {
+	if m != nil {
+		return m.Field2
+	}
+	return 0
+}
+
+func (m *Small_MessageC) GetField3() uint32 {
+	if m != nil {
+		return m.Field3
+	}
+	return 0
+}
+
+func (m *Small_MessageC) GetField4() *Small_MessageE {
+	if m != nil {
+		return m.Field4
+	}
+	return nil
+}
+
+func (m *Small_MessageC) GetField5() *Small_MessageF {
+	if m != nil {
+		return m.Field5
+	}
+	return nil
+}
+
+type Small_MessageD struct {
+	Field1               uint32          `protobuf:"varint,1,opt,name=field1,proto3" json:"field1,omitempty"`
+	Field2               uint32          `protobuf:"varint,2,opt,name=field2,proto3" json:"field2,omitempty"`
+	Field3               uint32          `protobuf:"varint,3,opt,name=field3,proto3" json:"field3,omitempty"`
+	Field4               *Small_MessageE `protobuf:"bytes,4,opt,name=field4,proto3" json:"field4,omitempty"`
+	Field5               *Small_MessageF `protobuf:"bytes,5,opt,name=field5,proto3" json:"field5,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *Small_MessageD) Reset()         { *m = Small_MessageD{} }
+func (m *Small_MessageD) String() string { return proto.CompactTextString(m) }
+func (*Small_MessageD) ProtoMessage()    {}
+func (*Small_MessageD) Descriptor() ([]byte, []int) {
+	return fileDescriptor_2f3c1ebfb751e739, []int{0, 2}
+}
+
+func (m *Small_MessageD) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Small_MessageD.Unmarshal(m, b)
+}
+func (m *Small_MessageD) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Small_MessageD.Marshal(b, m, deterministic)
+}
+func (m *Small_MessageD) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Small_MessageD.Merge(m, src)
+}
+func (m *Small_MessageD) XXX_Size() int {
+	return xxx_messageInfo_Small_MessageD.Size(m)
+}
+func (m *Small_MessageD) XXX_DiscardUnknown() {
+	xxx_messageInfo_Small_MessageD.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Small_MessageD proto.InternalMessageInfo
+
+func (m *Small_MessageD) GetField1() uint32 {
+	if m != nil {
+		return m.Field1
+	}
+	return 0
+}
+
+func (m *Small_MessageD) GetField2() uint32 {
+	if m != nil {
+		return m.Field2
+	}
+	return 0
+}
+
+func (m *Small_MessageD) GetField3() uint32 {
+	if m != nil {
+		return m.Field3
+	}
+	return 0
+}
+
+func (m *Small_MessageD) GetField4() *Small_MessageE {
+	if m != nil {
+		return m.Field4
+	}
+	return nil
+}
+
+func (m *Small_MessageD) GetField5() *Small_MessageF {
+	if m != nil {
+		return m.Field5
+	}
+	return nil
+}
+
+type Small_MessageE struct {
+	Field1               uint32          `protobuf:"varint,1,opt,name=field1,proto3" json:"field1,omitempty"`
+	Field2               uint32          `protobuf:"varint,2,opt,name=field2,proto3" json:"field2,omitempty"`
+	Field3               uint32          `protobuf:"varint,3,opt,name=field3,proto3" json:"field3,omitempty"`
+	Field4               uint32          `protobuf:"varint,4,opt,name=field4,proto3" json:"field4,omitempty"`
+	Field5               *Small_MessageF `protobuf:"bytes,5,opt,name=field5,proto3" json:"field5,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
+	XXX_unrecognized     []byte          `json:"-"`
+	XXX_sizecache        int32           `json:"-"`
+}
+
+func (m *Small_MessageE) Reset()         { *m = Small_MessageE{} }
+func (m *Small_MessageE) String() string { return proto.CompactTextString(m) }
+func (*Small_MessageE) ProtoMessage()    {}
+func (*Small_MessageE) Descriptor() ([]byte, []int) {
+	return fileDescriptor_2f3c1ebfb751e739, []int{0, 3}
+}
+
+func (m *Small_MessageE) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Small_MessageE.Unmarshal(m, b)
+}
+func (m *Small_MessageE) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Small_MessageE.Marshal(b, m, deterministic)
+}
+func (m *Small_MessageE) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Small_MessageE.Merge(m, src)
+}
+func (m *Small_MessageE) XXX_Size() int {
+	return xxx_messageInfo_Small_MessageE.Size(m)
+}
+func (m *Small_MessageE) XXX_DiscardUnknown() {
+	xxx_messageInfo_Small_MessageE.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Small_MessageE proto.InternalMessageInfo
+
+func (m *Small_MessageE) GetField1() uint32 {
+	if m != nil {
+		return m.Field1
+	}
+	return 0
+}
+
+func (m *Small_MessageE) GetField2() uint32 {
+	if m != nil {
+		return m.Field2
+	}
+	return 0
+}
+
+func (m *Small_MessageE) GetField3() uint32 {
+	if m != nil {
+		return m.Field3
+	}
+	return 0
+}
+
+func (m *Small_MessageE) GetField4() uint32 {
+	if m != nil {
+		return m.Field4
+	}
+	return 0
+}
+
+func (m *Small_MessageE) GetField5() *Small_MessageF {
+	if m != nil {
+		return m.Field5
+	}
+	return nil
+}
+
+type Small_MessageF struct {
+	Field1               uint32   `protobuf:"varint,1,opt,name=field1,proto3" json:"field1,omitempty"`
+	Field2               uint32   `protobuf:"varint,2,opt,name=field2,proto3" json:"field2,omitempty"`
+	Field3               uint32   `protobuf:"varint,3,opt,name=field3,proto3" json:"field3,omitempty"`
+	Field4               uint32   `protobuf:"varint,4,opt,name=field4,proto3" json:"field4,omitempty"`
+	Field5               uint32   `protobuf:"varint,5,opt,name=field5,proto3" json:"field5,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Small_MessageF) Reset()         { *m = Small_MessageF{} }
+func (m *Small_MessageF) String() string { return proto.CompactTextString(m) }
+func (*Small_MessageF) ProtoMessage()    {}
+func (*Small_MessageF) Descriptor() ([]byte, []int) {
+	return fileDescriptor_2f3c1ebfb751e739, []int{0, 4}
+}
+
+func (m *Small_MessageF) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Small_MessageF.Unmarshal(m, b)
+}
+func (m *Small_MessageF) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Small_MessageF.Marshal(b, m, deterministic)
+}
+func (m *Small_MessageF) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Small_MessageF.Merge(m, src)
+}
+func (m *Small_MessageF) XXX_Size() int {
+	return xxx_messageInfo_Small_MessageF.Size(m)
+}
+func (m *Small_MessageF) XXX_DiscardUnknown() {
+	xxx_messageInfo_Small_MessageF.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Small_MessageF proto.InternalMessageInfo
+
+func (m *Small_MessageF) GetField1() uint32 {
+	if m != nil {
+		return m.Field1
+	}
+	return 0
+}
+
+func (m *Small_MessageF) GetField2() uint32 {
+	if m != nil {
+		return m.Field2
+	}
+	return 0
+}
+
+func (m *Small_MessageF) GetField3() uint32 {
+	if m != nil {
+		return m.Field3
+	}
+	return 0
+}
+
+func (m *Small_MessageF) GetField4() uint32 {
+	if m != nil {
+		return m.Field4
+	}
+	return 0
+}
+
+func (m *Small_MessageF) GetField5() uint32 {
+	if m != nil {
+		return m.Field5
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*Small)(nil), "pgv.Small")
+	proto.RegisterType((*Small_MessageB)(nil), "pgv.Small.MessageB")
+	proto.RegisterType((*Small_MessageC)(nil), "pgv.Small.MessageC")
+	proto.RegisterType((*Small_MessageD)(nil), "pgv.Small.MessageD")
+	proto.RegisterType((*Small_MessageE)(nil), "pgv.Small.MessageE")
+	proto.RegisterType((*Small_MessageF)(nil), "pgv.Small.MessageF")
 }
 
 func init() { proto.RegisterFile("small.proto", fileDescriptor_2f3c1ebfb751e739) }
 
 var fileDescriptor_2f3c1ebfb751e739 = []byte{
-	// 344 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0xd2, 0x4d, 0x4e, 0xb3, 0x40,
-	0x18, 0xc0, 0xf1, 0x77, 0x5a, 0x4a, 0xe9, 0xf4, 0xad, 0xc6, 0x89, 0x89, 0x4f, 0xba, 0x71, 0xa2,
-	0x31, 0xd2, 0xaa, 0x28, 0x33, 0xd0, 0x0f, 0x97, 0xf8, 0xb1, 0x73, 0x83, 0x27, 0xc0, 0x14, 0x49,
-	0x13, 0x9a, 0x12, 0x69, 0x58, 0xb8, 0x72, 0xef, 0x45, 0x3c, 0x83, 0x2b, 0x77, 0x7a, 0x15, 0x37,
-	0x2e, 0x3c, 0x81, 0x41, 0x98, 0x41, 0x43, 0xc6, 0xdd, 0x90, 0xff, 0x0f, 0x12, 0x9e, 0x67, 0x70,
-	0x37, 0x5d, 0x04, 0x71, 0x6c, 0x25, 0x77, 0xcb, 0xd5, 0x92, 0x34, 0x93, 0x28, 0xeb, 0x6f, 0x65,
-	0x41, 0x3c, 0x9f, 0x05, 0xab, 0xf0, 0x58, 0x1c, 0x8a, 0xda, 0x5f, 0x5b, 0x84, 0x69, 0x1a, 0x44,
-	0x61, 0x5a, 0x3c, 0xef, 0x7c, 0xb4, 0x70, 0xeb, 0x3a, 0x7f, 0x9b, 0xec, 0x62, 0xfd, 0x76, 0x1e,
-	0xc6, 0x33, 0x1b, 0x10, 0x45, 0x66, 0xcf, 0xeb, 0x3e, 0xbf, 0xbf, 0x34, 0xf5, 0xa1, 0x06, 0x98,
-	0xfe, 0xf3, 0xcb, 0x24, 0x11, 0x83, 0x86, 0x0a, 0x31, 0x89, 0x38, 0x34, 0x55, 0x88, 0x4b, 0xe4,
-	0x80, 0xa6, 0x42, 0x8e, 0x44, 0x2e, 0xb4, 0x54, 0xc8, 0x95, 0x68, 0x04, 0xfa, 0x6f, 0xc4, 0x24,
-	0x1a, 0x49, 0x34, 0x86, 0xb6, 0x0a, 0x8d, 0x25, 0x9a, 0x80, 0xa1, 0x42, 0x13, 0x89, 0xa6, 0xd0,
-	0x51, 0xa1, 0x29, 0xd9, 0xc3, 0xed, 0x62, 0x62, 0x27, 0x80, 0xeb, 0x4a, 0x34, 0x32, 0x28, 0x19,
-	0xb7, 0x61, 0x9b, 0x22, 0x53, 0xf3, 0xd6, 0x73, 0x86, 0x99, 0x01, 0x0f, 0x9f, 0x8f, 0x4f, 0x1d,
-	0xba, 0xe9, 0x8b, 0x5e, 0x51, 0x06, 0xf4, 0x4f, 0xca, 0xc8, 0x7e, 0x49, 0x1d, 0x1b, 0x06, 0x14,
-	0x99, 0x5d, 0xd6, 0xb3, 0x92, 0x28, 0xb3, 0xae, 0x8a, 0xcd, 0x7b, 0xbe, 0xa8, 0x15, 0x64, 0x30,
-	0xac, 0xc3, 0x33, 0x01, 0x7f, 0x7c, 0x91, 0xc3, 0x41, 0x1d, 0x9e, 0x0b, 0xc8, 0x2b, 0xe8, 0xc0,
-	0x61, 0x1d, 0x5e, 0x08, 0xe8, 0x54, 0xd0, 0x85, 0xa3, 0x3a, 0xbc, 0x14, 0x30, 0xdf, 0x6e, 0x71,
-	0x74, 0x6d, 0xe0, 0x14, 0x99, 0xff, 0xbd, 0x4e, 0xfe, 0xdf, 0xda, 0x7d, 0x03, 0xb0, 0x2f, 0x0a,
-	0x19, 0x60, 0xa3, 0x1c, 0xa9, 0x0d, 0x21, 0x45, 0xe6, 0x86, 0xd7, 0xcb, 0x95, 0x71, 0xaa, 0xc3,
-	0x1b, 0xa2, 0xaf, 0xc8, 0x97, 0xf9, 0x46, 0xff, 0xbe, 0xf7, 0xfc, 0x2b, 0x00, 0x00, 0xff, 0xff,
-	0x26, 0xea, 0x0b, 0x39, 0x34, 0x03, 0x00, 0x00,
+	// 433 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xdc, 0xd5, 0xbf, 0x0e, 0xd2, 0x40,
+	0x1c, 0x07, 0x70, 0x0f, 0x4a, 0x5b, 0x0e, 0xd0, 0x78, 0x9a, 0xf8, 0x0b, 0x8b, 0x17, 0xad, 0x49,
+	0x01, 0xa9, 0xf6, 0xae, 0xe5, 0x8f, 0x63, 0xf9, 0xb3, 0xb9, 0xd4, 0x27, 0xa8, 0xa1, 0x12, 0x92,
+	0x1a, 0x88, 0x10, 0x06, 0x27, 0x77, 0x5f, 0xc4, 0x07, 0x70, 0x72, 0x72, 0x93, 0xcd, 0xcd, 0x67,
+	0xd0, 0xd5, 0x27, 0x30, 0x85, 0xde, 0x15, 0x6a, 0xcf, 0xc4, 0x49, 0xc3, 0x76, 0xc9, 0xef, 0x03,
+	0xc9, 0xf7, 0x77, 0xf9, 0xf6, 0x70, 0x63, 0xfb, 0x3a, 0x4a, 0x12, 0x67, 0xf3, 0x66, 0xbd, 0x5b,
+	0x93, 0xea, 0x66, 0xb9, 0x6f, 0xdf, 0xdb, 0x47, 0xc9, 0x6a, 0x11, 0xed, 0xe2, 0x27, 0xe2, 0x70,
+	0x9a, 0x3e, 0xf8, 0x78, 0x13, 0xd7, 0x5e, 0xa4, 0x9a, 0x3c, 0xc4, 0xfa, 0xab, 0x55, 0x9c, 0x2c,
+	0x5c, 0x40, 0x14, 0xd9, 0xad, 0xa0, 0xf1, 0xe9, 0xc7, 0xe7, 0xaa, 0xde, 0xd5, 0x00, 0xd3, 0x1b,
+	0x61, 0x36, 0x92, 0x88, 0x41, 0x45, 0x85, 0x98, 0x44, 0x1c, 0xaa, 0x2a, 0xc4, 0x25, 0xf2, 0x40,
+	0x53, 0x21, 0x4f, 0x22, 0x1f, 0x6a, 0x2a, 0xe4, 0x4b, 0x34, 0x00, 0xfd, 0x12, 0x31, 0x89, 0x06,
+	0x12, 0x0d, 0xc1, 0x50, 0xa1, 0xa1, 0x44, 0x23, 0x30, 0x55, 0x68, 0x24, 0xd1, 0x18, 0xea, 0x2a,
+	0x34, 0x26, 0x8f, 0xb0, 0x71, 0xda, 0xd8, 0x53, 0xc0, 0xbf, 0x2b, 0x31, 0x23, 0x9d, 0x8c, 0x71,
+	0x17, 0xee, 0x53, 0x64, 0x6b, 0xc1, 0xad, 0x94, 0x61, 0x66, 0xc2, 0xbb, 0x9f, 0xef, 0x3f, 0xd4,
+	0xe9, 0xdd, 0x50, 0xcc, 0x73, 0xca, 0x80, 0xfe, 0x91, 0x32, 0xd2, 0xcf, 0xa8, 0xe7, 0x42, 0x87,
+	0x22, 0xbb, 0xc1, 0xee, 0x38, 0x9b, 0xe5, 0xde, 0x39, 0x5e, 0xb3, 0xf3, 0x3c, 0xde, 0x6e, 0xa3,
+	0x65, 0x1c, 0x84, 0xc2, 0xe4, 0x9c, 0x41, 0x57, 0xc5, 0x27, 0x82, 0x9f, 0xfd, 0x3b, 0x87, 0x9e,
+	0x8a, 0x4f, 0x05, 0xe7, 0x39, 0xf7, 0xe0, 0xb1, 0x8a, 0xcf, 0x04, 0xf7, 0x72, 0xee, 0x43, 0x5f,
+	0xc5, 0xe7, 0x82, 0xa7, 0x77, 0x7f, 0x3a, 0xfa, 0x2e, 0x70, 0x8a, 0xec, 0x66, 0x50, 0x4f, 0xb7,
+	0xa2, 0xbd, 0xad, 0x00, 0x0e, 0xc5, 0x84, 0x74, 0xb0, 0x99, 0x2d, 0xdc, 0x85, 0x98, 0x22, 0xfb,
+	0x76, 0xd0, 0x4a, 0x95, 0xf9, 0x4c, 0x87, 0x03, 0xa2, 0x5f, 0x50, 0x28, 0xc7, 0xed, 0x6f, 0x08,
+	0x9b, 0x62, 0x43, 0xc4, 0x2a, 0x34, 0xa2, 0x99, 0xfe, 0xca, 0xe8, 0xd6, 0xe0, 0xbb, 0x71, 0x56,
+	0x09, 0xab, 0x50, 0x89, 0x32, 0xc5, 0xa4, 0x12, 0x9d, 0x28, 0x53, 0x9c, 0xf4, 0x2e, 0x4a, 0xa1,
+	0xd8, 0x95, 0x28, 0x47, 0xef, 0xa2, 0x1c, 0x8a, 0x4d, 0x65, 0xe4, 0x3c, 0xd8, 0xe4, 0x5a, 0x83,
+	0x4d, 0xaf, 0x2a, 0xd8, 0xd7, 0x3c, 0xd8, 0xec, 0x1f, 0x04, 0xb3, 0x0a, 0xdf, 0xe7, 0x32, 0xf5,
+	0x97, 0x89, 0x0e, 0x79, 0xa2, 0xf9, 0x7f, 0x9b, 0xc8, 0x2a, 0x3c, 0x39, 0x65, 0xca, 0x7f, 0xa9,
+	0x1f, 0x5f, 0x4f, 0xfe, 0x2b, 0x00, 0x00, 0xff, 0xff, 0x9d, 0x13, 0x52, 0x9b, 0x6a, 0x07, 0x00,
+	0x00,
 }

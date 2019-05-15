@@ -244,3 +244,524 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = SmallValidationError{}
+
+// Validate checks the field values on Small_MessageB with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Small_MessageB) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Small_MessageBValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Small_MessageBValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Small_MessageBValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField4()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Small_MessageBValidationError{
+				field:  "Field4",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Small_MessageBValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Small_MessageBValidationError is the validation error returned by
+// Small_MessageB.Validate if the designated constraints aren't met.
+type Small_MessageBValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Small_MessageBValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Small_MessageBValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Small_MessageBValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Small_MessageBValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Small_MessageBValidationError) ErrorName() string { return "Small_MessageBValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Small_MessageBValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSmall_MessageB.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Small_MessageBValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Small_MessageBValidationError{}
+
+// Validate checks the field values on Small_MessageC with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Small_MessageC) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Small_MessageCValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Small_MessageCValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Small_MessageCValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField4()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Small_MessageCValidationError{
+				field:  "Field4",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Small_MessageCValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Small_MessageCValidationError is the validation error returned by
+// Small_MessageC.Validate if the designated constraints aren't met.
+type Small_MessageCValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Small_MessageCValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Small_MessageCValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Small_MessageCValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Small_MessageCValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Small_MessageCValidationError) ErrorName() string { return "Small_MessageCValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Small_MessageCValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSmall_MessageC.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Small_MessageCValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Small_MessageCValidationError{}
+
+// Validate checks the field values on Small_MessageD with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Small_MessageD) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Small_MessageDValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Small_MessageDValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Small_MessageDValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField4()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Small_MessageDValidationError{
+				field:  "Field4",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Small_MessageDValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Small_MessageDValidationError is the validation error returned by
+// Small_MessageD.Validate if the designated constraints aren't met.
+type Small_MessageDValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Small_MessageDValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Small_MessageDValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Small_MessageDValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Small_MessageDValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Small_MessageDValidationError) ErrorName() string { return "Small_MessageDValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Small_MessageDValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSmall_MessageD.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Small_MessageDValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Small_MessageDValidationError{}
+
+// Validate checks the field values on Small_MessageE with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Small_MessageE) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Small_MessageEValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Small_MessageEValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Small_MessageEValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField4(); val <= 0 || val > 1000 {
+		return Small_MessageEValidationError{
+			field:  "Field4",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Small_MessageEValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Small_MessageEValidationError is the validation error returned by
+// Small_MessageE.Validate if the designated constraints aren't met.
+type Small_MessageEValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Small_MessageEValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Small_MessageEValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Small_MessageEValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Small_MessageEValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Small_MessageEValidationError) ErrorName() string { return "Small_MessageEValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Small_MessageEValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSmall_MessageE.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Small_MessageEValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Small_MessageEValidationError{}
+
+// Validate checks the field values on Small_MessageF with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Small_MessageF) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Small_MessageFValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Small_MessageFValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Small_MessageFValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField4(); val <= 0 || val > 1000 {
+		return Small_MessageFValidationError{
+			field:  "Field4",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField5(); val <= 0 || val > 1000 {
+		return Small_MessageFValidationError{
+			field:  "Field5",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	return nil
+}
+
+// Small_MessageFValidationError is the validation error returned by
+// Small_MessageF.Validate if the designated constraints aren't met.
+type Small_MessageFValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Small_MessageFValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Small_MessageFValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Small_MessageFValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Small_MessageFValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Small_MessageFValidationError) ErrorName() string { return "Small_MessageFValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Small_MessageFValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSmall_MessageF.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Small_MessageFValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Small_MessageFValidationError{}

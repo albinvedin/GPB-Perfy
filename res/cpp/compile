@@ -15,7 +15,7 @@ mkdir -p $p/out/arm/debug
 for source_file in $p/*.cc
 do
   source_name=$(echo $source_file | sed "s/.*\///" | sed "s/\.cc//")
-  source_type=$(echo $source_name | sed "s/Validate//" | perl -pe "s/[A-Z][a-z\d]*\K.*//" | sed "s/.*/\L&/" )
+  source_type=$(echo $source_name | sed "s/[A-Z][a-z]*//" | perl -pe "s/[A-Z][a-z\d]*\K.*//" | sed "s/.*/\L&/" )
 
   source_proto_file=$p/../pgv/gen/cpp/$source_type.pb.cc
   source_validate_file=$p/../pgv/gen/cpp/$source_type.pb.validate.cc

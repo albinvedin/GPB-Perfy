@@ -646,3 +646,524 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = LargeValidationError{}
+
+// Validate checks the field values on Large_MessageB with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Large_MessageB) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Large_MessageBValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Large_MessageBValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Large_MessageBValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField4()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Large_MessageBValidationError{
+				field:  "Field4",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Large_MessageBValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Large_MessageBValidationError is the validation error returned by
+// Large_MessageB.Validate if the designated constraints aren't met.
+type Large_MessageBValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Large_MessageBValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Large_MessageBValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Large_MessageBValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Large_MessageBValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Large_MessageBValidationError) ErrorName() string { return "Large_MessageBValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Large_MessageBValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sLarge_MessageB.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Large_MessageBValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Large_MessageBValidationError{}
+
+// Validate checks the field values on Large_MessageC with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Large_MessageC) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Large_MessageCValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Large_MessageCValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Large_MessageCValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField4()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Large_MessageCValidationError{
+				field:  "Field4",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Large_MessageCValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Large_MessageCValidationError is the validation error returned by
+// Large_MessageC.Validate if the designated constraints aren't met.
+type Large_MessageCValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Large_MessageCValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Large_MessageCValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Large_MessageCValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Large_MessageCValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Large_MessageCValidationError) ErrorName() string { return "Large_MessageCValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Large_MessageCValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sLarge_MessageC.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Large_MessageCValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Large_MessageCValidationError{}
+
+// Validate checks the field values on Large_MessageD with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Large_MessageD) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Large_MessageDValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Large_MessageDValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Large_MessageDValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField4()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Large_MessageDValidationError{
+				field:  "Field4",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Large_MessageDValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Large_MessageDValidationError is the validation error returned by
+// Large_MessageD.Validate if the designated constraints aren't met.
+type Large_MessageDValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Large_MessageDValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Large_MessageDValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Large_MessageDValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Large_MessageDValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Large_MessageDValidationError) ErrorName() string { return "Large_MessageDValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Large_MessageDValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sLarge_MessageD.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Large_MessageDValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Large_MessageDValidationError{}
+
+// Validate checks the field values on Large_MessageE with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Large_MessageE) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Large_MessageEValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Large_MessageEValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Large_MessageEValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField4(); val <= 0 || val > 1000 {
+		return Large_MessageEValidationError{
+			field:  "Field4",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Large_MessageEValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Large_MessageEValidationError is the validation error returned by
+// Large_MessageE.Validate if the designated constraints aren't met.
+type Large_MessageEValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Large_MessageEValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Large_MessageEValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Large_MessageEValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Large_MessageEValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Large_MessageEValidationError) ErrorName() string { return "Large_MessageEValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Large_MessageEValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sLarge_MessageE.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Large_MessageEValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Large_MessageEValidationError{}
+
+// Validate checks the field values on Large_MessageF with the rules defined in
+// the proto definition for this message. If any rules are violated, an error
+// is returned.
+func (m *Large_MessageF) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Large_MessageFValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Large_MessageFValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Large_MessageFValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField4(); val <= 0 || val > 1000 {
+		return Large_MessageFValidationError{
+			field:  "Field4",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField5(); val <= 0 || val > 1000 {
+		return Large_MessageFValidationError{
+			field:  "Field5",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	return nil
+}
+
+// Large_MessageFValidationError is the validation error returned by
+// Large_MessageF.Validate if the designated constraints aren't met.
+type Large_MessageFValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Large_MessageFValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Large_MessageFValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Large_MessageFValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Large_MessageFValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Large_MessageFValidationError) ErrorName() string { return "Large_MessageFValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Large_MessageFValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sLarge_MessageF.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Large_MessageFValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Large_MessageFValidationError{}

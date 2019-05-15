@@ -1,20 +1,18 @@
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 #include <chrono>
 #include <cstdint>
 #include "../pgv/gen/cpp/large.pb.h"
-#include "../pgv/gen/cpp/large.pb.validate.h"
-#include "../pgv/gen/cpp/messages.pb.h"
-#include "../pgv/gen/cpp/messages.pb.validate.h"
 
-std::vector<std::int64_t> repeatedValidate(pgv::Large message, int warmup, int iterations, pgv::ValidationMsg &err);
-int64_t validateOne(pgv::Large message, pgv::ValidationMsg &err);
-pgv::MessageB createMessageB();
-pgv::MessageC createMessageC();
-pgv::MessageD createMessageD();
-pgv::MessageE createMessageE();
-pgv::MessageF createMessageF();
+std::vector<std::int64_t> repeatedSerialize(pgv::Large message, int warmup, int iterations);
+int64_t serialize(pgv::Large message);
+pgv::Large::MessageB createMessageB();
+pgv::Large::MessageC createMessageC();
+pgv::Large::MessageD createMessageD();
+pgv::Large::MessageE createMessageE();
+pgv::Large::MessageF createMessageF();
 pgv::Large createMessage();
 
 int main(int argc, char** argv) {
@@ -22,8 +20,7 @@ int main(int argc, char** argv) {
 	auto const warmup = std::stoi(argv[2]);
 
 	auto message = createMessage();
-  	auto err = pgv::ValidationMsg();
-	auto elapsedTimes = repeatedValidate(message, warmup, iterations, err);
+	auto elapsedTimes = repeatedSerialize(message, warmup, iterations);
 
 	std::cout << "[" << elapsedTimes.at(0);
 	for (auto it = elapsedTimes.begin() + 1; it != elapsedTimes.end(); ++it) {
@@ -34,10 +31,11 @@ int main(int argc, char** argv) {
 	return 0;
 }
 
-std::vector<std::int64_t> repeatedValidate(pgv::Large message, int warmup, int iterations, pgv::ValidationMsg &err) {
+
+std::vector<std::int64_t> repeatedSerialize(pgv::Large message, int warmup, int iterations) {
   	auto elapsedTimes = std::vector<std::int64_t>();
 	for (int i = 0; i < iterations; ++i) {
-    	auto elapsedTime = validateOne(message, err);
+    	auto elapsedTime = serialize(message);
 		if (i >= warmup) {
 			elapsedTimes.push_back(elapsedTime);
 		}
@@ -45,9 +43,11 @@ std::vector<std::int64_t> repeatedValidate(pgv::Large message, int warmup, int i
 	return elapsedTimes;
 }
 
-int64_t validateOne(pgv::Large message, pgv::ValidationMsg &err) {
+int64_t serialize(pgv::Large message) {
 	auto t1 = std::chrono::high_resolution_clock::now();
-	pgv::Validate(message, &err);
+	std::ostringstream stream;
+	message.SerializeToOstream(&stream);
+	std::string bytes = stream.str();
 	auto t2 = std::chrono::high_resolution_clock::now();
 	return std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
 }
@@ -136,8 +136,8 @@ pgv::Large createMessage() {
   	return message;
 }
 
-pgv::MessageF createMessageF() {
-	auto message = pgv::MessageF();
+pgv::Large::MessageF createMessageF() {
+	auto message = pgv::Large::MessageF();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -146,8 +146,8 @@ pgv::MessageF createMessageF() {
 	return message;
 }
 
-pgv::MessageE createMessageE() {
-	auto message = pgv::MessageE();
+pgv::Large::MessageE createMessageE() {
+	auto message = pgv::Large::MessageE();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -156,8 +156,8 @@ pgv::MessageE createMessageE() {
 	return message;
 }
 
-pgv::MessageB createMessageB() {
-	auto message = pgv::MessageB();
+pgv::Large::MessageB createMessageB() {
+	auto message = pgv::Large::MessageB();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -166,8 +166,8 @@ pgv::MessageB createMessageB() {
 	return message;
 }
 
-pgv::MessageC createMessageC() {
-	auto message = pgv::MessageC();
+pgv::Large::MessageC createMessageC() {
+	auto message = pgv::Large::MessageC();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -176,8 +176,8 @@ pgv::MessageC createMessageC() {
 	return message;
 }
 
-pgv::MessageD createMessageD() {
-	auto message = pgv::MessageD();
+pgv::Large::MessageD createMessageD() {
+	auto message = pgv::Large::MessageD();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);

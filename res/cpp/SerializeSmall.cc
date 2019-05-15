@@ -4,30 +4,23 @@
 #include <vector>
 #include <chrono>
 #include <cstdint>
-#include "../pgv/gen/cpp/medium.pb.h"
-#include "../pgv/gen/cpp/medium.pb.validate.h"
-#include "../pgv/gen/cpp/messages.pb.h"
-#include "../pgv/gen/cpp/messages.pb.validate.h"
+#include "../pgv/gen/cpp/small.pb.h"
 
-std::vector<std::int64_t> repeatedDeserialize(std::string bytes, int warmup, int iterations);
-int64_t deserialize(std::string bytes);
-pgv::MessageB createMessageB();
-pgv::MessageC createMessageC();
-pgv::MessageD createMessageD();
-pgv::MessageE createMessageE();
-pgv::MessageF createMessageF();
-pgv::Medium createMessage();
+std::vector<std::int64_t> repeatedSerialize(pgv::Small message, int warmup, int iterations);
+int64_t serialize(pgv::Small message);
+pgv::Small::MessageB createMessageB();
+pgv::Small::MessageC createMessageC();
+pgv::Small::MessageD createMessageD();
+pgv::Small::MessageE createMessageE();
+pgv::Small::MessageF createMessageF();
+pgv::Small createMessage();
 
 int main(int argc, char** argv) {
 	auto const iterations = std::stoi(argv[1]);
 	auto const warmup = std::stoi(argv[2]);
 
-
 	auto message = createMessage();
-	std::ostringstream stream;
-	message.SerializeToOstream(&stream);
-	std::string bytes = stream.str();
-	auto elapsedTimes = repeatedDeserialize(bytes, warmup, iterations);
+	auto elapsedTimes = repeatedSerialize(message, warmup, iterations);
 
 	std::cout << "[" << elapsedTimes.at(0);
 	for (auto it = elapsedTimes.begin() + 1; it != elapsedTimes.end(); ++it) {
@@ -39,10 +32,10 @@ int main(int argc, char** argv) {
 }
 
 
-std::vector<std::int64_t> repeatedDeserialize(std::string bytes, int warmup, int iterations) {
+std::vector<std::int64_t> repeatedSerialize(pgv::Small message, int warmup, int iterations) {
   	auto elapsedTimes = std::vector<std::int64_t>();
 	for (int i = 0; i < iterations; ++i) {
-    	auto elapsedTime = deserialize(bytes);
+    	auto elapsedTime = serialize(message);
 		if (i >= warmup) {
 			elapsedTimes.push_back(elapsedTime);
 		}
@@ -50,16 +43,17 @@ std::vector<std::int64_t> repeatedDeserialize(std::string bytes, int warmup, int
 	return elapsedTimes;
 }
 
-int64_t deserialize(std::string bytes) {
+int64_t serialize(pgv::Small message) {
 	auto t1 = std::chrono::high_resolution_clock::now();
-	pgv::Medium message;
-	message.ParseFromString(bytes);
+	std::ostringstream stream;
+	message.SerializeToOstream(&stream);
+	std::string bytes = stream.str();
 	auto t2 = std::chrono::high_resolution_clock::now();
 	return std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
 }
 
-pgv::Medium createMessage() {
-	auto message = pgv::Medium();
+pgv::Small createMessage() {
+	auto message = pgv::Small();
 	message.set_field1(5);
 	message.set_field2(5);
 	message.set_field3(5);
@@ -72,47 +66,25 @@ pgv::Medium createMessage() {
 	message.set_field9(25);
 	message.set_field10(25);
 
-	message.set_field11(10);
-	message.set_field12(10);
-	message.set_field13(10);
-	message.set_field14(10);
-	message.set_field15(10);
-
-	message.set_field16(50);
-	message.set_field17(50);
-	message.set_field18(50);
-	message.set_field19(50);
-	message.set_field20(50);
-
 	message.set_field31(500);
 	message.set_field32(500);
-	message.set_field33(500);
 	
 	message.set_field51("\x99");
-	message.set_field52("\x99");
-	message.set_field53("\x99");
 
 	message.set_field101(0);
-	message.set_field102(0);
-	message.set_field103(0);
 
 	*(message.mutable_field41()) = createMessageB();
 	*(message.mutable_field42()) = createMessageC();
 	*(message.mutable_field43()) = createMessageD();
 	*(message.mutable_field44()) = createMessageE();
 	*(message.mutable_field45()) = createMessageF();
-	*(message.mutable_field46()) = createMessageB();
-	*(message.mutable_field47()) = createMessageC();
-	*(message.mutable_field48()) = createMessageD();
-	*(message.mutable_field49()) = createMessageE();
-	*(message.mutable_field50()) = createMessageF();
 
   	return message;
 }
 
 
-pgv::MessageF createMessageF() {
-	auto message = pgv::MessageF();
+pgv::Small::MessageF createMessageF() {
+	auto message = pgv::Small::MessageF();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -121,8 +93,8 @@ pgv::MessageF createMessageF() {
 	return message;
 }
 
-pgv::MessageE createMessageE() {
-	auto message = pgv::MessageE();
+pgv::Small::MessageE createMessageE() {
+	auto message = pgv::Small::MessageE();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -131,8 +103,8 @@ pgv::MessageE createMessageE() {
 	return message;
 }
 
-pgv::MessageB createMessageB() {
-	auto message = pgv::MessageB();
+pgv::Small::MessageB createMessageB() {
+	auto message = pgv::Small::MessageB();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -141,8 +113,8 @@ pgv::MessageB createMessageB() {
 	return message;
 }
 
-pgv::MessageC createMessageC() {
-	auto message = pgv::MessageC();
+pgv::Small::MessageC createMessageC() {
+	auto message = pgv::Small::MessageC();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -151,8 +123,8 @@ pgv::MessageC createMessageC() {
 	return message;
 }
 
-pgv::MessageD createMessageD() {
-	auto message = pgv::MessageD();
+pgv::Small::MessageD createMessageD() {
+	auto message = pgv::Small::MessageD();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);

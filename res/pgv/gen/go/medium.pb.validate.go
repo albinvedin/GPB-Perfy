@@ -399,3 +399,524 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = MediumValidationError{}
+
+// Validate checks the field values on Medium_MessageB with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *Medium_MessageB) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Medium_MessageBValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Medium_MessageBValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Medium_MessageBValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField4()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Medium_MessageBValidationError{
+				field:  "Field4",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Medium_MessageBValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Medium_MessageBValidationError is the validation error returned by
+// Medium_MessageB.Validate if the designated constraints aren't met.
+type Medium_MessageBValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Medium_MessageBValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Medium_MessageBValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Medium_MessageBValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Medium_MessageBValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Medium_MessageBValidationError) ErrorName() string { return "Medium_MessageBValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Medium_MessageBValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMedium_MessageB.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Medium_MessageBValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Medium_MessageBValidationError{}
+
+// Validate checks the field values on Medium_MessageC with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *Medium_MessageC) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Medium_MessageCValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Medium_MessageCValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Medium_MessageCValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField4()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Medium_MessageCValidationError{
+				field:  "Field4",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Medium_MessageCValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Medium_MessageCValidationError is the validation error returned by
+// Medium_MessageC.Validate if the designated constraints aren't met.
+type Medium_MessageCValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Medium_MessageCValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Medium_MessageCValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Medium_MessageCValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Medium_MessageCValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Medium_MessageCValidationError) ErrorName() string { return "Medium_MessageCValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Medium_MessageCValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMedium_MessageC.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Medium_MessageCValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Medium_MessageCValidationError{}
+
+// Validate checks the field values on Medium_MessageD with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *Medium_MessageD) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Medium_MessageDValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Medium_MessageDValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Medium_MessageDValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField4()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Medium_MessageDValidationError{
+				field:  "Field4",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Medium_MessageDValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Medium_MessageDValidationError is the validation error returned by
+// Medium_MessageD.Validate if the designated constraints aren't met.
+type Medium_MessageDValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Medium_MessageDValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Medium_MessageDValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Medium_MessageDValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Medium_MessageDValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Medium_MessageDValidationError) ErrorName() string { return "Medium_MessageDValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Medium_MessageDValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMedium_MessageD.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Medium_MessageDValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Medium_MessageDValidationError{}
+
+// Validate checks the field values on Medium_MessageE with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *Medium_MessageE) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Medium_MessageEValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Medium_MessageEValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Medium_MessageEValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField4(); val <= 0 || val > 1000 {
+		return Medium_MessageEValidationError{
+			field:  "Field4",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if v, ok := interface{}(m.GetField5()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return Medium_MessageEValidationError{
+				field:  "Field5",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	return nil
+}
+
+// Medium_MessageEValidationError is the validation error returned by
+// Medium_MessageE.Validate if the designated constraints aren't met.
+type Medium_MessageEValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Medium_MessageEValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Medium_MessageEValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Medium_MessageEValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Medium_MessageEValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Medium_MessageEValidationError) ErrorName() string { return "Medium_MessageEValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Medium_MessageEValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMedium_MessageE.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Medium_MessageEValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Medium_MessageEValidationError{}
+
+// Validate checks the field values on Medium_MessageF with the rules defined
+// in the proto definition for this message. If any rules are violated, an
+// error is returned.
+func (m *Medium_MessageF) Validate() error {
+	if m == nil {
+		return nil
+	}
+
+	if val := m.GetField1(); val <= 0 || val > 1000 {
+		return Medium_MessageFValidationError{
+			field:  "Field1",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField2(); val <= 0 || val > 1000 {
+		return Medium_MessageFValidationError{
+			field:  "Field2",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField3(); val <= 0 || val > 1000 {
+		return Medium_MessageFValidationError{
+			field:  "Field3",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField4(); val <= 0 || val > 1000 {
+		return Medium_MessageFValidationError{
+			field:  "Field4",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	if val := m.GetField5(); val <= 0 || val > 1000 {
+		return Medium_MessageFValidationError{
+			field:  "Field5",
+			reason: "value must be inside range (0, 1000]",
+		}
+	}
+
+	return nil
+}
+
+// Medium_MessageFValidationError is the validation error returned by
+// Medium_MessageF.Validate if the designated constraints aren't met.
+type Medium_MessageFValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e Medium_MessageFValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e Medium_MessageFValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e Medium_MessageFValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e Medium_MessageFValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e Medium_MessageFValidationError) ErrorName() string { return "Medium_MessageFValidationError" }
+
+// Error satisfies the builtin error interface
+func (e Medium_MessageFValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sMedium_MessageF.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = Medium_MessageFValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = Medium_MessageFValidationError{}

@@ -18,6 +18,21 @@ using std::string;
 pgv::Validator<::pgv::Large> validator___pgv__Large(static_cast<bool(*)(const ::pgv::Large&, pgv::ValidationMsg*)>(::pgv::Validate));
 
 
+pgv::Validator<::pgv::Large_MessageB> validator___pgv__Large_MessageB(static_cast<bool(*)(const ::pgv::Large_MessageB&, pgv::ValidationMsg*)>(::pgv::Validate));
+
+
+pgv::Validator<::pgv::Large_MessageC> validator___pgv__Large_MessageC(static_cast<bool(*)(const ::pgv::Large_MessageC&, pgv::ValidationMsg*)>(::pgv::Validate));
+
+
+pgv::Validator<::pgv::Large_MessageD> validator___pgv__Large_MessageD(static_cast<bool(*)(const ::pgv::Large_MessageD&, pgv::ValidationMsg*)>(::pgv::Validate));
+
+
+pgv::Validator<::pgv::Large_MessageE> validator___pgv__Large_MessageE(static_cast<bool(*)(const ::pgv::Large_MessageE&, pgv::ValidationMsg*)>(::pgv::Validate));
+
+
+pgv::Validator<::pgv::Large_MessageF> validator___pgv__Large_MessageF(static_cast<bool(*)(const ::pgv::Large_MessageF&, pgv::ValidationMsg*)>(::pgv::Validate));
+
+
 
 
 } // namespace validate
@@ -1732,7 +1747,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field41() && !pgv::Validator<::pgv::MessageB>::CheckMessage(m.field41(), &inner_err)) {
+		if (m.has_field41() && !pgv::Validator<::pgv::Large_MessageB>::CheckMessage(m.field41(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field41";
@@ -1752,7 +1767,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field42() && !pgv::Validator<::pgv::MessageC>::CheckMessage(m.field42(), &inner_err)) {
+		if (m.has_field42() && !pgv::Validator<::pgv::Large_MessageC>::CheckMessage(m.field42(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field42";
@@ -1772,7 +1787,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field43() && !pgv::Validator<::pgv::MessageD>::CheckMessage(m.field43(), &inner_err)) {
+		if (m.has_field43() && !pgv::Validator<::pgv::Large_MessageD>::CheckMessage(m.field43(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field43";
@@ -1792,7 +1807,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field44() && !pgv::Validator<::pgv::MessageE>::CheckMessage(m.field44(), &inner_err)) {
+		if (m.has_field44() && !pgv::Validator<::pgv::Large_MessageE>::CheckMessage(m.field44(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field44";
@@ -1812,7 +1827,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field45() && !pgv::Validator<::pgv::MessageF>::CheckMessage(m.field45(), &inner_err)) {
+		if (m.has_field45() && !pgv::Validator<::pgv::Large_MessageF>::CheckMessage(m.field45(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field45";
@@ -1832,7 +1847,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field46() && !pgv::Validator<::pgv::MessageB>::CheckMessage(m.field46(), &inner_err)) {
+		if (m.has_field46() && !pgv::Validator<::pgv::Large_MessageB>::CheckMessage(m.field46(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field46";
@@ -1852,7 +1867,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field47() && !pgv::Validator<::pgv::MessageC>::CheckMessage(m.field47(), &inner_err)) {
+		if (m.has_field47() && !pgv::Validator<::pgv::Large_MessageC>::CheckMessage(m.field47(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field47";
@@ -1872,7 +1887,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field48() && !pgv::Validator<::pgv::MessageD>::CheckMessage(m.field48(), &inner_err)) {
+		if (m.has_field48() && !pgv::Validator<::pgv::Large_MessageD>::CheckMessage(m.field48(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field48";
@@ -1892,7 +1907,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field49() && !pgv::Validator<::pgv::MessageE>::CheckMessage(m.field49(), &inner_err)) {
+		if (m.has_field49() && !pgv::Validator<::pgv::Large_MessageE>::CheckMessage(m.field49(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field49";
@@ -1912,7 +1927,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field50() && !pgv::Validator<::pgv::MessageF>::CheckMessage(m.field50(), &inner_err)) {
+		if (m.has_field50() && !pgv::Validator<::pgv::Large_MessageF>::CheckMessage(m.field50(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field50";
@@ -2077,7 +2092,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field61() && !pgv::Validator<::pgv::MessageB>::CheckMessage(m.field61(), &inner_err)) {
+		if (m.has_field61() && !pgv::Validator<::pgv::Large_MessageB>::CheckMessage(m.field61(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field61";
@@ -2097,7 +2112,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field62() && !pgv::Validator<::pgv::MessageC>::CheckMessage(m.field62(), &inner_err)) {
+		if (m.has_field62() && !pgv::Validator<::pgv::Large_MessageC>::CheckMessage(m.field62(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field62";
@@ -2117,7 +2132,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field63() && !pgv::Validator<::pgv::MessageD>::CheckMessage(m.field63(), &inner_err)) {
+		if (m.has_field63() && !pgv::Validator<::pgv::Large_MessageD>::CheckMessage(m.field63(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field63";
@@ -2137,7 +2152,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field64() && !pgv::Validator<::pgv::MessageE>::CheckMessage(m.field64(), &inner_err)) {
+		if (m.has_field64() && !pgv::Validator<::pgv::Large_MessageE>::CheckMessage(m.field64(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field64";
@@ -2157,7 +2172,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field65() && !pgv::Validator<::pgv::MessageF>::CheckMessage(m.field65(), &inner_err)) {
+		if (m.has_field65() && !pgv::Validator<::pgv::Large_MessageF>::CheckMessage(m.field65(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field65";
@@ -2177,7 +2192,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field66() && !pgv::Validator<::pgv::MessageB>::CheckMessage(m.field66(), &inner_err)) {
+		if (m.has_field66() && !pgv::Validator<::pgv::Large_MessageB>::CheckMessage(m.field66(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field66";
@@ -2197,7 +2212,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field67() && !pgv::Validator<::pgv::MessageC>::CheckMessage(m.field67(), &inner_err)) {
+		if (m.has_field67() && !pgv::Validator<::pgv::Large_MessageC>::CheckMessage(m.field67(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field67";
@@ -2217,7 +2232,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field68() && !pgv::Validator<::pgv::MessageD>::CheckMessage(m.field68(), &inner_err)) {
+		if (m.has_field68() && !pgv::Validator<::pgv::Large_MessageD>::CheckMessage(m.field68(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field68";
@@ -2237,7 +2252,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field69() && !pgv::Validator<::pgv::MessageE>::CheckMessage(m.field69(), &inner_err)) {
+		if (m.has_field69() && !pgv::Validator<::pgv::Large_MessageE>::CheckMessage(m.field69(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field69";
@@ -2257,7 +2272,7 @@ return false;
 	
 	{
 		pgv::ValidationMsg inner_err;
-		if (m.has_field70() && !pgv::Validator<::pgv::MessageF>::CheckMessage(m.field70(), &inner_err)) {
+		if (m.has_field70() && !pgv::Validator<::pgv::Large_MessageF>::CheckMessage(m.field70(), &inner_err)) {
 			{
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field70";
@@ -2374,6 +2389,915 @@ return false;
 std::ostringstream msg("invalid ");
 msg << "LargeValidationError" << "." << "Field105";
 msg << ": " << "[\"value must be inside range (\" %!q(int32=-100) \", \" 'd' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	return true;
+}
+
+
+
+
+
+// Validate checks the field values on ::pgv::Large_MessageB with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the return value is false and an error message is written to the
+// input string argument.
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+bool Validate(const ::pgv::Large_MessageB& m, pgv::ValidationMsg* err) {
+	(void)m;
+	(void)err;
+	
+	
+
+	
+	
+		
+			
+				if (m.field1() <= 0 || m.field1() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageBValidationError" << "." << "Field1";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field2() <= 0 || m.field2() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageBValidationError" << "." << "Field2";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field3() <= 0 || m.field3() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageBValidationError" << "." << "Field3";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+	
+
+	
+	{
+		pgv::ValidationMsg inner_err;
+		if (m.has_field4() && !pgv::Validator<::pgv::Large_MessageE>::CheckMessage(m.field4(), &inner_err)) {
+			{
+std::ostringstream msg("invalid ");
+msg << "MessageBValidationError" << "." << "Field4";
+msg << ": " << "[\"embedded message failed validation\"]";
+msg << " | caused by " << inner_err;
+*err = msg.str();
+return false;
+}
+		}
+	}
+	
+
+	
+	
+	
+
+	
+	{
+		pgv::ValidationMsg inner_err;
+		if (m.has_field5() && !pgv::Validator<::pgv::Large_MessageF>::CheckMessage(m.field5(), &inner_err)) {
+			{
+std::ostringstream msg("invalid ");
+msg << "MessageBValidationError" << "." << "Field5";
+msg << ": " << "[\"embedded message failed validation\"]";
+msg << " | caused by " << inner_err;
+*err = msg.str();
+return false;
+}
+		}
+	}
+	
+
+	return true;
+}
+
+
+
+
+
+// Validate checks the field values on ::pgv::Large_MessageC with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the return value is false and an error message is written to the
+// input string argument.
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+bool Validate(const ::pgv::Large_MessageC& m, pgv::ValidationMsg* err) {
+	(void)m;
+	(void)err;
+	
+	
+
+	
+	
+		
+			
+				if (m.field1() <= 0 || m.field1() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageCValidationError" << "." << "Field1";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field2() <= 0 || m.field2() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageCValidationError" << "." << "Field2";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field3() <= 0 || m.field3() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageCValidationError" << "." << "Field3";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+	
+
+	
+	{
+		pgv::ValidationMsg inner_err;
+		if (m.has_field4() && !pgv::Validator<::pgv::Large_MessageE>::CheckMessage(m.field4(), &inner_err)) {
+			{
+std::ostringstream msg("invalid ");
+msg << "MessageCValidationError" << "." << "Field4";
+msg << ": " << "[\"embedded message failed validation\"]";
+msg << " | caused by " << inner_err;
+*err = msg.str();
+return false;
+}
+		}
+	}
+	
+
+	
+	
+	
+
+	
+	{
+		pgv::ValidationMsg inner_err;
+		if (m.has_field5() && !pgv::Validator<::pgv::Large_MessageF>::CheckMessage(m.field5(), &inner_err)) {
+			{
+std::ostringstream msg("invalid ");
+msg << "MessageCValidationError" << "." << "Field5";
+msg << ": " << "[\"embedded message failed validation\"]";
+msg << " | caused by " << inner_err;
+*err = msg.str();
+return false;
+}
+		}
+	}
+	
+
+	return true;
+}
+
+
+
+
+
+// Validate checks the field values on ::pgv::Large_MessageD with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the return value is false and an error message is written to the
+// input string argument.
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+bool Validate(const ::pgv::Large_MessageD& m, pgv::ValidationMsg* err) {
+	(void)m;
+	(void)err;
+	
+	
+
+	
+	
+		
+			
+				if (m.field1() <= 0 || m.field1() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageDValidationError" << "." << "Field1";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field2() <= 0 || m.field2() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageDValidationError" << "." << "Field2";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field3() <= 0 || m.field3() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageDValidationError" << "." << "Field3";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+	
+
+	
+	{
+		pgv::ValidationMsg inner_err;
+		if (m.has_field4() && !pgv::Validator<::pgv::Large_MessageE>::CheckMessage(m.field4(), &inner_err)) {
+			{
+std::ostringstream msg("invalid ");
+msg << "MessageDValidationError" << "." << "Field4";
+msg << ": " << "[\"embedded message failed validation\"]";
+msg << " | caused by " << inner_err;
+*err = msg.str();
+return false;
+}
+		}
+	}
+	
+
+	
+	
+	
+
+	
+	{
+		pgv::ValidationMsg inner_err;
+		if (m.has_field5() && !pgv::Validator<::pgv::Large_MessageF>::CheckMessage(m.field5(), &inner_err)) {
+			{
+std::ostringstream msg("invalid ");
+msg << "MessageDValidationError" << "." << "Field5";
+msg << ": " << "[\"embedded message failed validation\"]";
+msg << " | caused by " << inner_err;
+*err = msg.str();
+return false;
+}
+		}
+	}
+	
+
+	return true;
+}
+
+
+
+
+
+// Validate checks the field values on ::pgv::Large_MessageE with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the return value is false and an error message is written to the
+// input string argument.
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+bool Validate(const ::pgv::Large_MessageE& m, pgv::ValidationMsg* err) {
+	(void)m;
+	(void)err;
+	
+	
+
+	
+	
+		
+			
+				if (m.field1() <= 0 || m.field1() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageEValidationError" << "." << "Field1";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field2() <= 0 || m.field2() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageEValidationError" << "." << "Field2";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field3() <= 0 || m.field3() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageEValidationError" << "." << "Field3";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field4() <= 0 || m.field4() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageEValidationError" << "." << "Field4";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+	
+
+	
+	{
+		pgv::ValidationMsg inner_err;
+		if (m.has_field5() && !pgv::Validator<::pgv::Large_MessageF>::CheckMessage(m.field5(), &inner_err)) {
+			{
+std::ostringstream msg("invalid ");
+msg << "MessageEValidationError" << "." << "Field5";
+msg << ": " << "[\"embedded message failed validation\"]";
+msg << " | caused by " << inner_err;
+*err = msg.str();
+return false;
+}
+		}
+	}
+	
+
+	return true;
+}
+
+
+
+
+
+// Validate checks the field values on ::pgv::Large_MessageF with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the return value is false and an error message is written to the
+// input string argument.
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+bool Validate(const ::pgv::Large_MessageF& m, pgv::ValidationMsg* err) {
+	(void)m;
+	(void)err;
+	
+	
+
+	
+	
+		
+			
+				if (m.field1() <= 0 || m.field1() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageFValidationError" << "." << "Field1";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field2() <= 0 || m.field2() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageFValidationError" << "." << "Field2";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field3() <= 0 || m.field3() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageFValidationError" << "." << "Field3";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field4() <= 0 || m.field4() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageFValidationError" << "." << "Field4";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
+*err = msg.str();
+return false;
+}
+				}
+			
+		
+	
+
+	
+
+
+	
+	
+
+	
+	
+		
+			
+				if (m.field5() <= 0 || m.field5() > 1000) {
+					{
+std::ostringstream msg("invalid ");
+msg << "MessageFValidationError" << "." << "Field5";
+msg << ": " << "[\"value must be inside range (\" '\\x00' \", \" 'Ϩ' \"]\"]";
 *err = msg.str();
 return false;
 }

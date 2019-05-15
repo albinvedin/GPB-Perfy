@@ -5,17 +5,14 @@
 #include <chrono>
 #include <cstdint>
 #include "../pgv/gen/cpp/medium.pb.h"
-#include "../pgv/gen/cpp/medium.pb.validate.h"
-#include "../pgv/gen/cpp/messages.pb.h"
-#include "../pgv/gen/cpp/messages.pb.validate.h"
 
 std::vector<std::int64_t> repeatedSerialize(pgv::Medium message, int warmup, int iterations);
 int64_t serialize(pgv::Medium message);
-pgv::MessageB createMessageB();
-pgv::MessageC createMessageC();
-pgv::MessageD createMessageD();
-pgv::MessageE createMessageE();
-pgv::MessageF createMessageF();
+pgv::Medium::MessageB createMessageB();
+pgv::Medium::MessageC createMessageC();
+pgv::Medium::MessageD createMessageD();
+pgv::Medium::MessageE createMessageE();
+pgv::Medium::MessageF createMessageF();
 pgv::Medium createMessage();
 
 int main(int argc, char** argv) {
@@ -108,8 +105,8 @@ pgv::Medium createMessage() {
 }
 
 
-pgv::MessageF createMessageF() {
-	auto message = pgv::MessageF();
+pgv::Medium::MessageF createMessageF() {
+	auto message = pgv::Medium::MessageF();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -118,8 +115,8 @@ pgv::MessageF createMessageF() {
 	return message;
 }
 
-pgv::MessageE createMessageE() {
-	auto message = pgv::MessageE();
+pgv::Medium::MessageE createMessageE() {
+	auto message = pgv::Medium::MessageE();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -128,8 +125,8 @@ pgv::MessageE createMessageE() {
 	return message;
 }
 
-pgv::MessageB createMessageB() {
-	auto message = pgv::MessageB();
+pgv::Medium::MessageB createMessageB() {
+	auto message = pgv::Medium::MessageB();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -138,8 +135,8 @@ pgv::MessageB createMessageB() {
 	return message;
 }
 
-pgv::MessageC createMessageC() {
-	auto message = pgv::MessageC();
+pgv::Medium::MessageC createMessageC() {
+	auto message = pgv::Medium::MessageC();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);
@@ -148,8 +145,8 @@ pgv::MessageC createMessageC() {
 	return message;
 }
 
-pgv::MessageD createMessageD() {
-	auto message = pgv::MessageD();
+pgv::Medium::MessageD createMessageD() {
+	auto message = pgv::Medium::MessageD();
 	message.set_field1(500);
 	message.set_field2(500);
 	message.set_field3(500);

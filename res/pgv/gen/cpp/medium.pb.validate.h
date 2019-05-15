@@ -20,10 +20,30 @@ using std::string;
 extern bool Validate(const ::pgv::Medium& m, pgv::ValidationMsg* err);
 
 
+extern bool Validate(const ::pgv::Medium_MessageB& m, pgv::ValidationMsg* err);
+
+
+extern bool Validate(const ::pgv::Medium_MessageC& m, pgv::ValidationMsg* err);
+
+
+extern bool Validate(const ::pgv::Medium_MessageD& m, pgv::ValidationMsg* err);
+
+
+extern bool Validate(const ::pgv::Medium_MessageE& m, pgv::ValidationMsg* err);
+
+
+extern bool Validate(const ::pgv::Medium_MessageF& m, pgv::ValidationMsg* err);
+
+
 
 } // namespace
 
 
 #define X_PGV_MEDIUM(X) \
 X(::pgv::Medium) \
+X(::pgv::Medium_MessageB) \
+X(::pgv::Medium_MessageC) \
+X(::pgv::Medium_MessageD) \
+X(::pgv::Medium_MessageE) \
+X(::pgv::Medium_MessageF) \
 
