@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-exec_cmd="/var/log/lovalb/out/arm/perfy $@"
-ssh root@10.58.115.69 "$exec_cmd"

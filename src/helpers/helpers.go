@@ -27,7 +27,7 @@ func GetAvailableTests(lang string, arch string) []string {
 	if !exists {
 		return make([]string, 0)
 	}
-	stdout, _ := exec.Command("bash", "-c", "ls -p " + path + " | grep -v /").Output()
+	stdout, _ := exec.Command("bash", "-c", "ls -p "+path+" | grep -v /").Output()
 	tests := strings.Split(strings.TrimSpace(string(stdout)), "\n")
 	return tests
 }

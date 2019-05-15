@@ -20,7 +20,7 @@ type Args struct {
 
 func Fetch() Args {
 	output := prepareStringArg("output", "o", "", "Specify log output file (defaults to console if empty)")
-	statistic := prepareStringArg("statistic", "s", "total", "Specify output statistic (total, average, median)")
+	statistic := prepareStringArg("statistic", "s", "total", "Specify output statistic (total, average, median, raw, all")
 	lang := prepareStringArg("lang", "l", "go", "Language to run performance tests in")
 	arch := prepareStringArg("arch", "a", "x64", "CPU Archetype (x64, arm)")
 	test := prepareStringArg("test", "t", "", "Test to run")

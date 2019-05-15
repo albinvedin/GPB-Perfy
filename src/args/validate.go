@@ -12,7 +12,7 @@ func Validate(args Args) {
 		log.Fatalf("Language '%s' is not supported.\n", args.Lang)
 	}
 
-	acceptedStatistics := []string{"total", "average", "median"}
+	acceptedStatistics := []string{"total", "average", "median", "raw", "all"}
 	if !HasElem(acceptedStatistics, args.Statistic) {
 		log.Fatalf("Statistic '%s' is not supported.\n", args.Statistic)
 	}
