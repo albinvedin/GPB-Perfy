@@ -43,15 +43,16 @@ func main() {
 				panic(err)
 			}
 			if arguments.Statistic == "raw" {
-				logger.Info.Printf("%s\n (%v): %."+arguments.Precision+"fs\n", test, arguments.Statistic, result)
+				logger.Info.Println("Result (raw):")
+				logger.Info.Println(result)
 			} else if arguments.Statistic == "all" {
-				logger.Info.Printf("%s (%s): %."+arguments.Precision+"fs\n", test, "total", helpers.GetStatistic("total", result))
-				logger.Info.Printf("%s (%s): %."+arguments.Precision+"fs\n", test, "average", helpers.GetStatistic("average", result))
-				logger.Info.Printf("%s (%s): %."+arguments.Precision+"fs\n", test, "median", helpers.GetStatistic("median", result))
-				logger.Info.Printf("%s\n (%v): %."+arguments.Precision+"fs\n", test, "raw", result)
-
+				logger.Info.Printf("Result (%s): %."+arguments.Precision+"fs\n", "total", helpers.GetStatistic("total", result))
+				logger.Info.Printf("Result (%s): %."+arguments.Precision+"fs\n", "average", helpers.GetStatistic("average", result))
+				logger.Info.Printf("Result (%s): %."+arguments.Precision+"fs\n", "median", helpers.GetStatistic("median", result))
+				logger.Info.Println("Result (raw):")
+				logger.Info.Println(result)
 			} else {
-				logger.Info.Printf("%s (%s): %."+arguments.Precision+"fs\n", test, arguments.Statistic, helpers.GetStatistic(arguments.Statistic, result))
+				logger.Info.Printf("Result (%s): %."+arguments.Precision+"fs\n", test, arguments.Statistic, helpers.GetStatistic(arguments.Statistic, result))
 			}
 		}
 	}
