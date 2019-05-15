@@ -31,7 +31,7 @@ func main() {
 	data := append([]string{arguments.Iterations, arguments.Warmup}, arguments.Tail...)
 
 	for _, test := range tests {
-		path := "res/" + arguments.Lang + "/out/" + arguments.Arch + "/" + test
+		path := helpers.GetPath() + "/../../res/" + arguments.Lang + "/out/" + arguments.Arch + "/" + test
 		cmd := exec.Command(path, data...)
 		output, err := cmd.CombinedOutput()
 		if err != nil {
@@ -42,7 +42,17 @@ func main() {
 			if err != nil {
 				panic(err)
 			}
-			logger.Info.Printf("%s (%s): %."+arguments.Precision+"fs\n", test, arguments.Statistic, helpers.GetStatistic(arguments.Statistic, result))
+			if arguments.Statistic == "raw" {
+				logger.Info.Printf("%s\n (%v): %."+arguments.Precision+"fs\n", test, arguments.Statistic, result)
+			} else if arguments.Statistic == "all" {
+				logger.Info.Printf("%s (%s): %."+arguments.Precision+"fs\n", test, "total", helpers.GetStatistic("total", result))
+				logger.Info.Printf("%s (%s): %."+arguments.Precision+"fs\n", test, "average", helpers.GetStatistic("average", result))
+				logger.Info.Printf("%s (%s): %."+arguments.Precision+"fs\n", test, "median", helpers.GetStatistic("median", result))
+				logger.Info.Printf("%s\n (%v): %."+arguments.Precision+"fs\n", test, "raw", result)
+
+			} else {
+				logger.Info.Printf("%s (%s): %."+arguments.Precision+"fs\n", test, arguments.Statistic, helpers.GetStatistic(arguments.Statistic, result))
+			}
 		}
 	}
 

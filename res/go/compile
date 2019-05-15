@@ -8,11 +8,11 @@ for source_file in $p/*.go; do
   if [ "$1" = "x64" ] || [ "$1" = "all" ]
   then
     binary_file=$p/out/x64/$source_name
-    env GOOS=linux GOARCH=amd64 go build -gcflags '-N -l' -o $binary_file $source_file && chmod +x $binary_file
+    env GOOS=linux GOARCH=amd64 go build -o $binary_file $source_file && chmod +x $binary_file
   fi
   if [ "$1" = "arm" ] || [ "$1" = "all" ]
   then
     binary_file=$p/out/arm/$source_name
-    env GOOS=linux GOARCH=arm GOARM=7 go build -gcflags '-N -l' -o $binary_file $source_file && chmod +x $binary_file
+    env GOOS=linux GOARCH=arm GOARM=7 go build -o $binary_file $source_file && chmod +x $binary_file
   fi
 done
