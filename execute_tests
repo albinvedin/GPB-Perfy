@@ -2,14 +2,26 @@
 p=$(cd $(dirname $BASH_SOURCE[0]); pwd -P)
 
 env="arm"
-iterations=100
-warmup=10
-contentCount=10
+iterations=100000
+warmup=10000
+contentCount=100
 
-declare -a langs=("go", "cpp")
-for lang in "${langs[@]}" do
-    for path in $p/res/$lang/out/$env/* do
-        test=$(echo $path | sed "s/.*\///")
-        ./out/$env/perfy.remote -l=$lang -i=$iterations -w=$warmup -t=$test $contentCount
-    done
+lang="cpp"
+for path in $p/res/$lang/out/$env/*; do
+  if [ ! -d $path ]; then
+    test=$(echo $path | sed "s/.*\///")
+    if [ "$test" != "*" ] ; then
+      $p/out/$env/perfy.remote -a $env -l $lang -i $iterations -w $warmup -t $test -s all $contentCount >  $p/log/$lang/$test.log
+    fi
+  fi
+done
+
+lang="go"
+for path in $p/res/$lang/out/$env/*; do
+  if [ ! -d $path ]; then
+    test=$(echo $path | sed "s/.*\///")
+    if [ "$test" != "*" ] ; then
+      $p/out/$env/perfy.remote -a $env -l $lang -i $iterations -w $warmup -t $test -s all $contentCount >  $p/log/$lang/$test.log
+    fi
+  fi
 done
