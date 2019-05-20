@@ -3,10 +3,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <chrono>
+#include <ctime>
 #include <cstdint>
 #include "../pgv/gen/cpp/bytes.pb.h"
 #include "../pgv/gen/cpp/bytes.pb.validate.h"
+
+#define NANOSECS_PER_SEC 1000000000
 
 pgv::BytesRangeConst createMessage(
     int messageLength
@@ -22,10 +24,10 @@ std::int64_t validateOne(
     pgv::BytesRangeConst const& message
   , pgv::ValidationMsg& err
 ){
-  auto t1 = std::chrono::high_resolution_clock::now();
+  volatile auto t1 = std::clock();
   pgv::Validate(message, &err);
-  auto t2 = std::chrono::high_resolution_clock::now();
-  return std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
+  volatile auto t2 = std::clock();
+  return double(t2 - t1) / CLOCKS_PER_SEC * NANOSECS_PER_SEC;
 }
 
 std::vector<std::int64_t> validateN(
@@ -52,9 +54,10 @@ int main(
   auto const warmup = std::stoi(argv[2]);
   auto const elementCount = std::stoi(argv[3]);
 
+  auto msg = createMessage(elementCount);
   auto err = pgv::ValidationMsg();
   auto elapsedTimes = validateN(
-      iterations, warmup, createMessage(elementCount), err);
+      iterations, warmup, msg, err);
 
   std::cout << "[" << elapsedTimes.at(0);
   for (auto it = elapsedTimes.begin() + 1; it != elapsedTimes.end(); ++it) {

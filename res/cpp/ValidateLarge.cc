@@ -1,10 +1,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <chrono>
+#include <ctime>
 #include <cstdint>
 #include "../pgv/gen/cpp/large.pb.h"
 #include "../pgv/gen/cpp/large.pb.validate.h"
+
+#define NANOSECS_PER_SEC 1000000000
 
 std::vector<std::int64_t> repeatedValidate(pgv::Large message, int warmup, int iterations, pgv::ValidationMsg &err);
 int64_t validateOne(pgv::Large message, pgv::ValidationMsg &err);
@@ -44,10 +46,10 @@ std::vector<std::int64_t> repeatedValidate(pgv::Large message, int warmup, int i
 }
 
 int64_t validateOne(pgv::Large message, pgv::ValidationMsg &err) {
-	auto t1 = std::chrono::high_resolution_clock::now();
+	volatile auto t1 = std::clock();
 	pgv::Validate(message, &err);
-	auto t2 = std::chrono::high_resolution_clock::now();
-	return std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
+	volatile auto t2 = std::clock();
+	return double(t2 - t1) / CLOCKS_PER_SEC * NANOSECS_PER_SEC;
 }
 
 pgv::Large createMessage() {

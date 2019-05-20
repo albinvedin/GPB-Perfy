@@ -2,9 +2,11 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <chrono>
+#include <ctime>
 #include <cstdint>
 #include "../pgv/gen/cpp/small.pb.h"
+
+#define NANOSECS_PER_SEC 1000000000
 
 std::vector<std::int64_t> repeatedSerialize(pgv::Small message, int warmup, int iterations);
 int64_t serialize(pgv::Small message);
@@ -44,12 +46,12 @@ std::vector<std::int64_t> repeatedSerialize(pgv::Small message, int warmup, int 
 }
 
 int64_t serialize(pgv::Small message) {
-	auto t1 = std::chrono::high_resolution_clock::now();
+	volatile auto t1 = std::clock();
 	std::ostringstream stream;
 	message.SerializeToOstream(&stream);
-	std::string bytes = stream.str();
-	auto t2 = std::chrono::high_resolution_clock::now();
-	return std::chrono::duration_cast<std::chrono::nanoseconds>(t2 - t1).count();
+	volatile std::string bytes = stream.str();
+	volatile auto t2 = std::clock();
+	return double(t2 - t1) / CLOCKS_PER_SEC * NANOSECS_PER_SEC;
 }
 
 pgv::Small createMessage() {
