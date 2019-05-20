@@ -2,7 +2,6 @@ package main
 
 import (
 	"GPB-Perfy/res/pgv/gen/go"
-	"GPB-Perfy/src/helpers"
 	"GPB-Perfy/src/args"
 	"encoding/json"
 	"fmt"
@@ -14,9 +13,12 @@ import (
 func main() {
 	iterations, warmup := args.ValidateTestArguments(os.Args)
 
-	message := createMessage()
-	bytes := helpers.Marshal(message)
-	elapsedTimes := repeatedDeserialize(bytes, message, iterations)[warmup:]
+	bytes, err := proto.Marshal(createMessage())
+	if err != nil {
+		panic(err)
+	}
+
+	elapsedTimes := repeatedDeserialize(bytes, iterations, warmup)
 
 	output, err := json.Marshal(elapsedTimes)
 	if err != nil {
@@ -26,7 +28,8 @@ func main() {
 	fmt.Println(string(output))
 }
 
-func deserialize(bytes []byte, message proto.Message) int64 {
+func deserialize(bytes []byte) int64 {
+	message := new(pgv.Large)
 	startTime := time.Now()
 	err := proto.Unmarshal(bytes, message)
 	elapsedTime := time.Since(startTime)
@@ -36,11 +39,13 @@ func deserialize(bytes []byte, message proto.Message) int64 {
 	return elapsedTime.Nanoseconds()
 }
 
-func repeatedDeserialize(bytes []byte, message proto.Message, iterations int) []int64 {
+func repeatedDeserialize(bytes []byte, iterations int, warmup int) []int64 {
 	var rElapsedTimes []int64
 	for i := 0; i < iterations; i++ {
-		elapsedTime := deserialize(bytes, message)
-		rElapsedTimes = append(rElapsedTimes, elapsedTime)
+		elapsedTime := deserialize(bytes)
+		if i >= warmup {
+			rElapsedTimes = append(rElapsedTimes, elapsedTime)
+		}
 	}
 	return rElapsedTimes
 }
@@ -149,7 +154,6 @@ func createMessageE() *pgv.Large_MessageE {
 	message.Field5 = createMessageF()
 	return message
 }
-
 
 func createMessageB() *pgv.Large_MessageB {
 	message := new(pgv.Large_MessageB)

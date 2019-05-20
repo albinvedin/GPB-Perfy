@@ -8,8 +8,8 @@
 
 #define NANOSECS_PER_SEC 1000000000
 
-std::vector<std::int64_t> repeatedDeserialize(std::string bytes, int warmup, int iterations);
-int64_t deserialize(std::string bytes);
+std::vector<std::int64_t> repeatedDeserialize(char* bytes, int size, int warmup, int iterations);
+int64_t deserialize(char* bytes, int size);
 pgv::Small::MessageB createMessageB();
 pgv::Small::MessageC createMessageC();
 pgv::Small::MessageD createMessageD();
@@ -23,10 +23,11 @@ int main(int argc, char** argv) {
 
 
 	auto message = createMessage();
-	std::ostringstream stream;
-	message.SerializeToOstream(&stream);
-	std::string bytes = stream.str();
-	auto elapsedTimes = repeatedDeserialize(bytes, warmup, iterations);
+        int size = message.ByteSize();
+        char* bytes = new char[size];
+        message.SerializeToArray(bytes, size);
+
+	auto elapsedTimes = repeatedDeserialize(bytes, size, warmup, iterations);
 
 	std::cout << "[" << elapsedTimes.at(0);
 	for (auto it = elapsedTimes.begin() + 1; it != elapsedTimes.end(); ++it) {
@@ -38,10 +39,10 @@ int main(int argc, char** argv) {
 }
 
 
-std::vector<std::int64_t> repeatedDeserialize(std::string bytes, int warmup, int iterations) {
+std::vector<std::int64_t> repeatedDeserialize(char* bytes, int size, int warmup, int iterations) {
   	auto elapsedTimes = std::vector<std::int64_t>();
 	for (int i = 0; i < iterations; ++i) {
-    	auto elapsedTime = deserialize(bytes);
+    	auto elapsedTime = deserialize(bytes, size);
 		if (i >= warmup) {
 			elapsedTimes.push_back(elapsedTime);
 		}
@@ -49,11 +50,12 @@ std::vector<std::int64_t> repeatedDeserialize(std::string bytes, int warmup, int
 	return elapsedTimes;
 }
 
-int64_t deserialize(std::string bytes) {
-	volatile auto t1 = std::clock();
+int64_t deserialize(char* bytes, int size) {
 	pgv::Small message;
-	message.ParseFromString(bytes);
+	volatile auto t1 = std::clock();
+	message.ParseFromArray(bytes, size);
 	volatile auto t2 = std::clock();
+        volatile auto dummy_prev_ops = message;
 	return double(t2 - t1) / CLOCKS_PER_SEC * NANOSECS_PER_SEC;
 }
 

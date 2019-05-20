@@ -2,8 +2,8 @@ package main
 
 import (
 	"GPB-Perfy/res/pgv/gen/go"
-	"GPB-Perfy/src/helpers"
 	"GPB-Perfy/src/args"
+	"GPB-Perfy/src/helpers"
 	"encoding/json"
 	"fmt"
 	"github.com/golang/protobuf/proto"
@@ -16,7 +16,7 @@ func main() {
 
 	message := createMessage()
 	bytes := helpers.Marshal(message)
-	elapsedTimes := repeatedDeserialize(bytes, message, iterations)[warmup:]
+	elapsedTimes := repeatedDeserialize(bytes, message, iterations, warmup)
 
 	output, err := json.Marshal(elapsedTimes)
 	if err != nil {
@@ -36,11 +36,13 @@ func deserialize(bytes []byte, message proto.Message) int64 {
 	return elapsedTime.Nanoseconds()
 }
 
-func repeatedDeserialize(bytes []byte, message proto.Message, iterations int) []int64 {
+func repeatedDeserialize(bytes []byte, message proto.Message, iterations int, warmup int) []int64 {
 	var rElapsedTimes []int64
 	for i := 0; i < iterations; i++ {
 		elapsedTime := deserialize(bytes, message)
-		rElapsedTimes = append(rElapsedTimes, elapsedTime)
+		if i >= warmup {
+			rElapsedTimes = append(rElapsedTimes, elapsedTime)
+		}
 	}
 	return rElapsedTimes
 }
@@ -71,7 +73,7 @@ func createMessage() *pgv.Medium {
 	message.Field18 = 50
 	message.Field19 = 50
 	message.Field20 = 50
-	
+
 	message.Field31 = 500
 	message.Field32 = 500
 	message.Field33 = 500
@@ -118,7 +120,6 @@ func createMessageE() *pgv.Medium_MessageE {
 	message.Field5 = createMessageF()
 	return message
 }
-
 
 func createMessageB() *pgv.Medium_MessageB {
 	message := new(pgv.Medium_MessageB)

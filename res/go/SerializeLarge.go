@@ -14,7 +14,7 @@ func main() {
 	iterations, warmup := args.ValidateTestArguments(os.Args)
 
 	message := createMessage()
-	elapsedTimes := repeatedSerialize(message, iterations)[warmup:]
+	elapsedTimes := repeatedSerialize(message, iterations, warmup)
 
 	output, err := json.Marshal(elapsedTimes)
 	if err != nil {
@@ -34,11 +34,13 @@ func serialize(message proto.Message) int64 {
 	return elapsedTime.Nanoseconds()
 }
 
-func repeatedSerialize(message proto.Message, iterations int) []int64 {
+func repeatedSerialize(message proto.Message, iterations int, warmup int) []int64 {
 	var rElapsedTimes []int64
 	for i := 0; i < iterations; i++ {
 		elapsedTime := serialize(message)
-		rElapsedTimes = append(rElapsedTimes, elapsedTime)
+		if i >= warmup {
+			rElapsedTimes = append(rElapsedTimes, elapsedTime)
+		}
 	}
 	return rElapsedTimes
 }
@@ -147,7 +149,6 @@ func createMessageE() *pgv.Large_MessageE {
 	message.Field5 = createMessageF()
 	return message
 }
-
 
 func createMessageB() *pgv.Large_MessageB {
 	message := new(pgv.Large_MessageB)

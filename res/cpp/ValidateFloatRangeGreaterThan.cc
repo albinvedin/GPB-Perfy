@@ -58,6 +58,7 @@ int main(
   auto err = pgv::ValidationMsg();
   auto elapsedTimes = validateN(
       iterations, warmup, msg, err);
+  volatile auto dummy_prevent_ops = err;
 
   std::cout << "[" << elapsedTimes.at(0);
   for (auto it = elapsedTimes.begin() + 1; it != elapsedTimes.end(); ++it) {

@@ -8,8 +8,8 @@
 
 #define NANOSECS_PER_SEC 1000000000
 
-std::vector<std::int64_t> repeatedSerialize(pgv::Small message, int warmup, int iterations);
-int64_t serialize(pgv::Small message);
+std::vector<std::int64_t> repeatedSerialize(pgv::Small const& message, int warmup, int iterations);
+int64_t serialize(pgv::Small const& message);
 pgv::Small::MessageB createMessageB();
 pgv::Small::MessageC createMessageC();
 pgv::Small::MessageD createMessageD();
@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
 }
 
 
-std::vector<std::int64_t> repeatedSerialize(pgv::Small message, int warmup, int iterations) {
+std::vector<std::int64_t> repeatedSerialize(pgv::Small const& message, int warmup, int iterations) {
   	auto elapsedTimes = std::vector<std::int64_t>();
 	for (int i = 0; i < iterations; ++i) {
     	auto elapsedTime = serialize(message);
@@ -45,12 +45,13 @@ std::vector<std::int64_t> repeatedSerialize(pgv::Small message, int warmup, int 
 	return elapsedTimes;
 }
 
-int64_t serialize(pgv::Small message) {
+int64_t serialize(pgv::Small const& message) {
+        int size = message.ByteSize();
+        char* bytes = new char[size];
 	volatile auto t1 = std::clock();
-	std::ostringstream stream;
-	message.SerializeToOstream(&stream);
-	volatile std::string bytes = stream.str();
+        message.SerializeToArray(bytes, size);
 	volatile auto t2 = std::clock();
+        volatile auto dummy_prev_ops = bytes;
 	return double(t2 - t1) / CLOCKS_PER_SEC * NANOSECS_PER_SEC;
 }
 

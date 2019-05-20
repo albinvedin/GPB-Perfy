@@ -8,8 +8,8 @@
 
 #define NANOSECS_PER_SEC 1000000000
 
-std::vector<std::int64_t> repeatedValidate(pgv::Small message, int warmup, int iterations, pgv::ValidationMsg &err);
-int64_t validateOne(pgv::Small message, pgv::ValidationMsg &err);
+std::vector<std::int64_t> repeatedValidate(pgv::Small const& message, int warmup, int iterations, pgv::ValidationMsg &err);
+int64_t validateOne(pgv::Small const& message, pgv::ValidationMsg &err);
 pgv::Small::MessageB createMessageB();
 pgv::Small::MessageC createMessageC();
 pgv::Small::MessageD createMessageD();
@@ -18,38 +18,39 @@ pgv::Small::MessageF createMessageF();
 pgv::Small createMessage();
 
 int main(int argc, char** argv) {
-    auto const iterations = std::stoi(argv[1]);
-    auto const warmup = std::stoi(argv[2]);
+	auto const iterations = std::stoi(argv[1]);
+	auto const warmup = std::stoi(argv[2]);
 
-    auto message = createMessage();
-    auto err = pgv::ValidationMsg();
-    auto elapsedTimes = repeatedValidate(message, warmup, iterations, err);
+	auto message = createMessage();
+  	auto err = pgv::ValidationMsg();
+	auto elapsedTimes = repeatedValidate(message, warmup, iterations, err);
+        volatile auto dummy_prev_ops = err;
 
-    std::cout << "[" << elapsedTimes.at(0);
-    for (auto it = elapsedTimes.begin() + 1; it != elapsedTimes.end(); ++it) {
-        std::cout << ", " << *it;
-    }
-    std::cout << "]" << std::endl;
+	std::cout << "[" << elapsedTimes.at(0);
+	for (auto it = elapsedTimes.begin() + 1; it != elapsedTimes.end(); ++it) {
+		std::cout << ", " << *it;
+	}
+	std::cout << "]" << std::endl;
 
-    return 0;
+	return 0;
 }
 
-std::vector<std::int64_t> repeatedValidate(pgv::Small message, int warmup, int iterations, pgv::ValidationMsg &err) {
-    auto elapsedTimes = std::vector<std::int64_t>();
-    for (int i = 0; i < iterations; ++i) {
-        auto elapsedTime = validateOne(message, err);
-        if (i >= warmup) {
-          elapsedTimes.push_back(elapsedTime);
-        }
-    }
-    return elapsedTimes;
+std::vector<std::int64_t> repeatedValidate(pgv::Small const& message, int warmup, int iterations, pgv::ValidationMsg &err) {
+  	auto elapsedTimes = std::vector<std::int64_t>();
+	for (int i = 0; i < iterations; ++i) {
+    	auto elapsedTime = validateOne(message, err);
+		if (i >= warmup) {
+			elapsedTimes.push_back(elapsedTime);
+		}
+	}
+	return elapsedTimes;
 }
 
-int64_t validateOne(pgv::Small message, pgv::ValidationMsg &err) {
-    volatile auto t1 = std::clock();
-    pgv::Validate(message, &err);
-    volatile auto t2 = std::clock();
-    return double(t2 - t1) / CLOCKS_PER_SEC * NANOSECS_PER_SEC;
+int64_t validateOne(pgv::Small const& message, pgv::ValidationMsg &err) {
+	volatile auto t1 = std::clock();
+	pgv::Validate(message, &err);
+	volatile auto t2 = std::clock();
+	return double(t2 - t1) / CLOCKS_PER_SEC * NANOSECS_PER_SEC;
 }
 
 pgv::Small createMessage() {

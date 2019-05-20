@@ -147,7 +147,6 @@ func createMessageE() *pgv.Large_MessageE {
 	return message
 }
 
-
 func createMessageB() *pgv.Large_MessageB {
 	message := new(pgv.Large_MessageB)
 	message.Field1 = 500

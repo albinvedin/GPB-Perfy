@@ -8,8 +8,8 @@
 
 #define NANOSECS_PER_SEC 1000000000
 
-std::vector<std::int64_t> repeatedValidate(pgv::Large message, int warmup, int iterations, pgv::ValidationMsg &err);
-int64_t validateOne(pgv::Large message, pgv::ValidationMsg &err);
+std::vector<std::int64_t> repeatedValidate(pgv::Large const& message, int warmup, int iterations, pgv::ValidationMsg &err);
+int64_t validateOne(pgv::Large const& message, pgv::ValidationMsg &err);
 pgv::Large::MessageB createMessageB();
 pgv::Large::MessageC createMessageC();
 pgv::Large::MessageD createMessageD();
@@ -24,6 +24,7 @@ int main(int argc, char** argv) {
 	auto message = createMessage();
   	auto err = pgv::ValidationMsg();
 	auto elapsedTimes = repeatedValidate(message, warmup, iterations, err);
+        volatile auto dummy_prev_ops = err;
 
 	std::cout << "[" << elapsedTimes.at(0);
 	for (auto it = elapsedTimes.begin() + 1; it != elapsedTimes.end(); ++it) {
@@ -34,7 +35,7 @@ int main(int argc, char** argv) {
 	return 0;
 }
 
-std::vector<std::int64_t> repeatedValidate(pgv::Large message, int warmup, int iterations, pgv::ValidationMsg &err) {
+std::vector<std::int64_t> repeatedValidate(pgv::Large const& message, int warmup, int iterations, pgv::ValidationMsg &err) {
   	auto elapsedTimes = std::vector<std::int64_t>();
 	for (int i = 0; i < iterations; ++i) {
     	auto elapsedTime = validateOne(message, err);
@@ -45,7 +46,7 @@ std::vector<std::int64_t> repeatedValidate(pgv::Large message, int warmup, int i
 	return elapsedTimes;
 }
 
-int64_t validateOne(pgv::Large message, pgv::ValidationMsg &err) {
+int64_t validateOne(pgv::Large const& message, pgv::ValidationMsg &err) {
 	volatile auto t1 = std::clock();
 	pgv::Validate(message, &err);
 	volatile auto t2 = std::clock();
