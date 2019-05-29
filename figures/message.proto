@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package figures;
+
+enum Sex {
+    MALE = 0;
+    FEMALE = 1;
+}
+
+message Person {
+    string name = 1;
+    int64 age = 2;
+    Sex sex = 3 [deprecated = true];
+}
